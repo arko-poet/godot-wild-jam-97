@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://vseii40agins"]
+
+[ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://template/tests/upgrades_menu/upgrades_menu.gd" id="1_tishx"]
+
+[sub_resource type="Gradient" id="Gradient_1moy1"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5h32h"]
+gradient = SubResource("Gradient_1moy1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h32h"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[node name="UpgradesMenu" type="Control" unique_id=12916722]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tishx")
+hide_offset = Vector2(0, 256)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=468860326]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_visual_only = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=423982095]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer" unique_id=2118267293]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ToggleOffset" type="Button" parent="VBoxContainer/MarginContainer/PanelContainer" unique_id=1919763261]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "Upgrades"
+
+[node name="TabContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1857492422]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer" unique_id=10633488]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/MarginContainer" unique_id=917346908]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer" unique_id=1282209809]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Coins" type="VBoxContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=169059596]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer/Coins" unique_id=351966760]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_5h32h")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer/Coins" unique_id=1041358226]
+layout_mode = 2
+text = "Coins: x0"
+
+[node name="Depth" type="VBoxContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=598177971]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer/Depth" unique_id=259159677]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_5h32h")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer/Depth" unique_id=629494293]
+layout_mode = 2
+text = "Current Depth: 0m"
+
+[node name="Depth2" type="VBoxContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1464681421]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer/Depth2" unique_id=323476184]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_5h32h")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/HBoxContainer/Depth2" unique_id=799428461]
+layout_mode = 2
+text = "Pickaxe strengh: 0u"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer" unique_id=1606273274]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1503961271]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel" unique_id=1991414715]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1646593611]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel2" unique_id=1106591381]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=692703272]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel3" unique_id=1523787712]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1830074922]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel4" unique_id=1532719082]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1800850731]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel5" unique_id=1831429157]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=876570986]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel6" unique_id=1584699161]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel7" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=411851272]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel7" unique_id=740454005]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel8" type="PanelContainer" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=683844072]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/MarginContainer/VBoxContainer/GridContainer/Panel8" unique_id=2042961014]
+layout_mode = 2
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
