@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bikfs5ql6hjbt"]
+
+[ext_resource type="PackedScene" uid="uid://jnr3y0mcah36" path="res://template/tests/parallax_background.tscn" id="1_y6p1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifv0k"]
+bg_color = Color(0.282353, 0.231067, 0.227161, 1)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133364, 0.133364, 0.133364, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Node" type="Node" unique_id=1068040562]
+
+[node name="World" type="Node2D" parent="." unique_id=1118005810]
+
+[node name="ParallaxBackground" parent="World" unique_id=474251373 instance=ExtResource("1_y6p1s")]
+
+[node name="Camera2D" type="Camera2D" parent="World" unique_id=1283657282]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1014120124]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=807623005]
+offset_right = 38.0
+offset_bottom = 38.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer" unique_id=1273636279]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ifv0k")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer" unique_id=171286310]
+layout_mode = 2
+text = "100 M"
+horizontal_alignment = 1
