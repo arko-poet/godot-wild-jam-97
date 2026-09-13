@@ -1,11 +1,24 @@
 extends Node2D
 
+var max_hp := 10
+var hp: int:
+	set(value):
+		hp = max(0, value)
+		
+		hp_bar.value = hp
+		hp_label.text = "%s/%s" % [hp, max_hp]
+		
+		if hp == 0:
+			queue_free()
 
-# Called when the node enters the scene tree for the first time.
+@onready var hp_bar: ProgressBar = %HPBar
+@onready var hp_label: Label = %HPLabel
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	hp = max_hp
+	hp_bar.max_value = max_hp
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func mine(damage: int) -> void:
+	hp -= damage
