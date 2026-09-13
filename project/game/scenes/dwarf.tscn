@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://04tqlo3l8s62"]
+
+[ext_resource type="Script" uid="uid://bkv4be01y5df3" path="res://game/scenes/dwarf.gd" id="1_wjfk0"]
+[ext_resource type="Texture2D" uid="uid://bcj4a4vfdlcjc" path="res://icon.svg" id="2_3ntiq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgun3"]
+radius = 64.0
+
+[node name="Dwarf" type="CharacterBody2D" unique_id=1484099431]
+script = ExtResource("1_wjfk0")
+
+[node name="Dwarf" type="Sprite2D" parent="." unique_id=167090436]
+modulate = Color(1, 0, 1, 1)
+texture = ExtResource("2_3ntiq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1720465753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467506282]
+shape = SubResource("CircleShape2D_vgun3")

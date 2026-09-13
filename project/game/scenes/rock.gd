@@ -1,4 +1,7 @@
+class_name Rock
 extends Node2D
+
+signal destroyed
 
 var max_hp := 10
 var hp: int:
@@ -9,6 +12,7 @@ var hp: int:
 		hp_label.text = "%s/%s" % [hp, max_hp]
 		
 		if hp == 0:
+			destroyed.emit()
 			queue_free()
 
 @onready var hp_bar: ProgressBar = %HPBar
@@ -22,3 +26,7 @@ func _ready() -> void:
 
 func mine(damage: int) -> void:
 	hp -= damage
+
+
+func _on_damage_button_pressed() -> void:
+	mine(1)

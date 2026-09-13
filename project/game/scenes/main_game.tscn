@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bl8uvylclls37"]
 
 [ext_resource type="Script" uid="uid://bamm5g7qbukm4" path="res://game/scenes/main_game.gd" id="1_1qbya"]
+[ext_resource type="PackedScene" uid="uid://btrxmgxymwtdc" path="res://game/scenes/tunnel.tscn" id="2_3iu72"]
 
 [node name="MainGame" type="Node" unique_id=1489978355]
 script = ExtResource("1_1qbya")
+tunnel_scene = ExtResource("2_3iu72")
 
 [node name="DoomTimer" type="Timer" parent="." unique_id=1035193833]
 unique_name_in_owner = true
