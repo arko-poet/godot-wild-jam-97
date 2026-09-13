@@ -43,16 +43,18 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 folder_colors={
 "res://game/art/": "red",
 "res://game/audio/": "orange",
-"res://game/resources/": "yellow",
-"res://game/scenes/": "green",
-"res://game/scripts/": "teal",
-"res://game/shaders/": "blue",
+"res://game/other_assets/": "yellow",
+"res://game/resources/": "green",
+"res://game/scenes/": "teal",
+"res://game/scripts/": "blue",
+"res://game/shaders/": "purple",
 "res://template/": "gray"
 }
 
 [gui]
 
 theme/custom="res://template/resources/themes/expedition.tres"
+theme/custom_font="uid://b6qsvn512i1fc"
 
 [internationalization]
 
