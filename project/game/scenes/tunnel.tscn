@@ -17,4 +17,4 @@ texture = ExtResource("3_d51qq")
 centered = false
 
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]
-position = Vector2(68, 346)
+position = Vector2(320, 244)

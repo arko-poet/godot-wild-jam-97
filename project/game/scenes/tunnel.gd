@@ -1,8 +1,8 @@
 class_name Tunnel
 extends Node2D
 
-const ROCK_HORIZONTAL_SPACING := 128
-const TUNNEL_VERTICAL_POSITION := 350
+const ROCK_HORIZONTAL_SPACING := 162
+const TUNNEL_VERTICAL_POSITION := 270
 const NUMBER_OF_ROCKS := 10
 
 @export var rock_scene: PackedScene

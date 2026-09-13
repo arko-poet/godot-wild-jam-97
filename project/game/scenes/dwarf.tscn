@@ -11,16 +11,19 @@ radius = 64.0
 [node name="Dwarf" type="CharacterBody2D" unique_id=1484099431]
 script = ExtResource("1_wjfk0")
 
-[node name="Body" type="Sprite2D" parent="." unique_id=167090436]
-texture = ExtResource("2_g7s5g")
-
-[node name="Pick" type="Sprite2D" parent="." unique_id=1715249574]
-texture = ExtResource("3_vxjbm")
-
-[node name="Beard" type="Sprite2D" parent="." unique_id=1666859594]
-texture = ExtResource("4_x81pr")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1720465753]
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467506282]
 shape = SubResource("CircleShape2D_vgun3")
+
+[node name="Sprite" type="Node2D" parent="." unique_id=1717948746]
+
+[node name="Body" type="Sprite2D" parent="Sprite" unique_id=167090436]
+texture = ExtResource("2_g7s5g")
+
+[node name="Pick" type="Sprite2D" parent="Sprite" unique_id=1715249574]
+texture = ExtResource("3_vxjbm")
+
+[node name="Beard" type="Sprite2D" parent="Sprite" unique_id=1666859594]
+texture = ExtResource("4_x81pr")
