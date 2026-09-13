@@ -3,6 +3,8 @@ extends Node2D
 
 signal destroyed
 
+@export var gem_scene: PackedScene
+
 var max_hp := 3
 var hp: int:
 	set(value):
@@ -12,6 +14,7 @@ var hp: int:
 		hp_label.text = "%s/%s" % [hp, max_hp]
 		
 		if hp == 0:
+			_spawn_gems()
 			destroyed.emit()
 			queue_free()
 
@@ -30,3 +33,9 @@ func mine(damage: int) -> void:
 
 func _on_damage_button_pressed() -> void:
 	mine(1)
+
+
+func _spawn_gems() -> void:
+	var gem: Gem = gem_scene.instantiate()
+	gem.position = position
+	get_parent().add_child(gem)

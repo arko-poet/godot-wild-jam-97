@@ -1,15 +1,24 @@
 extends Node
 
-var current_tunnel: Tunnel
+@export var _tunnel_scene: PackedScene
 
-@export var tunnel_scene: PackedScene
+var _current_tunnel: Tunnel
+var _gems: int:
+	set(value):
+		_gems = value
+		_gems_label.text = "Gems: %s" % _gems
 
 @onready var _doom_timer: Timer = %DoomTimer
 
-@onready var world: Node2D = %World
+@onready var _world: Node2D = %World
 
 @onready var _doom_timer_label: Label = %DoomTimerLabel
+@onready var _gems_label: Label = %GemsLabel
 @onready var _start_button: Button = %StartButton
+
+
+func _ready() -> void:
+	Events.gem_collected.connect(_on_gem_collected)
 
 
 func _process(_delta: float) -> void:
@@ -23,7 +32,7 @@ func _start_doom_timer() -> void:
 
 func _on_doom_timer_timeout() -> void:
 	_start_button.disabled = false
-	current_tunnel.queue_free()
+	_current_tunnel.queue_free()
 	set_process(false)
 
 
@@ -34,5 +43,9 @@ func _on_start_button_pressed() -> void:
 
 
 func _new_tunnel() -> void:
-	current_tunnel = tunnel_scene.instantiate()
-	world.add_child(current_tunnel)
+	_current_tunnel = _tunnel_scene.instantiate()
+	_world.add_child(_current_tunnel)
+
+
+func _on_gem_collected() -> void:
+	_gems += 1

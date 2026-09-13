@@ -10,7 +10,7 @@ script = ExtResource("1_2h2s7")
 rock_scene = ExtResource("2_hoacg")
 
 [node name="Parallax" type="Parallax2D" parent="." unique_id=1872759560]
-repeat_size = Vector2(600, 0)
+repeat_size = Vector2(640, 0)
 
 [node name="Background" type="Sprite2D" parent="Parallax" unique_id=1670932027]
 texture = ExtResource("3_d51qq")
