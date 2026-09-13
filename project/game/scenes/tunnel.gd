@@ -8,7 +8,9 @@ const NUMBER_OF_ROCKS := 10
 @export var rock_scene: PackedScene
 
 var rocks: Array[Rock]
-var next_rock_horizontal_position := 600
+var next_rock_horizontal_position := 500
+
+@onready var dwarf: Dwarf = %Dwarf
 
 
 func _ready() -> void:
@@ -19,6 +21,7 @@ func _ready() -> void:
 func _on_rock_destroyed() -> void:
 	rocks.pop_front()
 	_spawn_new_rock()
+	dwarf.dash(ROCK_HORIZONTAL_SPACING)
 	
 	
 func _spawn_new_rock() -> void:
