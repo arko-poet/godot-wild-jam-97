@@ -3,22 +3,7 @@
 [ext_resource type="Script" uid="uid://50w6t2opj2vb" path="res://game/scenes/tunnel.gd" id="1_2h2s7"]
 [ext_resource type="PackedScene" uid="uid://ctt75y0ystdtf" path="res://game/scenes/rock.tscn" id="2_hoacg"]
 [ext_resource type="PackedScene" uid="uid://04tqlo3l8s62" path="res://game/scenes/dwarf.tscn" id="2_jtcvj"]
-
-[sub_resource type="Gradient" id="Gradient_2h2s7"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vgun3"]
-gradient = SubResource("Gradient_2h2s7")
-width = 1152
-height = 700
-fill_from = Vector2(0.48039827, 1)
-fill_to = Vector2(0.4648178, 0)
-
-[sub_resource type="Gradient" id="Gradient_hoacg"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nexcq"]
-gradient = SubResource("Gradient_hoacg")
-width = 1152
-height = 128
+[ext_resource type="Texture2D" uid="uid://btigihv2qw0oi" path="res://game/art/prototypes/DMG_MapPrototype.png" id="3_d51qq"]
 
 [node name="Tunnel" type="Node2D" unique_id=1781221996]
 script = ExtResource("1_2h2s7")
@@ -28,12 +13,8 @@ rock_scene = ExtResource("2_hoacg")
 repeat_size = Vector2(600, 0)
 
 [node name="Background" type="Sprite2D" parent="Parallax" unique_id=1670932027]
-texture = SubResource("GradientTexture2D_vgun3")
+texture = ExtResource("3_d51qq")
 centered = false
-
-[node name="Tunnel" type="Sprite2D" parent="Parallax" unique_id=1549980574]
-position = Vector2(576, 350)
-texture = SubResource("GradientTexture2D_nexcq")
 
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]
 position = Vector2(68, 346)

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://04tqlo3l8s62"]
 
 [ext_resource type="Script" uid="uid://bkv4be01y5df3" path="res://game/scenes/dwarf.gd" id="1_wjfk0"]
-[ext_resource type="Texture2D" uid="uid://bcj4a4vfdlcjc" path="res://icon.svg" id="2_3ntiq"]
+[ext_resource type="Texture2D" uid="uid://cxi6ln0a46vlt" path="res://game/art/prototypes/DMG_DwarfBody.png" id="2_g7s5g"]
+[ext_resource type="Texture2D" uid="uid://ck2r7mmbt5gnh" path="res://game/art/prototypes/DMG_DwarfPick.png" id="3_vxjbm"]
+[ext_resource type="Texture2D" uid="uid://b4c23ty256mc0" path="res://game/art/prototypes/DMG_DwarfBeard.png" id="4_x81pr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgun3"]
 radius = 64.0
@@ -9,9 +11,14 @@ radius = 64.0
 [node name="Dwarf" type="CharacterBody2D" unique_id=1484099431]
 script = ExtResource("1_wjfk0")
 
-[node name="Dwarf" type="Sprite2D" parent="." unique_id=167090436]
-modulate = Color(1, 0, 1, 1)
-texture = ExtResource("2_3ntiq")
+[node name="Body" type="Sprite2D" parent="." unique_id=167090436]
+texture = ExtResource("2_g7s5g")
+
+[node name="Pick" type="Sprite2D" parent="." unique_id=1715249574]
+texture = ExtResource("3_vxjbm")
+
+[node name="Beard" type="Sprite2D" parent="." unique_id=1666859594]
+texture = ExtResource("4_x81pr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1720465753]
 

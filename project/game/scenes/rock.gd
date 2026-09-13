@@ -3,7 +3,7 @@ extends Node2D
 
 signal destroyed
 
-var max_hp := 10
+var max_hp := 3
 var hp: int:
 	set(value):
 		hp = max(0, value)
