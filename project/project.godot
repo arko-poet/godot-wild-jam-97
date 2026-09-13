@@ -26,19 +26,36 @@ AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
 ProjectMusicController="*uid://r5t485lr3p7t"
 ProjectUISoundController="*uid://cc37235kj4384"
+Events="*uid://dxy7humofxxxu"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://game/art/": "red",
+"res://game/audio/": "orange",
+"res://game/other_assets/": "yellow",
+"res://game/resources/": "green",
+"res://game/scenes/": "teal",
+"res://game/scripts/": "blue",
+"res://game/shaders/": "purple",
+"res://template/": "gray"
+}
+
 [gui]
 
-theme/custom="res://template/resources/themes/expedition.tres"
+theme/custom="res://template/resources/themes/lore.tres"
+theme/custom_font="uid://b6qsvn512i1fc"
 
 [internationalization]
 
@@ -57,6 +74,9 @@ copy_path="res://template/"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
