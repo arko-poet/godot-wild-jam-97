@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjgj158hvholi" path="res://game/scenes/rock.gd" id="1_bwbla"]
 [ext_resource type="Texture2D" uid="uid://cssegfcvxy7fr" path="res://game/art/prototypes/DMG_OrePrototype.png" id="2_mtuoj"]
+[ext_resource type="PackedScene" uid="uid://cqkxu6yq7jvbx" path="res://game/scenes/floating_text.tscn" id="3_8drsv"]
 
 [node name="Rock" type="Node2D" unique_id=633252501]
 script = ExtResource("1_bwbla")

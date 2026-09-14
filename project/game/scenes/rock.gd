@@ -26,6 +26,11 @@ func _ready() -> void:
 
 
 func mine(damage: int) -> void:
+	var floating_text: FloatingText = floating_text_scene.instantiate()
+	floating_text.text = str(damage)
+	floating_text.position = position
+	get_parent().add_child(floating_text)
+	
 	hp -= damage
 
 
