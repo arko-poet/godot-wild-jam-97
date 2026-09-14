@@ -29,4 +29,9 @@ func _spawn_new_rock() -> void:
 	rock.position = Vector2(next_rock_horizontal_position, TUNNEL_VERTICAL_POSITION)
 	rock.destroyed.connect(_on_rock_destroyed)
 	add_child(rock)
+	rocks.append(rock)
 	next_rock_horizontal_position += ROCK_HORIZONTAL_SPACING
+
+
+func _on_dwarf_mined() -> void:
+	rocks[0].mine(1)

@@ -5,7 +5,7 @@ signal destroyed
 
 @export var floating_text_scene: PackedScene
 
-var max_hp := 3
+var max_hp := 5
 var hp: int:
 	set(value):
 		hp = max(0, value)
@@ -34,10 +34,6 @@ func mine(damage: int) -> void:
 	get_parent().add_child(floating_text)
 	
 	hp -= damage
-
-
-func _on_damage_button_pressed() -> void:
-	mine(1)
 
 
 func _spawn_gems() -> void:
