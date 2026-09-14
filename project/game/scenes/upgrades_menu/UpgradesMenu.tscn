@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://vseii40agins"]
 
 [ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades_menu/upgrades_menu.gd" id="1_tishx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h32h"]
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades_menu/Upgrade.tscn" id="2_evfao"]
 
 [sub_resource type="Gradient" id="Gradient_tishx"]
 offsets = PackedFloat32Array(1)
@@ -45,6 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tishx")
+gems = [200, 0, 0]
 hide_offset = Vector2(0, -84)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1907932633]
@@ -81,95 +76,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
-columns = 4
+columns = 3
 
-[node name="Panel" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=662633276]
-custom_minimum_size = Vector2(128, 32)
+[node name="Upgrade" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel" unique_id=953627329]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=682554257]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel2" unique_id=2023861428]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel3" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=359971177]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel3" unique_id=1368436842]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel4" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1891869300]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel4" unique_id=1470063542]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel5" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=6283253]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel5" unique_id=164674950]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel6" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=2028276098]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel6" unique_id=1823174411]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel7" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=847728866]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel7" unique_id=781350149]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel8" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=563606281]
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Panel8" unique_id=502029219]
-layout_mode = 2
-text = "Upgrade"
-horizontal_alignment = 1
-vertical_alignment = 1
+base_cost = 1
+total_cost = 2
 
 [node name="ResourceCounters" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=475768743]
 unique_name_in_owner = true
