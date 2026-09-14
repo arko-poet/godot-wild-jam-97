@@ -9,7 +9,7 @@ var max_hp := 5
 var hp: int:
 	set(value):
 		hp = max(0, value)
-		
+			
 		hp_bar.value = hp
 		hp_label.text = "%s/%s" % [hp, max_hp]
 		

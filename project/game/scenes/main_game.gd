@@ -3,6 +3,8 @@ extends Node
 @export var _tunnel_scene: PackedScene
 
 var _current_tunnel: Tunnel
+var _stats: Stats
+
 @onready var _doom_timer: Timer = %DoomTimer
 
 @onready var _world: Node2D = %World
@@ -16,6 +18,7 @@ var _current_tunnel: Tunnel
 
 
 func _ready() -> void:
+	_stats = Stats.new()
 	
 	@warning_ignore("unused_parameter")
 	Events.resource_collected.connect(
@@ -44,7 +47,7 @@ func _process(_delta: float) -> void:
 
 func _start_doom_timer() -> void:
 	set_process(true)
-	_doom_timer.start()
+	_doom_timer.start(_stats.doom_time)
 
 	upgrades_menu.toggle_button.disabled = true
 	upgrades_menu.toggle_button.button_pressed = false
@@ -69,4 +72,5 @@ func _on_start_button_pressed() -> void:
 
 func _new_tunnel() -> void:
 	_current_tunnel = _tunnel_scene.instantiate()
+	_current_tunnel.stats = _stats
 	_world.add_child(_current_tunnel)
