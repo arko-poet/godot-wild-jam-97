@@ -3,28 +3,31 @@
 [ext_resource type="Script" uid="uid://bamm5g7qbukm4" path="res://game/scenes/main_game.gd" id="1_1qbya"]
 [ext_resource type="PackedScene" uid="uid://btrxmgxymwtdc" path="res://game/scenes/tunnel.tscn" id="2_3iu72"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="3_1ig1l"]
-[ext_resource type="Texture2D" uid="uid://bcj4a4vfdlcjc" path="res://icon.svg" id="4_1ig1l"]
+[ext_resource type="PackedScene" uid="uid://bl5p803fvns3" path="res://game/scenes/resource_drop.tscn" id="3_xmhwu"]
 [ext_resource type="PackedScene" uid="uid://j1tuh46skb2c" path="res://template/scenes/windows/pause_menu_layer.tscn" id="4_yv8p0"]
+[ext_resource type="PackedScene" uid="uid://vseii40agins" path="res://game/scenes/upgrades_menu/UpgradesMenu.tscn" id="7_cnnha"]
 
-[node name="MainGame" type="Node" unique_id=1489978355]
+[node name="MainGame" type="Node" unique_id=1713024868]
 script = ExtResource("1_1qbya")
 _tunnel_scene = ExtResource("2_3iu72")
+drop_resource = ExtResource("3_xmhwu")
 
-[node name="PauseMenuController" type="Node" parent="." unique_id=1560389357]
+[node name="PauseMenuController" type="Node" parent="." unique_id=1022592649]
 script = ExtResource("3_1ig1l")
 pause_menu_packed = ExtResource("4_yv8p0")
 
-[node name="DoomTimer" type="Timer" parent="." unique_id=1035193833]
+[node name="DoomTimer" type="Timer" parent="." unique_id=454329879]
 unique_name_in_owner = true
 wait_time = 10.0
 one_shot = true
 
-[node name="World" type="Node2D" parent="." unique_id=523964389]
+[node name="World" type="Node2D" parent="." unique_id=1110143394]
 unique_name_in_owner = true
 
-[node name="UILayer" type="CanvasLayer" parent="." unique_id=1164171807]
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1052112781]
 
-[node name="UI" type="Control" parent="UILayer" unique_id=1506851889]
+[node name="UI" type="Control" parent="UILayer" unique_id=1426606112]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,43 +36,28 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI" unique_id=561471491]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UpgradesMenu" parent="UILayer/UI" unique_id=385757971 instance=ExtResource("7_cnnha")]
+unique_name_in_owner = true
+layout_mode = 1
 
-[node name="DoomTimerLabel" type="Label" parent="UILayer/UI/VBoxContainer" unique_id=634447790]
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI" unique_id=1742162669]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -52.0
+offset_right = 192.0
+grow_vertical = 0
+
+[node name="DoomTimerLabel" type="Label" parent="UILayer/UI/VBoxContainer" unique_id=371247814]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Doom in: 10s"
 
-[node name="StartButton" type="Button" parent="UILayer/UI/VBoxContainer" unique_id=388161766]
+[node name="StartButton" type="Button" parent="UILayer/UI/VBoxContainer" unique_id=1920202549]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI" unique_id=1077912896]
-custom_maximum_size = Vector2(-1, 32)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -32.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="GemsTexture" type="TextureRect" parent="UILayer/UI/HBoxContainer" unique_id=1047004724]
-layout_mode = 2
-texture = ExtResource("4_1ig1l")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="GemsLabel" type="Label" parent="UILayer/UI/HBoxContainer" unique_id=44165931]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Gems: 0"
 
 [connection signal="timeout" from="DoomTimer" to="." method="_on_doom_timer_timeout"]
 [connection signal="pressed" from="UILayer/UI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

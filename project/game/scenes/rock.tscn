@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://ctt75y0ystdtf"]
 
 [ext_resource type="Script" uid="uid://bjgj158hvholi" path="res://game/scenes/rock.gd" id="1_bwbla"]
-[ext_resource type="PackedScene" uid="uid://b87fnll2gsk7h" path="res://game/scenes/gem.tscn" id="2_3328a"]
 [ext_resource type="Texture2D" uid="uid://cssegfcvxy7fr" path="res://game/art/prototypes/DMG_OrePrototype.png" id="2_mtuoj"]
 
 [node name="Rock" type="Node2D" unique_id=633252501]
 script = ExtResource("1_bwbla")
-gem_scene = ExtResource("2_3328a")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1901078851]
 texture = ExtResource("2_mtuoj")
