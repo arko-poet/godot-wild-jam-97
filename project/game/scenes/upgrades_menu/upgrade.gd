@@ -87,6 +87,8 @@ func _ready() -> void:
 				elif upgrade_cap <= 0:
 					current_upgrade_count += 1 
 		)
+		
+	update_upgrade()
 
 func update_upgrade():
 	upgrade_button.text = str(upgrade_name, "\n Upgrade: ", total_cost, "g")
