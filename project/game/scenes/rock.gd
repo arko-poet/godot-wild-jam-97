@@ -3,6 +3,8 @@ extends Node2D
 #
 signal destroyed 
 
+@export var floating_text_scene: PackedScene
+
 var max_hp := 3
 var hp: int:
 	set(value):

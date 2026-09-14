@@ -6,6 +6,7 @@
 
 [node name="Rock" type="Node2D" unique_id=633252501]
 script = ExtResource("1_bwbla")
+floating_text_scene = ExtResource("3_8drsv")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1901078851]
 texture = ExtResource("2_mtuoj")

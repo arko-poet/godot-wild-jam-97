@@ -70,4 +70,3 @@ func _on_start_button_pressed() -> void:
 func _new_tunnel() -> void:
 	_current_tunnel = _tunnel_scene.instantiate()
 	_world.add_child(_current_tunnel)
-
