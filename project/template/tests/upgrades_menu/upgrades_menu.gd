@@ -1,6 +1,8 @@
+class_name UpgradesMenu
 extends Control
 
 @onready var toggle_button : Button = %ToggleOffset
+@onready var resource_counters : Control = %ResourceCounters
 @export var hide_offset : Vector2
 var tween : Tween
 

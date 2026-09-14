@@ -39,3 +39,5 @@ func _spawn_gems() -> void:
 	var gem: Gem = gem_scene.instantiate()
 	gem.position = position
 	get_parent().add_child(gem)
+
+	Events.collect_resource(0, 1, global_position)
