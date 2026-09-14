@@ -19,6 +19,7 @@ func _ready() -> void:
 		_spawn_new_rock()
 		
 	dwarf.base_damage = stats.base_damage
+	dwarf.dash_duration = stats.dash_duration
 
 
 func _on_rock_destroyed() -> void:

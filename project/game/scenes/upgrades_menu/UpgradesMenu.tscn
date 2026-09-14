@@ -70,7 +70,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=368040140]
+[node name="UpgradeContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=368040140]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -78,17 +78,29 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="BaseDamageUpgrade" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+[node name="BaseDamage" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "base_damage"
 upgrade_cap = 10
 base_cost = 1
 cost_exponential_base = 0.0
 cost_linear_multiplier = 1.0
-total_cost = 2
+use_upgrade_count = false
 base_amount = 1.0
 flat_amount_change = 1.0
 total_amount = 1.0
+
+[node name="DashDuration" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1964582489 instance=ExtResource("2_evfao")]
+layout_mode = 2
+upgrade_name = "dash_duration"
+upgrade_cap = 10
+base_cost = 1
+cost_exponential_base = 0.0
+cost_linear_multiplier = 1.0
+use_upgrade_count = false
+base_amount = 0.5
+flat_amount_change = -0.04
+total_amount = 0.5
 
 [node name="ResourceCounters" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=475768743]
 unique_name_in_owner = true
