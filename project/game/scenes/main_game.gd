@@ -1,29 +1,21 @@
 extends Node
-
+#
 @export var _tunnel_scene: PackedScene
 
 var _current_tunnel: Tunnel
-var _gems: int:
-	set(value):
-		_gems = value
-		_gems_label.text = "Gems: %s" % _gems
-
 @onready var _doom_timer: Timer = %DoomTimer
 
 @onready var _world: Node2D = %World
 
 @onready var _doom_timer_label: Label = %DoomTimerLabel
-@onready var _gems_label: Label = %GemsLabel
 @onready var _start_button: Button = %StartButton
 
-@onready var ui : Control = get_node_or_null("UILayer/UI")
-@onready var upgrades_menu : UpgradesMenu = get_node_or_null("UILayer/UI/UpgradesMenu")
+@onready var ui : Control = %UI
+@onready var upgrades_menu : UpgradesMenu = %UpgradesMenu
 @export var drop_resource : PackedScene
 
 
 func _ready() -> void:
-	Events.gem_collected.connect(_on_gem_collected)
-
 	
 	@warning_ignore("unused_parameter")
 	Events.resource_collected.connect(
@@ -31,7 +23,7 @@ func _ready() -> void:
 			var drop_instance = drop_resource.instantiate()
 			var camera = get_viewport().get_camera_2d()
 			var offset = Vector2(16,16)
-			var ui_target = upgrades_menu.resource_counters.get_child(randi_range(0,2))#resource_id
+			var ui_target = upgrades_menu.resource_counters.get_child(resource_id)#resource_id
 
 			##calculation is scene independent, just need to use camera position and ui target's global rect
 			##this may break if we set aspect to expand.
@@ -54,11 +46,19 @@ func _start_doom_timer() -> void:
 	set_process(true)
 	_doom_timer.start()
 
+	upgrades_menu.toggle_button.disabled = true
+	upgrades_menu.toggle_button.button_pressed = false
+	upgrades_menu.hide_menu()
+
 
 func _on_doom_timer_timeout() -> void:
 	_start_button.disabled = false
 	_current_tunnel.queue_free()
 	set_process(false)
+
+	upgrades_menu.toggle_button.disabled = false
+	upgrades_menu.toggle_button.button_pressed = true
+	upgrades_menu.show_menu()
 
 
 func _on_start_button_pressed() -> void:
@@ -71,6 +71,3 @@ func _new_tunnel() -> void:
 	_current_tunnel = _tunnel_scene.instantiate()
 	_world.add_child(_current_tunnel)
 
-
-func _on_gem_collected() -> void:
-	_gems += 1

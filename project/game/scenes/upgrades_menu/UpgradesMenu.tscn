@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vseii40agins"]
 
-[ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://template/tests/upgrades_menu/upgrades_menu.gd" id="1_tishx"]
+[ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades_menu/upgrades_menu.gd" id="1_tishx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h32h"]
 border_width_left = 4
@@ -54,6 +54,7 @@ anchor_right = 1.0
 offset_bottom = 184.0
 grow_horizontal = 2
 offset_transform_enabled = true
+offset_transform_position = Vector2(0, -84)
 offset_transform_visual_only = false
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=331429151]
@@ -225,5 +226,4 @@ size_flags_horizontal = 0
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
-button_pressed = true
 text = "Upgrades"

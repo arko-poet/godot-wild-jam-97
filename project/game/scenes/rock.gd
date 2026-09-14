@@ -1,9 +1,7 @@
 class_name Rock
 extends Node2D
-
-signal destroyed
-
-@export var gem_scene: PackedScene
+#
+signal destroyed 
 
 var max_hp := 3
 var hp: int:
@@ -36,8 +34,4 @@ func _on_damage_button_pressed() -> void:
 
 
 func _spawn_gems() -> void:
-	var gem: Gem = gem_scene.instantiate()
-	gem.position = position
-	get_parent().add_child(gem)
-
-	Events.collect_resource(0, 1, global_position)
+	Events.collect_resource(randi_range(0,2), 1, global_position)
