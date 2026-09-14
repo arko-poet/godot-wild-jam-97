@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxi6ln0a46vlt" path="res://game/art/prototypes/DMG_DwarfBody.png" id="2_g7s5g"]
 [ext_resource type="Texture2D" uid="uid://ck2r7mmbt5gnh" path="res://game/art/prototypes/DMG_DwarfPick.png" id="3_vxjbm"]
 [ext_resource type="Texture2D" uid="uid://b4c23ty256mc0" path="res://game/art/prototypes/DMG_DwarfBeard.png" id="4_x81pr"]
+[ext_resource type="PackedScene" uid="uid://l0agmulilp4p" path="res://game/scenes/pet.tscn" id="5_vxjbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgun3"]
 radius = 64.0
@@ -16,10 +17,10 @@ unique_name_in_owner = true
 wait_time = 0.25
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1720465753]
+[node name="Camera" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467506282]
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=467506282]
 shape = SubResource("CircleShape2D_vgun3")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=1717948746]
@@ -48,4 +49,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "IDLE"
 
+[node name="Pet" parent="." unique_id=1372273945 instance=ExtResource("5_vxjbm")]
+unique_name_in_owner = true
+position = Vector2(-91, -3)
+
 [connection signal="timeout" from="MiningTimer" to="." method="_on_mining_timer_timeout"]
+[connection signal="mined" from="Pet" to="." method="_on_pet_mined"]

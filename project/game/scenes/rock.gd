@@ -5,7 +5,7 @@ signal destroyed
 
 @export var floating_text_scene: PackedScene
 
-var max_hp := 3
+var max_hp := 5
 var hp: int:
 	set(value):
 		hp = max(0, value)
