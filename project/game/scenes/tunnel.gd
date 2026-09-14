@@ -9,6 +9,7 @@ const NUMBER_OF_ROCKS := 10
 
 var rocks: Array[Rock]
 var next_rock_horizontal_position := 500
+var stats: Stats
 
 @onready var dwarf: Dwarf = %Dwarf
 
@@ -16,6 +17,8 @@ var next_rock_horizontal_position := 500
 func _ready() -> void:
 	for i in NUMBER_OF_ROCKS:
 		_spawn_new_rock()
+		
+	dwarf.base_damage = stats.base_damage
 
 
 func _on_rock_destroyed() -> void:
@@ -33,5 +36,5 @@ func _spawn_new_rock() -> void:
 	next_rock_horizontal_position += ROCK_HORIZONTAL_SPACING
 
 
-func _on_dwarf_mined() -> void:
-	rocks[0].mine(1)
+func _on_dwarf_mined(damage: int) -> void:
+	rocks[0].mine(damage)
