@@ -4,6 +4,7 @@ extends Node2D
 signal destroyed
 
 @export var gem_scene: PackedScene
+@export var floating_text_scene: PackedScene
 
 var max_hp := 3
 var hp: int:
@@ -28,6 +29,11 @@ func _ready() -> void:
 
 
 func mine(damage: int) -> void:
+	var floating_text: FloatingText = floating_text_scene.instantiate()
+	floating_text.text = str(damage)
+	floating_text.position = position
+	get_parent().add_child(floating_text)
+	
 	hp -= damage
 
 
