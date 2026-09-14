@@ -1,7 +1,7 @@
 class_name UpgradesMenu
 extends Control
 
-var gems = [0,0,0]
+@export var gems = [0,0,0]
 
 @onready var toggle_button : Button = %ToggleOffset
 @onready var resource_counters : Control = %ResourceCounters
@@ -9,7 +9,6 @@ var gems = [0,0,0]
 var tween : Tween
 
 func _ready() -> void:
-	
 	
 	@warning_ignore("unused_parameter")
 	Events.resource_collected.connect(
@@ -24,6 +23,8 @@ func _ready() -> void:
 			else:
 				hide_menu()	
 	)
+	for r in gems.size():
+		resource_counters.get_child(r).get_child(1).text = str(":",gems[r])
 
 func hide_menu() -> void:
 	if tween : tween.kill()
@@ -37,3 +38,11 @@ func show_menu() -> void:
 	tween = create_tween()
 	tween.tween_property(get_child(0), "offset_transform_position", Vector2.ZERO, 0.5).\
 	set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func try_resource_transaction(resource_id : int, amount : int) -> bool:
+	var temp = gems[resource_id] + amount
+	if temp >= 0:
+		gems[resource_id] = temp
+		resource_counters.get_child(resource_id).get_child(1).text = str(":",gems[resource_id])
+		return true
+	return false
