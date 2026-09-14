@@ -11,6 +11,11 @@ radius = 64.0
 [node name="Dwarf" type="CharacterBody2D" unique_id=1484099431]
 script = ExtResource("1_wjfk0")
 
+[node name="MiningTimer" type="Timer" parent="." unique_id=931047117]
+unique_name_in_owner = true
+wait_time = 0.25
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)
 
@@ -27,3 +32,20 @@ texture = ExtResource("3_vxjbm")
 
 [node name="Beard" type="Sprite2D" parent="Sprite" unique_id=1666859594]
 texture = ExtResource("4_x81pr")
+
+[node name="StateLabel" type="Label" parent="." unique_id=347957112]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -58.0
+offset_right = 20.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "IDLE"
+
+[connection signal="timeout" from="MiningTimer" to="." method="_on_mining_timer_timeout"]

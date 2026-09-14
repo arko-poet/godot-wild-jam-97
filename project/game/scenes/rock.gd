@@ -36,9 +36,5 @@ func mine(damage: int) -> void:
 	hp -= damage
 
 
-func _on_damage_button_pressed() -> void:
-	mine(1)
-
-
 func _spawn_gems() -> void:
 	Events.collect_resource(randi_range(0,2), 1, global_position)
