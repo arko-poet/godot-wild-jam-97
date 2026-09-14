@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 
 func _start_doom_timer() -> void:
 	set_process(true)
-	_doom_timer.start()
+	_doom_timer.start(_stats.doom_time)
 
 	upgrades_menu.toggle_button.disabled = true
 	upgrades_menu.toggle_button.button_pressed = false

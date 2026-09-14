@@ -14,8 +14,10 @@ var state := State.IDLE:
 		state = value
 		state_label.text = State.keys()[state]
 		
-var dash_duration := 1.0
-var base_damage: int
+var dash_duration := 0.5
+var base_damage := 1
+var pet_base_damge := 1
+
 
 @onready var mining_timer: Timer = %MiningTimer
 @onready var state_label: Label = %StateLabel
@@ -75,4 +77,4 @@ func _on_pet_mined() -> void:
 	if state == State.DASHING:
 		return
 	
-	mined.emit(base_damage)
+	mined.emit(pet_base_damge)
