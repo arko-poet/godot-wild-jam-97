@@ -8,7 +8,7 @@ signal mined
 
 func start_mining() -> void:
 	mining_timer.start()
-	
+
 
 func stop_mining() -> void:
 	mining_timer.stop()
