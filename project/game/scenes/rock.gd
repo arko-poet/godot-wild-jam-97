@@ -1,10 +1,12 @@
 class_name Rock
 extends Node2D
 
-#
 signal destroyed
 
+const RARE_ORE_DROP_COUNT := 10
+
 @export var floating_text_scene: PackedScene
+@export var rare_ore_texture: Texture2D
 
 var max_hp := 5
 var hp: int:
@@ -18,15 +20,21 @@ var hp: int:
 			_spawn_gems()
 			destroyed.emit()
 			queue_free()
+var rare := false
 
 @onready var hp_bar: ProgressBar = %HPBar
 @onready var hp_label: Label = %HPLabel
-@onready var sprite: Sprite2D = %Sprite
+@onready var ore_sprite: Sprite2D = %OreSprite
+@onready var shadow_sprite: Sprite2D = %ShadowSprite
 
 
 func _ready() -> void:
 	hp = max_hp
 	hp_bar.max_value = max_hp
+
+	if rare:
+		ore_sprite.texture = rare_ore_texture
+		shadow_sprite.hide()
 
 
 func mine(damage: int) -> void:
@@ -41,15 +49,19 @@ func mine(damage: int) -> void:
 
 
 func _spawn_gems() -> void:
-	Events.collect_resource(0, 1, global_position)
+	if rare:
+		for i in RARE_ORE_DROP_COUNT:
+			Events.collect_resource(0, 1, global_position)
+	else:
+		Events.collect_resource(0, 1, global_position)
 
 
 func _hit_flash() -> void:
-	sprite.material.set_shader_parameter("flash_amount", 1.0)
+	ore_sprite.material.set_shader_parameter("flash_amount", 1.0)
 	var t: Tween = create_tween()
 	t.tween_method(
 		func(x):
-			sprite.material.set_shader_parameter("flash_amount", x),
+			ore_sprite.material.set_shader_parameter("flash_amount", x),
 		1,
 		0,
 		0.1,

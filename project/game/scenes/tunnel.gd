@@ -5,6 +5,7 @@ const ROCK_HORIZONTAL_SPACING := 162
 const TUNNEL_VERTICAL_POSITION := 250
 const NUMBER_OF_ROCKS := 10
 const ROCK_HP_SCALING := 1
+const RARE_ORE_PROBABILITY := 0.1
 
 @export var rock_scene: PackedScene
 
@@ -36,6 +37,8 @@ func _spawn_new_rock() -> void:
 	rock.max_hp = next_rock_health
 	rock.position = Vector2(next_rock_horizontal_position, TUNNEL_VERTICAL_POSITION)
 	rock.destroyed.connect(_on_rock_destroyed)
+	if randf() < RARE_ORE_PROBABILITY:
+		rock.rare = true
 	add_child(rock)
 	rocks.append(rock)
 

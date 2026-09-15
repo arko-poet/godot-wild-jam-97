@@ -1,7 +1,6 @@
 extends Node
 
 @export var drop_resource: PackedScene
-#
 @export var _tunnel_scene: PackedScene
 
 var _current_tunnel: Tunnel
