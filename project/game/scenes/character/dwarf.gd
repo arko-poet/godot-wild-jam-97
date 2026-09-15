@@ -45,9 +45,8 @@ func _input(event: InputEvent) -> void:
 	if state != State.IDLE:
 		return
 
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			_mine()
+	if event.is_action(&"mine") and event.is_pressed():
+		_mine()
 
 
 func dash(distance: float) -> void:
