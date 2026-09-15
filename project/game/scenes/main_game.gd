@@ -28,8 +28,8 @@ func _ready() -> void:
 			var offset = Vector2(16, 16)
 			var ui_target = upgrades_menu.resource_counters.get_child(resource_id) #resource_id
 
-			##calculation is scene independent, just need to use camera position and ui target's global rect
-			##this may break if we set aspect to expand.
+			#calculation is scene independent, just need to use camera position and ui target's global rect
+			#this may break if we set aspect to expand.
 			drop_instance.position = camera.to_local(drop_global_position) + get_viewport() \
 					.get_visible_rect() \
 					.size / 2.0
@@ -57,7 +57,8 @@ func _start_doom_timer() -> void:
 
 
 func _on_doom_timer_timeout() -> void:
-	_start_button.disabled = false
+	_start_button.show()
+	_doom_timer_label.hide()
 	_current_tunnel.queue_free()
 	set_process(false)
 
@@ -67,7 +68,8 @@ func _on_doom_timer_timeout() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	_start_button.disabled = true
+	_doom_timer_label.show()
+	_start_button.hide()
 	_start_doom_timer()
 	_new_tunnel()
 

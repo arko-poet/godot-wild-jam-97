@@ -9,8 +9,8 @@
 
 [node name="MainGame" type="Node" unique_id=1713024868]
 script = ExtResource("1_1qbya")
-_tunnel_scene = ExtResource("2_3iu72")
 drop_resource = ExtResource("3_xmhwu")
+_tunnel_scene = ExtResource("2_3iu72")
 
 [node name="PauseMenuController" type="Node" parent="." unique_id=1022592649]
 script = ExtResource("3_1ig1l")
@@ -49,16 +49,6 @@ offset_top = -52.0
 offset_right = 192.0
 grow_vertical = 0
 
-[node name="DoomTimerLabel" type="Label" parent="UILayer/UI/VBoxContainer" unique_id=371247814]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Doom in: 10s"
-
-[node name="StartButton" type="Button" parent="UILayer/UI/VBoxContainer" unique_id=1920202549]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Start"
-
 [node name="TipLabel" type="Label" parent="UILayer/UI" unique_id=35447035]
 layout_mode = 1
 anchors_preset = 3
@@ -74,5 +64,28 @@ theme_override_font_sizes/font_size = 8
 text = "Press LMB to mine"
 vertical_alignment = 1
 
+[node name="DoomTimerLabel" type="Label" parent="UILayer/UI" unique_id=371247814]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 192.0
+grow_vertical = 0
+text = "Doom in: 10s"
+
+[node name="StartButton" type="Button" parent="UILayer/UI" unique_id=1920202549]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 192.0
+grow_vertical = 0
+text = "Start"
+
 [connection signal="timeout" from="DoomTimer" to="." method="_on_doom_timer_timeout"]
-[connection signal="pressed" from="UILayer/UI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/StartButton" to="." method="_on_start_button_pressed"]
