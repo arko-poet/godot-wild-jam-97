@@ -18,14 +18,18 @@ var hp: int:
 		if hp == 0:
 			_spawn_gems()
 			destroyed.emit()
-			queue_free()
+			ore_break.show()
+			ore_sprite.hide()
+			ore_break.play()
 var is_rare := false
 var rock_resource: RockResource
 
 @onready var hp_bar: ProgressBar = %HPBar
 @onready var hp_label: Label = %HPLabel
+
 @onready var ore_sprite: Sprite2D = %OreSprite
 @onready var shadow_sprite: Sprite2D = %ShadowSprite
+@onready var ore_break: AnimatedSprite2D = %OreBreak
 
 
 func _ready() -> void:
@@ -69,3 +73,7 @@ func _hit_flash() -> void:
 		0.1,
 	)
 	t.play()
+
+
+func _on_ore_break_animation_finished() -> void:
+	queue_free()

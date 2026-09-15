@@ -4,12 +4,91 @@
 [ext_resource type="PackedScene" uid="uid://cqkxu6yq7jvbx" path="res://game/scenes/floating_text.tscn" id="2_rqrwj"]
 [ext_resource type="Shader" uid="uid://4mjte4jw1dvh" path="res://game/shaders/hit_flash.gdshader" id="4_be8vj"]
 [ext_resource type="Texture2D" uid="uid://0m0jqju77ker" path="res://game/art/rocks/DMG_Ore.PNG" id="5_f6snt"]
+[ext_resource type="Texture2D" uid="uid://coodlf28eomc1" path="res://game/art/rocks/DMG_OreBreak.png" id="6_l4oue"]
 [ext_resource type="Texture2D" uid="uid://dl2r8xe043ud4" path="res://game/art/rocks/DMG_OreShadow.png" id="6_uhq7j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fedji"]
 resource_local_to_scene = true
 shader = ExtResource("4_be8vj")
 shader_parameter/flash_amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqrwj"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(0, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qusk6"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(141, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be8vj"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(282, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6snt"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(423, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhq7j"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(564, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sbd8"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(705, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtodu"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(846, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mu21"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(987, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lto4c"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(1128, 0, 141, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfbaf"]
+atlas = ExtResource("6_l4oue")
+region = Rect2(1269, 0, 141, 115)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgun3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqrwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qusk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be8vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6snt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhq7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sbd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtodu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mu21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lto4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfbaf")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
 
 [node name="Rock" type="Node2D" unique_id=633252501]
 script = ExtResource("1_l4oue")
@@ -23,6 +102,13 @@ texture = ExtResource("5_f6snt")
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1859497099]
 unique_name_in_owner = true
 texture = ExtResource("6_uhq7j")
+
+[node name="OreBreak" type="AnimatedSprite2D" parent="." unique_id=1099585029]
+unique_name_in_owner = true
+visible = false
+sprite_frames = SubResource("SpriteFrames_vgun3")
+frame = 9
+frame_progress = 1.0
 
 [node name="HPBar" type="ProgressBar" parent="." unique_id=1902233843]
 unique_name_in_owner = true
@@ -51,3 +137,5 @@ grow_vertical = 2
 text = "10/10"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="animation_finished" from="OreBreak" to="." method="_on_ore_break_animation_finished"]
