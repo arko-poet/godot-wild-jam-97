@@ -23,8 +23,18 @@ func show_menu() -> void:
 	tween.tween_property(self, "position:y", 0.0, 0.5).\
 	set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
+	unlock_next_upgrade()
+
 
 func gems_changed(gems: int) -> void:
 	for upgrade in upgrade_container.get_children():
 		if upgrade is Upgrade:
 			upgrade.set_affordable(upgrade.get_cost() > gems)
+
+
+func unlock_next_upgrade() -> void:
+	for upgrade in upgrade_container.get_children():
+		if upgrade is Upgrade:
+			if not upgrade.visible:
+				upgrade.show()
+				break
