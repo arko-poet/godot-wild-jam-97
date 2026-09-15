@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://50w6t2opj2vb" path="res://game/scenes/tunnel.gd" id="1_2h2s7"]
 [ext_resource type="PackedScene" uid="uid://ctt75y0ystdtf" path="res://game/scenes/rock.tscn" id="2_hoacg"]
-[ext_resource type="PackedScene" uid="uid://04tqlo3l8s62" path="res://game/scenes/dwarf.tscn" id="2_jtcvj"]
+[ext_resource type="PackedScene" uid="uid://04tqlo3l8s62" path="res://game/scenes/character/dwarf.tscn" id="2_jtcvj"]
 [ext_resource type="Texture2D" uid="uid://btigihv2qw0oi" path="res://game/art/prototypes/DMG_MapPrototype.png" id="3_d51qq"]
 
 [node name="Tunnel" type="Node2D" unique_id=1781221996]
@@ -18,4 +18,7 @@ centered = false
 
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(320, 244)
+
+[connection signal="mined" from="Dwarf" to="." method="_on_dwarf_mined"]

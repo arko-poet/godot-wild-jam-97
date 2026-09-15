@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://jnr3y0mcah36"]
+
+[ext_resource type="Script" uid="uid://cx5ex7k7d2uam" path="res://template/tests/parallax_background.gd" id="1_0w2jw"]
+[ext_resource type="Shader" uid="uid://bxctek4vqcask" path="res://template/tests/parallax_shader.gdshader" id="2_lb7ck"]
+[ext_resource type="Texture2D" uid="uid://bcj4a4vfdlcjc" path="res://icon.svg" id="3_r2i0r"]
+[ext_resource type="Texture2D" uid="uid://cmni5hv40bfaa" path="res://addons/maaacks_game_template/assets/input-icons/icons-filled-colored.png" id="4_3x82a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtlt5"]
+shader = ExtResource("2_lb7ck")
+shader_parameter/pixel_resolution = Vector2(32, 64)
+shader_parameter/layer = ExtResource("3_r2i0r")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/sub_offset = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_cdsad"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5h32h"]
+gradient = SubResource("Gradient_cdsad")
+width = 256
+height = 512
+
+[sub_resource type="Gradient" id="Gradient_mtlt5"]
+offsets = PackedFloat32Array(0.00746269, 1)
+colors = PackedColorArray(0.780815, 0, 0.320305, 1, 0.378049, 0.72539, 1, 0.51)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w0i7g"]
+noise_type = 2
+fractal_type = 0
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5h32h"]
+noise = SubResource("FastNoiseLite_w0i7g")
+color_ramp = SubResource("Gradient_mtlt5")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntfgd"]
+shader = ExtResource("2_lb7ck")
+shader_parameter/pixel_resolution = Vector2(32, 64)
+shader_parameter/layer = SubResource("NoiseTexture2D_5h32h")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/sub_offset = Vector2(-1.445, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrm28"]
+shader = ExtResource("2_lb7ck")
+shader_parameter/pixel_resolution = Vector2(16, 16)
+shader_parameter/layer = ExtResource("4_3x82a")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/sub_offset = Vector2(1.595, 0)
+
+[node name="ParallaxBackground" type="Node2D" unique_id=474251373]
+script = ExtResource("1_0w2jw")
+layer1_ratio = 1.27
+layer2_ratio = 0.145
+layer3_ratio = 0.39
+
+[node name="Layer1" type="Sprite2D" parent="." unique_id=725688422]
+material = SubResource("ShaderMaterial_mtlt5")
+texture = SubResource("GradientTexture2D_5h32h")
+
+[node name="Layer3" type="Sprite2D" parent="." unique_id=662169219]
+material = SubResource("ShaderMaterial_ntfgd")
+texture = SubResource("GradientTexture2D_5h32h")
+
+[node name="Layer2" type="Sprite2D" parent="." unique_id=477680904]
+material = SubResource("ShaderMaterial_vrm28")
+texture = SubResource("GradientTexture2D_5h32h")

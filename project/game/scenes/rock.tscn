@@ -1,15 +1,27 @@
 [gd_scene format=3 uid="uid://ctt75y0ystdtf"]
 
 [ext_resource type="Script" uid="uid://bjgj158hvholi" path="res://game/scenes/rock.gd" id="1_bwbla"]
-[ext_resource type="PackedScene" uid="uid://b87fnll2gsk7h" path="res://game/scenes/gem.tscn" id="2_3328a"]
-[ext_resource type="Texture2D" uid="uid://cssegfcvxy7fr" path="res://game/art/prototypes/DMG_OrePrototype.png" id="2_mtuoj"]
+[ext_resource type="PackedScene" uid="uid://cqkxu6yq7jvbx" path="res://game/scenes/floating_text.tscn" id="3_8drsv"]
+[ext_resource type="Shader" uid="uid://4mjte4jw1dvh" path="res://game/shaders/hit_flash.gdshader" id="3_24k8q"]
+[ext_resource type="Texture2D" uid="uid://0m0jqju77ker" path="res://game/art/rocks/DMG_Ore.PNG" id="4_24k8q"]
+[ext_resource type="Texture2D" uid="uid://dl2r8xe043ud4" path="res://game/art/rocks/DMG_OreShadow.png" id="5_6u767"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fedji"]
+resource_local_to_scene = true
+shader = ExtResource("3_24k8q")
+shader_parameter/flash_amount = 0.0
 
 [node name="Rock" type="Node2D" unique_id=633252501]
 script = ExtResource("1_bwbla")
-gem_scene = ExtResource("2_3328a")
+floating_text_scene = ExtResource("3_8drsv")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1901078851]
-texture = ExtResource("2_mtuoj")
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_fedji")
+texture = ExtResource("4_24k8q")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1859497099]
+texture = ExtResource("5_6u767")
 
 [node name="HPBar" type="ProgressBar" parent="." unique_id=1902233843]
 unique_name_in_owner = true
@@ -38,19 +50,3 @@ grow_vertical = 2
 text = "10/10"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="DamageButton" type="Button" parent="." unique_id=902175881]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = 28.5
-offset_right = 21.5
-offset_bottom = 59.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "-1hp"
-
-[connection signal="pressed" from="DamageButton" to="." method="_on_damage_button_pressed"]

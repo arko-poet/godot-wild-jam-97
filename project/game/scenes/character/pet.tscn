@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://l0agmulilp4p"]
+
+[ext_resource type="Script" uid="uid://cw221hv7jfcxo" path="res://game/scenes/character/pet.gd" id="1_axr30"]
+[ext_resource type="Texture2D" uid="uid://ck2r7mmbt5gnh" path="res://game/art/prototypes/DMG_DwarfPick.png" id="2_uoa8j"]
+
+[node name="Pet" type="Node2D" unique_id=1372273945]
+script = ExtResource("1_axr30")
+
+[node name="MiningTimer" type="Timer" parent="." unique_id=1077104422]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1770829394]
+texture = ExtResource("2_uoa8j")
+
+[connection signal="timeout" from="MiningTimer" to="." method="_on_mining_timer_timeout"]

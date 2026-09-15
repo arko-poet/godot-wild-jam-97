@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://vseii40agins"]
+
+[ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades/upgrades_menu.gd" id="1_tishx"]
+[ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades/upgrade.tscn" id="2_evfao"]
+
+[sub_resource type="Gradient" id="Gradient_tishx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dh0n3"]
+gradient = SubResource("Gradient_tishx")
+width = 32
+height = 32
+
+[node name="UpgradesMenu" type="Control" unique_id=1399126238]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tishx")
+hide_offset = Vector2(0, -150)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1907932633]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 244.0
+grow_horizontal = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -84)
+offset_transform_visual_only = false
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=331429151]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=1997951815]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=100295460]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="UpgradeContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=368040140]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="BaseDamage" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+layout_mode = 2
+upgrade_name = "base_damage"
+upgrade_cap = 10
+base_cost = 1
+cost_exponential_base = 0.0
+cost_linear_multiplier = 1.0
+total_cost = 2
+use_upgrade_count = false
+base_amount = 1.0
+flat_amount_change = 1.0
+total_amount = 1.0
+
+[node name="DashDuration" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1964582489 instance=ExtResource("2_evfao")]
+layout_mode = 2
+upgrade_name = "dash_duration"
+upgrade_cap = 10
+base_cost = 1
+cost_exponential_base = 0.0
+cost_linear_multiplier = 1.0
+total_cost = 2
+use_upgrade_count = false
+base_amount = 0.5
+flat_amount_change = -0.04
+total_amount = 0.5
+
+[node name="PetDamage" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=212416059 instance=ExtResource("2_evfao")]
+layout_mode = 2
+upgrade_name = "pet_base_damage"
+upgrade_cap = 10
+base_cost = 1
+cost_exponential_base = 0.0
+cost_linear_multiplier = 1.0
+total_cost = 2
+use_upgrade_count = false
+base_amount = 1.0
+flat_amount_change = 1.0
+total_amount = 1.0
+
+[node name="DoomTime" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1856995004 instance=ExtResource("2_evfao")]
+layout_mode = 2
+upgrade_name = "doom_time"
+upgrade_cap = 10
+base_cost = 1
+cost_exponential_base = 0.0
+cost_linear_multiplier = 1.0
+total_cost = 2
+use_upgrade_count = false
+base_amount = 10.0
+flat_amount_change = 1.0
+total_amount = 10.0
+
+[node name="ResourceCounters" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=475768743]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Resource1" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters" unique_id=1354917627]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource1" unique_id=217744835]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_dh0n3")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource1" unique_id=667350993]
+layout_mode = 2
+text = ":0"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=760703687]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer" unique_id=846616694]
+visible = false
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ToggleOffset" type="Button" parent="VBoxContainer/MarginContainer/PanelContainer" unique_id=1621714301]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Upgrades"
