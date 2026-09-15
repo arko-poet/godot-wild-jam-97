@@ -18,6 +18,7 @@ centered = false
 
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(320, 244)
 
 [connection signal="mined" from="Dwarf" to="." method="_on_dwarf_mined"]

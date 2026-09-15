@@ -2,14 +2,14 @@ class_name Tunnel
 extends Node2D
 
 const ROCK_HORIZONTAL_SPACING := 162
-const TUNNEL_VERTICAL_POSITION := 270
+const TUNNEL_VERTICAL_POSITION := 250
 const NUMBER_OF_ROCKS := 10
 const ROCK_HP_SCALING := 1
 
 @export var rock_scene: PackedScene
 
 var rocks: Array[Rock]
-var next_rock_horizontal_position := 500
+var next_rock_horizontal_position := 400
 var next_rock_health := 5
 var stats: Stats
 
