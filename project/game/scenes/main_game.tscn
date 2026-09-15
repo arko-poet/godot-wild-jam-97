@@ -53,6 +53,8 @@ mouse_filter = 2
 [node name="UpgradesMenu" parent="UILayer/UI" unique_id=385757971 instance=ExtResource("7_cnnha")]
 unique_name_in_owner = true
 layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI" unique_id=1742162669]
 layout_mode = 1
@@ -99,14 +101,14 @@ anchor_bottom = 1.0
 offset_top = -32.0
 offset_right = 192.0
 grow_vertical = 0
-text = "Start"
+text = "Start Mining"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI" unique_id=300988861]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 1.0
+offset_top = 3.0
 offset_right = 71.0
-offset_bottom = 33.0
+offset_bottom = 35.0
 
 [node name="GemsTexture" type="TextureRect" parent="UILayer/UI/HBoxContainer" unique_id=1754433667]
 unique_name_in_owner = true

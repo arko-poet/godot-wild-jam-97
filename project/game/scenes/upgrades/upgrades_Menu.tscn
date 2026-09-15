@@ -50,6 +50,7 @@ columns = 3
 [node name="BaseDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "base_damage"
+upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 cost_exponential_coefficient = 0.0
@@ -61,6 +62,7 @@ output_percentage_change = 0.0
 [node name="DashDuration" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "dash_duration"
+upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 cost_exponential_coefficient = 0.0
@@ -72,6 +74,7 @@ output_percentage_change = -0.04
 [node name="PetDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "pet_base_damage"
+upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 cost_exponential_coefficient = 0.0
@@ -83,6 +86,7 @@ output_percentage_change = 0.0
 [node name="DoomTime" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "doom_time"
+upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 cost_exponential_coefficient = 0.0
