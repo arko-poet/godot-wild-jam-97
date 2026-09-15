@@ -57,8 +57,8 @@ func _update():
 
 
 func _on_upgrade_button_pressed() -> void:
+	Events.purchase_upgrade(upgrade_name, get_output(), get_cost())
+
 	upgrade_count += 1
 
 	_update()
-
-	Events.purchase_upgrade(upgrade_name, get_output(), get_cost())
