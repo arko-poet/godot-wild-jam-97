@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cck2hj4fugmyu"]
 
 [ext_resource type="Texture2D" uid="uid://72o74w6rpf1u" path="res://game/art/dwarf/attack/DMG_SparksAttack.png" id="1_stvlh"]
-[ext_resource type="Script" uid="uid://c5tu2w0sv5ypn" path="res://game/scenes/character/sparks_attack.gd" id="2_tf4tn"]
+[ext_resource type="Script" uid="uid://c5tu2w0sv5ypn" path="res://game/scenes/character/sparks.gd" id="2_ibysq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibysq"]
 atlas = ExtResource("1_stvlh")
@@ -49,6 +49,6 @@ animations = [{
 [node name="Sparks" type="AnimatedSprite2D" unique_id=636074057]
 sprite_frames = SubResource("SpriteFrames_esqyw")
 animation = &"attack"
-script = ExtResource("2_tf4tn")
+script = ExtResource("2_ibysq")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

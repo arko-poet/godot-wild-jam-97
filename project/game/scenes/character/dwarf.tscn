@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://04tqlo3l8s62"]
 
 [ext_resource type="Script" uid="uid://bkv4be01y5df3" path="res://game/scenes/character/dwarf.gd" id="1_wjfk0"]
-[ext_resource type="PackedScene" uid="uid://cck2hj4fugmyu" path="res://game/scenes/character/sparks_attack.tscn" id="2_dsmkv"]
+[ext_resource type="PackedScene" uid="uid://cck2hj4fugmyu" path="res://game/scenes/character/sparks.tscn" id="2_dsmkv"]
 [ext_resource type="Texture2D" uid="uid://cxi6ln0a46vlt" path="res://game/art/prototypes/DMG_DwarfBody.png" id="2_g7s5g"]
 [ext_resource type="Texture2D" uid="uid://b5mtnuburkh2f" path="res://game/art/dwarf/attack/DMG_BodyAttack.png" id="2_hxpmo"]
+[ext_resource type="PackedScene" uid="uid://iury3s6wck8t" path="res://game/scenes/character/smoke.tscn" id="3_fedji"]
 [ext_resource type="Texture2D" uid="uid://ck2r7mmbt5gnh" path="res://game/art/prototypes/DMG_DwarfPick.png" id="3_vxjbm"]
 [ext_resource type="Texture2D" uid="uid://2cgp2su1a4kn" path="res://game/art/dwarf/dash/DMG_BodyDash.png" id="3_yvw4c"]
 [ext_resource type="Texture2D" uid="uid://b4c23ty256mc0" path="res://game/art/prototypes/DMG_DwarfBeard.png" id="4_x81pr"]
@@ -278,6 +279,7 @@ animations = [{
 [node name="Dwarf" type="CharacterBody2D" unique_id=1484099431]
 script = ExtResource("1_wjfk0")
 sparks_attack_scene = ExtResource("2_dsmkv")
+smoke_dash_scene = ExtResource("3_fedji")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)
@@ -309,6 +311,7 @@ autoplay = "idle"
 
 [node name="StateLabel" type="Label" parent="." unique_id=347957112]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

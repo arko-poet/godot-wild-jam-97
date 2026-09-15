@@ -12,6 +12,7 @@ enum State {
 const MINING_DURATION := 0.3
 
 @export var sparks_attack_scene: PackedScene
+@export var smoke_dash_scene: PackedScene
 
 var state := State.IDLE:
 	set(value):
@@ -59,6 +60,10 @@ func dash(distance: float) -> void:
 
 	for sprite in sprites:
 		sprite.play(&"dash")
+
+	var smoke_dash: AnimatedSprite2D = smoke_dash_scene.instantiate()
+	smoke_dash.dash_duration = dash_duration
+	add_child(smoke_dash)
 
 	pet.stop_mining()
 

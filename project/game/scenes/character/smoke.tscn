@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://iury3s6wck8t"]
+
+[ext_resource type="Texture2D" uid="uid://c1pyxctsp8g3a" path="res://game/art/dwarf/dash/DMG_SmokeDash.png" id="1_bbjok"]
+[ext_resource type="Script" uid="uid://4liofc1gw22y" path="res://game/scenes/character/smoke.gd" id="2_bbjok"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ekxk"]
+atlas = ExtResource("1_bbjok")
+region = Rect2(0, 0, 259, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3krv"]
+atlas = ExtResource("1_bbjok")
+region = Rect2(259, 0, 259, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjrv1"]
+atlas = ExtResource("1_bbjok")
+region = Rect2(518, 0, 259, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqf5f"]
+atlas = ExtResource("1_bbjok")
+region = Rect2(777, 0, 259, 129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ekxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ekxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3krv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjrv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqf5f")
+}],
+"loop": 0,
+"name": &"dash",
+"speed": 5.0
+}]
+
+[node name="Smoke" type="AnimatedSprite2D" unique_id=636074057]
+sprite_frames = SubResource("SpriteFrames_5ekxk")
+animation = &"dash"
+script = ExtResource("2_bbjok")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
