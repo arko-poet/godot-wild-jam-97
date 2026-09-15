@@ -35,6 +35,8 @@ func _ready() -> void:
 		var attack_frame_count := sprite.sprite_frames.get_frame_count(&"attack")
 		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / MINING_DURATION)
 
+	sprites[0].modulate = Color.from_hsv(randf(), 1.0, 1.0)
+
 
 func _input(event: InputEvent) -> void:
 	if state != State.IDLE:
