@@ -20,7 +20,7 @@ var hp: int:
 			_spawn_gems()
 			destroyed.emit()
 			queue_free()
-var rare := false
+var is_rare := false
 
 @onready var hp_bar: ProgressBar = %HPBar
 @onready var hp_label: Label = %HPLabel
@@ -32,15 +32,17 @@ func _ready() -> void:
 	hp = max_hp
 	hp_bar.max_value = max_hp
 
-	if rare:
+	if is_rare:
 		ore_sprite.texture = rare_ore_texture
 		shadow_sprite.hide()
 
 
-func mine(damage: int) -> void:
+func mine(damage: int, is_crit: bool) -> void:
 	_hit_flash()
 
 	var floating_text: FloatingText = floating_text_scene.instantiate()
+	if is_crit:
+		floating_text.text_color = Color.YELLOW
 	floating_text.text = str(damage)
 	floating_text.position = position
 	get_parent().add_child(floating_text)
@@ -49,7 +51,7 @@ func mine(damage: int) -> void:
 
 
 func _spawn_gems() -> void:
-	if rare:
+	if is_rare:
 		for i in RARE_ORE_DROP_COUNT:
 			Events.collect_resource(0, 1, global_position)
 	else:

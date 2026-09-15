@@ -2,6 +2,7 @@ class_name FloatingText
 extends Node2D
 
 var text: String
+var text_color: Color
 
 @onready var _label: Label = %Label
 
@@ -9,6 +10,8 @@ var text: String
 # ensure position and label text is set before adding node to the scene tree
 func _ready() -> void:
 	_label.text = text
+	if text_color:
+		_label.add_theme_color_override("font_color", text_color)
 
 	var tween := create_tween()
 	tween.set_parallel()

@@ -38,7 +38,7 @@ func _spawn_new_rock() -> void:
 	rock.position = Vector2(next_rock_horizontal_position, TUNNEL_VERTICAL_POSITION)
 	rock.destroyed.connect(_on_rock_destroyed)
 	if randf() < RARE_ORE_PROBABILITY:
-		rock.rare = true
+		rock.is_rare = true
 	add_child(rock)
 	rocks.append(rock)
 
@@ -46,5 +46,5 @@ func _spawn_new_rock() -> void:
 	next_rock_health += ROCK_HP_SCALING
 
 
-func _on_dwarf_mined(damage: int) -> void:
-	rocks[0].mine(damage)
+func _on_dwarf_mined(damage: int, is_crit: bool) -> void:
+	rocks[0].mine(damage, is_crit)

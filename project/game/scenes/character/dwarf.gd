@@ -1,7 +1,7 @@
 class_name Dwarf
 extends CharacterBody2D
 
-signal mined(damage: int)
+signal mined(damage: int, is_crit: bool)
 
 enum State {
 	IDLE,
@@ -22,6 +22,8 @@ var state := State.IDLE:
 var dash_duration := 0.5
 var base_damage := 1
 var pet_base_damge := 1
+var crit_chance := 0.1
+var crit_multiplier := 2.0
 
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
@@ -100,7 +102,12 @@ func _on_body_animation_finished() -> void:
 		state = State.IDLE
 		for sprite in sprites:
 			sprite.play(&"idle")
-		mined.emit(base_damage)
+
+		var damage := base_damage
+		var is_crit := randf() < crit_chance
+		if is_crit:
+			damage = int(damage * crit_multiplier)
+		mined.emit(damage, is_crit)
 
 
 func _on_pick_frame_changed() -> void:
