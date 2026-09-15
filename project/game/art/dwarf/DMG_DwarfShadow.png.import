@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da1a0x6l1p6a3"
-path="res://.godot/imported/DMG_SparksDash.png-d7a492a71253e4df719eff0db924e932.ctex"
+uid="uid://bes3jtmtmxbql"
+path="res://.godot/imported/DMG_DwarfShadow.png-e0e6da60a7f728dd2c231c2d6da31339.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/dwarf/dash/DMG_SparksDash.png"
-dest_files=["res://.godot/imported/DMG_SparksDash.png-d7a492a71253e4df719eff0db924e932.ctex"]
+source_file="res://game/art/dwarf/DMG_DwarfShadow.png"
+dest_files=["res://.godot/imported/DMG_DwarfShadow.png-e0e6da60a7f728dd2c231c2d6da31339.ctex"]
 
 [params]
 

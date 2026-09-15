@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://byx0gl20pfo5i" path="res://game/art/dwarf/dash/DMG_BeardDash.png" id="9_1g8m5"]
 [ext_resource type="Texture2D" uid="uid://lpf4hb5wgqwg" path="res://game/art/dwarf/idle/DMG_PickIdle.png" id="11_dsmkv"]
 [ext_resource type="Texture2D" uid="uid://602nooa42ep0" path="res://game/art/dwarf/idle/DMG_BeardIdle.png" id="12_fedji"]
+[ext_resource type="Texture2D" uid="uid://bes3jtmtmxbql" path="res://game/art/dwarf/DMG_DwarfShadow.png" id="13_do1d5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgun3"]
 radius = 64.0
@@ -447,6 +448,9 @@ position = Vector2(0, -64)
 shape = SubResource("CircleShape2D_vgun3")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=1717948746]
+
+[node name="Shadow" type="Sprite2D" parent="Sprites" unique_id=876499108]
+texture = ExtResource("13_do1d5")
 
 [node name="Body" type="AnimatedSprite2D" parent="Sprites" unique_id=1363468152]
 unique_name_in_owner = true
