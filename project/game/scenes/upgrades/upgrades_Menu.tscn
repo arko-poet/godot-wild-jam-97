@@ -8,41 +8,37 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -360.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tishx")
-hide_offset = Vector2(0, -150)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1907932633]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=418461767]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 244.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, -84)
-offset_transform_visual_only = false
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=331429151]
-layout_mode = 2
+grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=1997951815]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=712351042]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=100295460]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1857419543]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="UpgradeContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=368040140]
+[node name="UpgradeContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1963745626]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -51,7 +47,7 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="BaseDamage" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+[node name="BaseDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "base_damage"
 upgrade_cap = 10
@@ -64,7 +60,7 @@ base_amount = 1.0
 flat_amount_change = 1.0
 total_amount = 1.0
 
-[node name="DashDuration" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1964582489 instance=ExtResource("2_evfao")]
+[node name="DashDuration" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "dash_duration"
 upgrade_cap = 10
@@ -77,7 +73,7 @@ base_amount = 0.5
 flat_amount_change = -0.04
 total_amount = 0.5
 
-[node name="PetDamage" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=212416059 instance=ExtResource("2_evfao")]
+[node name="PetDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "pet_base_damage"
 upgrade_cap = 10
@@ -90,7 +86,7 @@ base_amount = 1.0
 flat_amount_change = 1.0
 total_amount = 1.0
 
-[node name="DoomTime" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1856995004 instance=ExtResource("2_evfao")]
+[node name="DoomTime" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "doom_time"
 upgrade_cap = 10
@@ -103,26 +99,8 @@ base_amount = 10.0
 flat_amount_change = 1.0
 total_amount = 10.0
 
-[node name="ResourceCounters" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=475768743]
+[node name="ResourceCounters" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1360466962]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=760703687]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer" unique_id=846616694]
-visible = false
-custom_minimum_size = Vector2(128, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="ToggleOffset" type="Button" parent="VBoxContainer/MarginContainer/PanelContainer" unique_id=1621714301]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-text = "Upgrades"
-
-[connection signal="pressed" from="VBoxContainer/MarginContainer/PanelContainer/ToggleOffset" to="." method="_on_toggle_offset_pressed"]

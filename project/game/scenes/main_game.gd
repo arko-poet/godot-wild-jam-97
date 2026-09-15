@@ -38,8 +38,6 @@ func _start_doom_timer() -> void:
 	set_process(true)
 	_doom_timer.start(_stats.doom_time)
 
-	_upgrades_menu.toggle_button.disabled = true
-	_upgrades_menu.toggle_button.button_pressed = false
 	_upgrades_menu.hide_menu()
 
 
@@ -49,8 +47,6 @@ func _on_doom_timer_timeout() -> void:
 	_current_tunnel.queue_free()
 	set_process(false)
 
-	_upgrades_menu.toggle_button.disabled = false
-	_upgrades_menu.toggle_button.button_pressed = true
 	_upgrades_menu.show_menu()
 
 
