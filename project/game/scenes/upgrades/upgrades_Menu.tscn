@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vseii40agins"]
 
-[ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades_menu/upgrades_menu.gd" id="1_tishx"]
-[ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades_menu/Upgrade.tscn" id="2_evfao"]
+[ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades/upgrades_menu.gd" id="1_tishx"]
+[ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades/upgrade.tscn" id="2_evfao"]
 
 [sub_resource type="Gradient" id="Gradient_tishx"]
 offsets = PackedFloat32Array(1)

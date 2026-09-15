@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://04tqlo3l8s62"]
 
-[ext_resource type="Script" uid="uid://bkv4be01y5df3" path="res://game/scenes/dwarf.gd" id="1_wjfk0"]
+[ext_resource type="Script" uid="uid://bkv4be01y5df3" path="res://game/scenes/character/dwarf.gd" id="1_wjfk0"]
+[ext_resource type="PackedScene" uid="uid://cck2hj4fugmyu" path="res://game/scenes/character/sparks_attack.tscn" id="2_dsmkv"]
 [ext_resource type="Texture2D" uid="uid://cxi6ln0a46vlt" path="res://game/art/prototypes/DMG_DwarfBody.png" id="2_g7s5g"]
 [ext_resource type="Texture2D" uid="uid://b5mtnuburkh2f" path="res://game/art/dwarf/attack/DMG_BodyAttack.png" id="2_hxpmo"]
 [ext_resource type="Texture2D" uid="uid://ck2r7mmbt5gnh" path="res://game/art/prototypes/DMG_DwarfPick.png" id="3_vxjbm"]
 [ext_resource type="Texture2D" uid="uid://2cgp2su1a4kn" path="res://game/art/dwarf/dash/DMG_BodyDash.png" id="3_yvw4c"]
 [ext_resource type="Texture2D" uid="uid://b4c23ty256mc0" path="res://game/art/prototypes/DMG_DwarfBeard.png" id="4_x81pr"]
 [ext_resource type="Texture2D" uid="uid://dd6lo8d60be8b" path="res://game/art/dwarf/attack/DMG_PickAttack.png" id="5_2t0px"]
-[ext_resource type="PackedScene" uid="uid://l0agmulilp4p" path="res://game/scenes/pet.tscn" id="5_vxjbm"]
+[ext_resource type="PackedScene" uid="uid://l0agmulilp4p" path="res://game/scenes/character/pet.tscn" id="5_vxjbm"]
 [ext_resource type="Texture2D" uid="uid://chfiq8wrmoeog" path="res://game/art/dwarf/dash/DMG_PickDash.png" id="6_yvw4c"]
 [ext_resource type="Texture2D" uid="uid://b40rfm8el8yl2" path="res://game/art/dwarf/attack/DMG_BeardAttack.png" id="8_q3g3n"]
 [ext_resource type="Texture2D" uid="uid://byx0gl20pfo5i" path="res://game/art/dwarf/dash/DMG_BeardDash.png" id="9_1g8m5"]
@@ -276,6 +277,7 @@ animations = [{
 
 [node name="Dwarf" type="CharacterBody2D" unique_id=1484099431]
 script = ExtResource("1_wjfk0")
+sparks_attack_scene = ExtResource("2_dsmkv")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)
@@ -326,4 +328,5 @@ visible = false
 position = Vector2(-91, -3)
 
 [connection signal="animation_finished" from="Sprites/Body" to="." method="_on_body_animation_finished"]
+[connection signal="frame_changed" from="Sprites/Pick" to="." method="_on_pick_frame_changed"]
 [connection signal="mined" from="Pet" to="." method="_on_pet_mined"]

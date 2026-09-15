@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="3_1ig1l"]
 [ext_resource type="PackedScene" uid="uid://bl5p803fvns3" path="res://game/scenes/resource_drop.tscn" id="3_xmhwu"]
 [ext_resource type="PackedScene" uid="uid://j1tuh46skb2c" path="res://template/scenes/windows/pause_menu_layer.tscn" id="4_yv8p0"]
-[ext_resource type="PackedScene" uid="uid://vseii40agins" path="res://game/scenes/upgrades_menu/UpgradesMenu.tscn" id="7_cnnha"]
+[ext_resource type="PackedScene" uid="uid://vseii40agins" path="res://game/scenes/upgrades/upgrades_Menu.tscn" id="7_cnnha"]
 
 [node name="MainGame" type="Node" unique_id=1713024868]
 script = ExtResource("1_1qbya")

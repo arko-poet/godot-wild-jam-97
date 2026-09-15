@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l0agmulilp4p"]
 
-[ext_resource type="Script" uid="uid://cw221hv7jfcxo" path="res://game/scenes/pet.gd" id="1_axr30"]
+[ext_resource type="Script" uid="uid://cw221hv7jfcxo" path="res://game/scenes/character/pet.gd" id="1_axr30"]
 [ext_resource type="Texture2D" uid="uid://ck2r7mmbt5gnh" path="res://game/art/prototypes/DMG_DwarfPick.png" id="2_uoa8j"]
 
 [node name="Pet" type="Node2D" unique_id=1372273945]

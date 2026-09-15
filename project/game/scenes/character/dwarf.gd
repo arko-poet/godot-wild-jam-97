@@ -11,6 +11,8 @@ enum State {
 
 const MINING_DURATION := 0.3
 
+@export var sparks_attack_scene: PackedScene
+
 var state := State.IDLE:
 	set(value):
 		state = value
@@ -34,10 +36,6 @@ func _ready() -> void:
 		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / MINING_DURATION)
 
 
-#func _physics_process(_delta: float) -> void:
-#var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-#velocity = direction * 400
-#move_and_slide()
 func _input(event: InputEvent) -> void:
 	if state != State.IDLE:
 		return
@@ -96,3 +94,10 @@ func _on_body_animation_finished() -> void:
 		for sprite in sprites:
 			sprite.play(&"idle")
 		mined.emit(base_damage)
+
+
+func _on_pick_frame_changed() -> void:
+	if state == State.MINING and sprites[1].frame == 2:
+		var sparks_attack: AnimatedSprite2D = sparks_attack_scene.instantiate()
+		sparks_attack.position = position
+		get_parent().add_child(sparks_attack)

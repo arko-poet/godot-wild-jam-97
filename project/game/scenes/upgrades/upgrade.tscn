@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdb5wamh4swsk"]
 
-[ext_resource type="Script" uid="uid://cmlwnpkp5v17t" path="res://game/scenes/upgrades_menu/upgrade.gd" id="1_i8043"]
+[ext_resource type="Script" uid="uid://cmlwnpkp5v17t" path="res://game/scenes/upgrades/upgrade.gd" id="1_i8043"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h32h"]
 border_width_left = 4
