@@ -1,21 +1,23 @@
 class_name Upgrade
 extends PanelContainer
 
-@export_group("main")
+@export_group("base")
 @export var upgrade_name: String
-@export var upgrade_count: int
-@export var upgrade_cap: int
+@export var upgrade_cap: int = 10
 
-@export_group("cost structure")
+@export_group("cost")
 @export var consume_resource_id: int
-@export var base_cost: int = 0
-@export var cost_linear_multiplier: float = 0
-@export var cost_exponential_base: float = 1
+@export var cost_base: int = 1
+@export var cost_linear_coefficient: float = 1.0
+@export var cost_exponential_coefficient: float
+@export var cost_exponent: float
 
-@export_group("emit amount")
-@export var base_amount: float = 1.0
-@export var percent_amount_change: float = 0
-@export var flat_amount_change: float = 1.0
+@export_group("output")
+@export var output_base: float = 1.0
+@export var output_flat_change: float = 1.0
+@export var output_percentage_change: float
+
+var upgrade_count: int
 
 @onready var upgrade_button: Button = %UpgradeButton
 @onready var upgrade_count_label: Label = %UpgradeCountLabel
@@ -27,13 +29,13 @@ func _ready() -> void:
 
 func get_cost() -> int:
 	return int(
-		base_cost + upgrade_count * cost_linear_multiplier
-		+ pow(upgrade_count, cost_exponential_base)
+		cost_base + cost_linear_coefficient * upgrade_count
+		+ cost_exponential_coefficient * pow(upgrade_count, cost_exponent)
 	)
 
 
-func get_amount() -> float:
-	return base_amount + upgrade_count * (percent_amount_change + flat_amount_change)
+func get_output() -> float:
+	return output_base + upgrade_count * (output_flat_change + output_percentage_change)
 
 
 func set_affordable(affordable: bool) -> void:
@@ -55,8 +57,8 @@ func _update():
 
 
 func _on_upgrade_button_pressed() -> void:
-	Events.purchase_upgrade(upgrade_name, get_amount(), get_cost())
-
 	upgrade_count += 1
 
 	_update()
+
+	Events.purchase_upgrade(upgrade_name, get_output(), get_cost())
