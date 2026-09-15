@@ -50,57 +50,38 @@ columns = 3
 [node name="BaseDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "base_damage"
+upgrade_count = 0
 upgrade_cap = 10
 base_cost = 1
-cost_exponential_base = 0.0
 cost_linear_multiplier = 1.0
-total_cost = 2
-use_upgrade_count = false
-base_amount = 1.0
-flat_amount_change = 1.0
-total_amount = 1.0
+cost_exponential_base = 0.0
 
 [node name="DashDuration" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "dash_duration"
+upgrade_count = 0
 upgrade_cap = 10
 base_cost = 1
-cost_exponential_base = 0.0
 cost_linear_multiplier = 1.0
-total_cost = 2
-use_upgrade_count = false
+cost_exponential_base = 0.0
 base_amount = 0.5
 flat_amount_change = -0.04
-total_amount = 0.5
 
 [node name="PetDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "pet_base_damage"
+upgrade_count = 0
 upgrade_cap = 10
 base_cost = 1
-cost_exponential_base = 0.0
 cost_linear_multiplier = 1.0
-total_cost = 2
-use_upgrade_count = false
-base_amount = 1.0
-flat_amount_change = 1.0
-total_amount = 1.0
+cost_exponential_base = 0.0
 
 [node name="DoomTime" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
 layout_mode = 2
 upgrade_name = "doom_time"
+upgrade_count = 0
 upgrade_cap = 10
 base_cost = 1
-cost_exponential_base = 0.0
 cost_linear_multiplier = 1.0
-total_cost = 2
-use_upgrade_count = false
+cost_exponential_base = 0.0
 base_amount = 10.0
-flat_amount_change = 1.0
-total_amount = 10.0
-
-[node name="ResourceCounters" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1360466962]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 1

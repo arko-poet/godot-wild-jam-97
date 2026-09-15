@@ -5,7 +5,6 @@ extends Control
 
 var tween: Tween
 
-@onready var resource_counters: Control = %ResourceCounters
 @onready var upgrade_container: GridContainer = %UpgradeContainer
 
 
@@ -28,4 +27,4 @@ func show_menu() -> void:
 func gems_changed(gems: int) -> void:
 	for upgrade in upgrade_container.get_children():
 		if upgrade is Upgrade:
-			upgrade.set_affordable(upgrade.total_cost > gems)
+			upgrade.set_affordable(upgrade.get_cost() > gems)
