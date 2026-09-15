@@ -12,7 +12,7 @@ func hide_menu() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_property(self, "position:y", -360.0, 0.5).\
+	tween.tween_property(self, "position:y", -size.y, 0.5).\
 	set_trans(Tween.TRANS_QUAD)
 
 
