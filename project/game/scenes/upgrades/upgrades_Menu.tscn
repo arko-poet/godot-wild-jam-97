@@ -12,24 +12,6 @@ gradient = SubResource("Gradient_tishx")
 width = 32
 height = 32
 
-[sub_resource type="Gradient" id="Gradient_1moy1"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5h32h"]
-gradient = SubResource("Gradient_1moy1")
-width = 32
-height = 32
-
-[sub_resource type="Gradient" id="Gradient_83p1k"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0epv"]
-gradient = SubResource("Gradient_83p1k")
-width = 32
-height = 32
-
 [node name="UpgradesMenu" type="Control" unique_id=1399126238]
 layout_mode = 3
 anchors_preset = 15
@@ -39,7 +21,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tishx")
-gems = [200, 0, 0]
 hide_offset = Vector2(0, -150)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1907932633]
@@ -145,30 +126,6 @@ texture = SubResource("GradientTexture2D_dh0n3")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource1" unique_id=667350993]
-layout_mode = 2
-text = ":0"
-
-[node name="Resource2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters" unique_id=681345689]
-layout_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource2" unique_id=599422166]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_5h32h")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource2" unique_id=1665510322]
-layout_mode = 2
-text = ":0"
-
-[node name="Resource3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters" unique_id=912445736]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource3" unique_id=864197805]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_u0epv")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceCounters/Resource3" unique_id=1999688800]
 layout_mode = 2
 text = ":0"
 

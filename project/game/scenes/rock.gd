@@ -41,7 +41,7 @@ func mine(damage: int) -> void:
 
 
 func _spawn_gems() -> void:
-	Events.collect_resource(randi_range(0, 2), 1, global_position)
+	Events.collect_resource(0, 1, global_position)
 
 
 func _hit_flash() -> void:

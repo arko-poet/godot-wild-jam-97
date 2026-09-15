@@ -1,7 +1,7 @@
 class_name UpgradesMenu
 extends Control
 
-@export var gems = [0, 0, 0]
+@export var gems = [0]
 @export var hide_offset: Vector2
 
 var tween: Tween
