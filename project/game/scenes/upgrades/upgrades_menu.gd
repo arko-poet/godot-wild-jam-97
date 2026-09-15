@@ -28,4 +28,4 @@ func show_menu() -> void:
 func gems_changed(gems: int) -> void:
 	for upgrade in upgrade_container.get_children():
 		if upgrade is Upgrade:
-			upgrade.upgrade_button.disabled = upgrade.total_cost > gems
+			upgrade.set_affordable(upgrade.total_cost > gems)

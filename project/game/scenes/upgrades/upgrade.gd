@@ -1,4 +1,3 @@
-@tool
 class_name Upgrade
 extends PanelContainer
 
@@ -88,6 +87,12 @@ func update_upgrade():
 		upgrade_count_label.text = str(current_upgrade_count, "/", upgrade_cap)
 	else:
 		upgrade_count_label.text = str(current_upgrade_count)
+
+
+func set_affordable(affordable: bool) -> void:
+	upgrade_button.disabled = affordable
+	if current_upgrade_count == upgrade_cap:
+		upgrade_button.disabled = true
 
 
 func _on_upgrade_button_pressed() -> void:
