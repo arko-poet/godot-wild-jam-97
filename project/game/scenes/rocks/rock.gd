@@ -6,7 +6,6 @@ signal destroyed
 const RARE_ORE_DROP_COUNT := 10
 
 @export var floating_text_scene: PackedScene
-@export var rare_ore_texture: Texture2D
 
 var max_hp := 5
 var hp: int:
@@ -21,6 +20,7 @@ var hp: int:
 			destroyed.emit()
 			queue_free()
 var is_rare := false
+var rock_resource: RockResource
 
 @onready var hp_bar: ProgressBar = %HPBar
 @onready var hp_label: Label = %HPLabel
@@ -32,9 +32,9 @@ func _ready() -> void:
 	hp = max_hp
 	hp_bar.max_value = max_hp
 
-	if is_rare:
-		ore_sprite.texture = rare_ore_texture
-		shadow_sprite.hide()
+	if not rock_resource:
+		return
+	ore_sprite.texture = rock_resource.texture
 
 
 func mine(damage: int, is_crit: bool) -> void:

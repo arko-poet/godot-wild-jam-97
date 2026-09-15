@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RockResource" format=3 uid="uid://yx0mqgn2uyci"]
+
+[ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="1_8ojsi"]
+[ext_resource type="Texture2D" uid="uid://dehl7g7svhho1" path="res://game/art/rocks/DMG_OreRuby.png" id="2_8oqqr"]
+
+[resource]
+script = ExtResource("1_8ojsi")
+type = 3
+texture = ExtResource("2_8oqqr")
+spawn_weight = 25
+minimum_depth = 5
+metadata/_custom_type_script = "uid://beq5iwtyuhset"
