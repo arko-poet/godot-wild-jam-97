@@ -53,9 +53,9 @@ func mine(damage: int, is_crit: bool) -> void:
 func _spawn_gems() -> void:
 	if is_rare:
 		for i in RARE_ORE_DROP_COUNT:
-			Events.collect_resource(0, 1, global_position)
+			Events.drop_gem(0, 1, global_position)
 	else:
-		Events.collect_resource(0, 1, global_position)
+		Events.drop_gem(0, 1, global_position)
 
 
 func _hit_flash() -> void:

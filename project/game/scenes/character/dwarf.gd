@@ -93,7 +93,7 @@ func _on_pet_mined() -> void:
 	if state == State.DASHING:
 		return
 
-	mined.emit(pet_base_damge)
+	mined.emit(pet_base_damge, false)
 
 
 # body signal affects pick and beard as well

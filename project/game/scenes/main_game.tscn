@@ -2,16 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bamm5g7qbukm4" path="res://game/scenes/main_game.gd" id="1_1qbya"]
 [ext_resource type="PackedScene" uid="uid://btrxmgxymwtdc" path="res://game/scenes/tunnel.tscn" id="2_3iu72"]
+[ext_resource type="PackedScene" uid="uid://bl5p803fvns3" path="res://game/scenes/gem.tscn" id="2_wemlv"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="3_1ig1l"]
-[ext_resource type="PackedScene" uid="uid://bl5p803fvns3" path="res://game/scenes/resource_drop.tscn" id="3_xmhwu"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="4_wemlv"]
 [ext_resource type="PackedScene" uid="uid://j1tuh46skb2c" path="res://template/scenes/windows/pause_menu_layer.tscn" id="4_yv8p0"]
 [ext_resource type="AudioStream" uid="uid://bfmuo6l4tb202" path="res://game/audio/lava.ogg" id="5_ldb66"]
 [ext_resource type="PackedScene" uid="uid://vseii40agins" path="res://game/scenes/upgrades/upgrades_Menu.tscn" id="7_cnnha"]
 
+[sub_resource type="Gradient" id="Gradient_tishx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wemlv"]
+gradient = SubResource("Gradient_tishx")
+width = 32
+height = 32
+
 [node name="MainGame" type="Node" unique_id=1713024868]
 script = ExtResource("1_1qbya")
-drop_resource = ExtResource("3_xmhwu")
+_gem_scene = ExtResource("2_wemlv")
 _tunnel_scene = ExtResource("2_3iu72")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("4_wemlv")]
@@ -91,6 +100,24 @@ offset_top = -32.0
 offset_right = 192.0
 grow_vertical = 0
 text = "Start"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI" unique_id=300988861]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 71.0
+offset_bottom = 33.0
+
+[node name="GemsTexture" type="TextureRect" parent="UILayer/UI/HBoxContainer" unique_id=1754433667]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wemlv")
+stretch_mode = 3
+
+[node name="GemsLabel" type="Label" parent="UILayer/UI/HBoxContainer" unique_id=346689885]
+unique_name_in_owner = true
+layout_mode = 2
+text = ":0"
 
 [connection signal="timeout" from="DoomTimer" to="." method="_on_doom_timer_timeout"]
 [connection signal="pressed" from="UILayer/UI/StartButton" to="." method="_on_start_button_pressed"]

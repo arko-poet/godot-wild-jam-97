@@ -8,10 +8,10 @@ var doom_time := 10.0
 
 
 func _init() -> void:
-	Events.upgrade_changed.connect(_on_upgrade_changed)
+	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 
 
-func _on_upgrade_changed(upgrade_name: String, amount: float) -> void:
+func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> void:
 	match upgrade_name:
 		"base_damage":
 			base_damage = int(amount)

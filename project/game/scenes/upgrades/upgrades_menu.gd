@@ -1,34 +1,13 @@
 class_name UpgradesMenu
 extends Control
 
-@export var gems = [0]
 @export var hide_offset: Vector2
 
 var tween: Tween
 
 @onready var toggle_button: Button = %ToggleOffset
 @onready var resource_counters: Control = %ResourceCounters
-
-
-func _ready() -> void:
-	@warning_ignore("unused_parameter")
-	Events.resource_collected.connect(
-		func on_resource_collected(resource_id, amount, drop_global_position):
-			resource_counters.get_child(resource_id).get_child(1).text = str(
-				":",
-				gems[resource_id] + amount,
-			)
-			gems[resource_id] += amount,
-	)
-	toggle_button.pressed.connect(
-		func():
-			if toggle_button.button_pressed:
-				show_menu()
-			else:
-				hide_menu(),
-	)
-	for r in gems.size():
-		resource_counters.get_child(r).get_child(1).text = str(":", gems[r])
+@onready var upgrade_container: GridContainer = %UpgradeContainer
 
 
 func hide_menu() -> void:
@@ -47,10 +26,14 @@ func show_menu() -> void:
 	set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
-func try_resource_transaction(resource_id: int, amount: int) -> bool:
-	var temp = gems[resource_id] + amount
-	if temp >= 0:
-		gems[resource_id] = temp
-		resource_counters.get_child(resource_id).get_child(1).text = str(":", gems[resource_id])
-		return true
-	return false
+func gems_changed(gems: int) -> void:
+	for upgrade in upgrade_container.get_children():
+		if upgrade is Upgrade:
+			upgrade.upgrade_button.disabled = upgrade.total_cost > gems
+
+
+func _on_toggle_offset_pressed() -> void:
+	if toggle_button.button_pressed:
+		show_menu()
+	else:
+		hide_menu()

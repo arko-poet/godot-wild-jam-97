@@ -1,4 +1,5 @@
 @tool
+class_name Upgrade
 extends PanelContainer
 
 signal upgrade_parameters_changed()
@@ -14,11 +15,6 @@ signal upgrade_parameters_changed()
 		calculate_total_amount()
 		calculate_total_cost()
 		upgrade_parameters_changed.emit()
-		if !Engine.is_editor_hint():
-			if use_upgrade_count:
-				Events.emit_upgrade_changed(upgrade_name, current_upgrade_count)
-			else:
-				Events.emit_upgrade_changed(upgrade_name, total_amount)
 @export var upgrade_cap: int = 0:
 	set(value):
 		upgrade_cap = value
@@ -72,17 +68,6 @@ func _ready() -> void:
 	upgrades_menu = owner
 	upgrade_parameters_changed.connect(update_upgrade)
 
-	if !Engine.is_editor_hint():
-		upgrade_button.pressed.connect(
-			func try_upgrade():
-				if !upgrades_menu.try_resource_transaction(consume_resource_id, -total_cost):
-					return
-				if upgrade_cap > 0 && current_upgrade_count < upgrade_cap:
-					current_upgrade_count += 1
-				elif upgrade_cap <= 0:
-					current_upgrade_count += 1,
-		)
-
 	update_upgrade()
 
 
@@ -103,3 +88,11 @@ func update_upgrade():
 		upgrade_count_label.text = str(current_upgrade_count, "/", upgrade_cap)
 	else:
 		upgrade_count_label.text = str(current_upgrade_count)
+
+
+func _on_upgrade_button_pressed() -> void:
+	Events.purchase_upgrade(upgrade_name, total_amount, total_cost)
+	if upgrade_cap > 0 && current_upgrade_count < upgrade_cap:
+		current_upgrade_count += 1
+	elif upgrade_cap <= 0:
+		current_upgrade_count += 1
