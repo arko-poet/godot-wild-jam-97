@@ -31,6 +31,8 @@ func _ready() -> void:
 	dwarf.dash_duration = stats.dash_duration
 	dwarf.pet_base_damge = stats.pet_base_damage
 
+	background_filter_hue = background_filter_hue
+
 
 func _on_rock_destroyed() -> void:
 	rocks.pop_front()
