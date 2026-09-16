@@ -15,14 +15,12 @@ offset_right = 128.0
 offset_bottom = 62.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
 script = ExtResource("1_i8043")
-upgrade_name = "name"
-upgrade_cap = 0
-cost_base = null
-cost_linear_coefficient = null
+upgrade_name = "pickaxe"
+upgrade_cap = 2
+cost_base = 10
+cost_linear_coefficient = 10.0
 cost_exponential_coefficient = null
 cost_exponent = null
-output_base = null
-output_flat_change = null
 output_percentage_change = null
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=166137813]

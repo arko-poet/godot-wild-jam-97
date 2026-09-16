@@ -56,8 +56,6 @@ cost_base = 1
 cost_linear_coefficient = 1.0
 cost_exponential_coefficient = 0.0
 cost_exponent = 0.0
-output_base = 1.0
-output_flat_change = 1.0
 output_percentage_change = 0.0
 
 [node name="DashDuration" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
@@ -82,8 +80,6 @@ cost_base = 1
 cost_linear_coefficient = 1.0
 cost_exponential_coefficient = 0.0
 cost_exponent = 0.0
-output_base = 1.0
-output_flat_change = 1.0
 output_percentage_change = 0.0
 
 [node name="DoomTime" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
@@ -98,3 +94,8 @@ cost_exponent = 0.0
 output_base = 10.0
 output_flat_change = 2.0
 output_percentage_change = 0.0
+
+[node name="Pickaxe" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+output_base = 0.0

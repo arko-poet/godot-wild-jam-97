@@ -13,6 +13,7 @@ const MINING_DURATION := 0.3
 
 @export var sparks_attack_scene: PackedScene
 @export var smoke_dash_scene: PackedScene
+@export var pickaxe_upgrades: Array[SpriteFrames]
 
 var state := State.IDLE:
 	set(value):
@@ -21,9 +22,14 @@ var state := State.IDLE:
 
 var dash_duration := 0.5
 var base_damage := 1
+var damage_multiplier := 1
 var pet_base_damge := 1
 var crit_chance := 0.1
 var crit_multiplier := 2.0
+var pickaxe := 0:
+	set(value):
+		pickaxe = value
+		_upgrade_pickaxe()
 
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
@@ -31,14 +37,11 @@ var crit_multiplier := 2.0
 
 
 func _ready() -> void:
-	for sprite in sprites:
-		var dash_frame_count := sprite.sprite_frames.get_frame_count(&"dash")
-		sprite.sprite_frames.set_animation_speed(&"dash", dash_frame_count / dash_duration)
-
-		var attack_frame_count := sprite.sprite_frames.get_frame_count(&"attack")
-		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / MINING_DURATION)
+	_update_animation_speed()
 
 	sprites[0].modulate = Color.from_hsv(randf(), 1.0, 1.0)
+
+	#_upgrade_pickaxe(pickaxe_upgrades[pickaxe], pickaxe + 1)
 
 
 func _input(event: InputEvent) -> void:
@@ -67,6 +70,16 @@ func dash(distance: float) -> void:
 	add_child(smoke_dash)
 
 	pet.stop_mining()
+
+
+func _upgrade_pickaxe() -> void:
+	sprites[1].sprite_frames = pickaxe_upgrades[pickaxe]
+
+	damage_multiplier = pickaxe + 1
+
+	_update_animation_speed()
+
+	#sprites[1].frame_changed.connect(_on_pick_frame_changed)
 
 
 func _on_dash_finsished() -> void:
@@ -102,7 +115,7 @@ func _on_body_animation_finished() -> void:
 		for sprite in sprites:
 			sprite.play(&"idle")
 
-		var damage := base_damage
+		var damage := base_damage * damage_multiplier
 		var is_crit := randf() < crit_chance
 		if is_crit:
 			damage = int(damage * crit_multiplier)
@@ -110,7 +123,17 @@ func _on_body_animation_finished() -> void:
 
 
 func _on_pick_frame_changed() -> void:
+	print("frame changed")
 	if state == State.MINING and sprites[1].frame == 2:
 		var sparks_attack: AnimatedSprite2D = sparks_attack_scene.instantiate()
 		sparks_attack.position = position
 		get_parent().add_child(sparks_attack)
+
+
+func _update_animation_speed() -> void:
+	for sprite in sprites:
+		var dash_frame_count := sprite.sprite_frames.get_frame_count(&"dash")
+		sprite.sprite_frames.set_animation_speed(&"dash", dash_frame_count / dash_duration)
+
+		var attack_frame_count := sprite.sprite_frames.get_frame_count(&"attack")
+		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / MINING_DURATION)
