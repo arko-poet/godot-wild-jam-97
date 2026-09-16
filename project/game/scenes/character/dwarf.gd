@@ -132,7 +132,7 @@ func _on_body_animation_finished() -> void:
 
 
 func _on_pick_frame_changed() -> void:
-	if state == State.MINING and sprites[1].frame == 2:
+	if state == State.MINING and sprites[1].frame == 1:
 		var sparks_attack: AnimatedSprite2D = sparks_attack_scene.instantiate()
 		sparks_attack.position = position
 		get_parent().add_child(sparks_attack)
