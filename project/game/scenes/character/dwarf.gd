@@ -24,11 +24,31 @@ var state := State.IDLE:
 		state = value
 		state_label.text = State.keys()[state]
 
+var stats: Stats:
+	set(value):
+		stats = value
+
+		base_damage = stats.base_damage
+		increased_damage = stats.increased_damge
+		pickaxe = stats.pickaxe
+		auto_attack = stats.auto_attack
+		crit_chance = stats.crit_chance
+		crit_damage = stats.crit_damage
+		attack_duration = stats.attack_duration
+
+		dash_duration = stats.dash_duration
+
+		pet_unlocked = stats.pet_unlocked
+		pet_base_damage = stats.pet_base_damage
+		pet_increased_damage = stats.pet_increased_damage
+		pet_crit_chance = stats.pet
 var dash_duration := 0.5
 var base_damage := 1
 var increased_damage := 0.1
 var damage_multiplier := 1
-var pet_base_damge := 1
+var pet_base_damage := 1
+var pet_increased_damage := 0.0
+var pet_crit_chance := 0.0
 var crit_chance := 0.0
 var crit_damage := 2.0
 var pickaxe := 0:
@@ -132,7 +152,7 @@ func _on_pet_mined() -> void:
 	if state == State.DASHING:
 		return
 
-	mined.emit(pet_base_damge, false)
+	mined.emit(pet_base_damage * (1 + pet_increased_damage), false)
 
 
 # body signal affects pick and beard as well

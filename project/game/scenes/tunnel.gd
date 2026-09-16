@@ -29,16 +29,7 @@ func _ready() -> void:
 	for i in NUMBER_OF_ROCKS:
 		_spawn_new_rock()
 
-	dwarf.base_damage = stats.base_damage
-	dwarf.dash_duration = stats.dash_duration
-	dwarf.pet_base_damge = stats.pet_base_damage
-	dwarf.increased_damage = stats.increased_damge
-	dwarf.pickaxe = stats.pickaxe
-	dwarf.crit_chance = stats.crit_chance
-	dwarf.crit_damage = stats.crit_damage
-	dwarf.attack_duration = stats.attack_duration
-	dwarf.auto_attack = stats.auto_attack
-	dwarf.pet_unlocked = stats.pet_unlocked
+	dwarf.stats = stats
 	if dwarf.pet_unlocked:
 		dwarf.pet.start_mining()
 
