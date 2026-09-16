@@ -55,6 +55,14 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
+[node name="Pet" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1349109001 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "pet"
+upgrade_cap = 1
+cost_linear_coefficient = 1.0
+output_flat_change = 0.0
+
 [node name="AutoAttack" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=439501228 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2

@@ -40,6 +40,7 @@ var attack_duration := 1.0:
 		attack_duration = value
 		_update_animation_speed()
 var auto_attack := false
+var pet_unlocked := false
 
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
@@ -85,7 +86,8 @@ func dash(distance: float) -> void:
 	smoke_dash.dash_duration = dash_duration
 	add_child(smoke_dash)
 
-	pet.stop_mining()
+	if pet_unlocked:
+		pet.stop_mining()
 
 	SfxController.play(dash_sfx)
 
@@ -108,7 +110,8 @@ func _on_dash_finsished() -> void:
 	for sprite in sprites:
 		sprite.play(&"idle")
 
-	pet.start_mining()
+	if pet_unlocked:
+		pet.start_mining()
 
 
 func _mine() -> void:

@@ -38,6 +38,9 @@ func _ready() -> void:
 	dwarf.crit_damage = stats.crit_damage
 	dwarf.attack_duration = stats.attack_duration
 	dwarf.auto_attack = stats.auto_attack
+	dwarf.pet_unlocked = stats.pet_unlocked
+	if dwarf.pet_unlocked:
+		dwarf.pet.start_mining()
 
 	background_filter_hue = background_filter_hue
 
