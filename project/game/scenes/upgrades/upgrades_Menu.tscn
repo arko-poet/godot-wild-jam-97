@@ -2,6 +2,63 @@
 
 [ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades/upgrades_menu.gd" id="1_tishx"]
 [ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades/upgrade.tscn" id="2_evfao"]
+[ext_resource type="Texture2D" uid="uid://bcj4a4vfdlcjc" path="res://icon.svg" id="3_iwset"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o61th"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylcxw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sexkv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwset"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_778qj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxvc6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tai0f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
 
 [node name="UpgradesMenu" type="Control" unique_id=1399126238]
 layout_mode = 3
@@ -15,7 +72,15 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tishx")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=418461767]
+[node name="Control" type="Control" parent="." unique_id=971333394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="Panel" parent="Control" unique_id=1005628128]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,40 +89,34 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=712351042]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1857419543]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="UpgradeContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1963745626]
+[node name="UpgradeContainer" type="Control" parent="Control" unique_id=264338120]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 3
 
-[node name="BaseDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
+[node name="BaseDamage" parent="Control/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 400.0
+offset_right = 536.0
+offset_bottom = 464.0
 upgrade_name = "base_damage"
 upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
-[node name="DashDuration" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
+[node name="DashDuration" parent="Control/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 488.0
+offset_right = 800.0
+offset_bottom = 548.0
 upgrade_name = "dash_duration"
 upgrade_cap = 10
 cost_base = 1
@@ -66,17 +125,23 @@ output_base = 0.5
 output_flat_change = 0.0
 output_percentage_change = -0.04
 
-[node name="PetDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
+[node name="PetDamage" parent="Control/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 488.0
+offset_right = 936.0
+offset_bottom = 552.0
 upgrade_name = "pet_base_damage"
 upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
-[node name="DoomTime" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
+[node name="DoomTime" parent="Control/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 488.0
+offset_right = 664.0
+offset_bottom = 548.0
 upgrade_name = "doom_time"
 upgrade_cap = 10
 cost_base = 1
@@ -84,7 +149,1371 @@ cost_linear_coefficient = 1.0
 output_base = 10.0
 output_flat_change = 2.0
 
-[node name="Pickaxe" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
+[node name="Pickaxe" parent="Control/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 488.0
+offset_right = 536.0
+offset_bottom = 548.0
 output_base = 0.0
+
+[node name="Panel5" type="Panel" parent="Control/UpgradeContainer" unique_id=1347026103]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 28.0
+offset_right = -40.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel5" unique_id=1127032002]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel5" unique_id=95341807]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel5" unique_id=2082298747]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel5" unique_id=1469287391]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel6" type="Panel" parent="Control/UpgradeContainer" unique_id=259290301]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 28.0
+offset_right = 24.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel6" unique_id=1813669725]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel6" unique_id=1652333905]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel6" unique_id=185307613]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel6" unique_id=521980349]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel7" type="Panel" parent="Control/UpgradeContainer" unique_id=1987599583]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 28.0
+offset_right = 88.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel7" unique_id=1267331802]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel7" unique_id=1912697046]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel7" unique_id=2055897616]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel7" unique_id=21043329]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel8" type="Panel" parent="Control/UpgradeContainer" unique_id=1595625584]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 104.0
+offset_top = 28.0
+offset_right = 152.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel8" unique_id=245424813]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel8" unique_id=474178627]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel8" unique_id=2117374420]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel8" unique_id=916518370]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel14" type="Panel" parent="Control/UpgradeContainer" unique_id=1704245463]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 28.0
+offset_right = -104.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel14" unique_id=1102259426]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel14" unique_id=160387807]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel14" unique_id=867920369]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel14" unique_id=1192387469]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel15" type="Panel" parent="Control/UpgradeContainer" unique_id=916614312]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 168.0
+offset_top = 28.0
+offset_right = 216.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel15" unique_id=1679393557]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel15" unique_id=579453098]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel15" unique_id=881682436]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel21" type="Panel" parent="Control/UpgradeContainer" unique_id=1664563328]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 168.0
+offset_top = -36.0
+offset_right = 216.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel21" unique_id=605660704]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel21" unique_id=934029298]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel21" unique_id=2122350567]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel22" type="Panel" parent="Control/UpgradeContainer" unique_id=1803593425]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 168.0
+offset_top = -100.0
+offset_right = 216.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel22" unique_id=1925781025]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel22" unique_id=698933601]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel28" type="Panel" parent="Control/UpgradeContainer" unique_id=1180388556]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -100.0
+offset_right = -168.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel28" unique_id=1778560508]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel28" unique_id=1002835929]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel29" type="Panel" parent="Control/UpgradeContainer" unique_id=1114855754]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -36.0
+offset_right = -168.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel29" unique_id=1396301221]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel29" unique_id=1800432426]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel29" unique_id=1473660655]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel30" type="Panel" parent="Control/UpgradeContainer" unique_id=1505947537]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 28.0
+offset_right = -168.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel30" unique_id=738866647]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel30" unique_id=1265161376]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel30" unique_id=311084808]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel16" type="Panel" parent="Control/UpgradeContainer" unique_id=1287608118]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -36.0
+offset_right = -104.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel16" unique_id=134857560]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel16" unique_id=675508419]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel16" unique_id=1567347021]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel16" unique_id=1286974636]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel17" type="Panel" parent="Control/UpgradeContainer" unique_id=437550773]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -36.0
+offset_right = -40.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel17" unique_id=2119454421]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel17" unique_id=590964415]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel17" unique_id=482533642]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel17" unique_id=305251265]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel18" type="Panel" parent="Control/UpgradeContainer" unique_id=729433087]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -36.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel18" unique_id=555355453]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel18" unique_id=1573890801]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel18" unique_id=1514488344]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel18" unique_id=140881123]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel19" type="Panel" parent="Control/UpgradeContainer" unique_id=1039199280]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -36.0
+offset_right = 88.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel19" unique_id=576474044]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel19" unique_id=1870214238]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel19" unique_id=1985361867]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel19" unique_id=1136123448]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel20" type="Panel" parent="Control/UpgradeContainer" unique_id=1781165885]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 104.0
+offset_top = -36.0
+offset_right = 152.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel20" unique_id=781442971]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control/UpgradeContainer/Panel20" unique_id=855101024]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel20" unique_id=2147467729]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel20" unique_id=668743391]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel23" type="Panel" parent="Control/UpgradeContainer" unique_id=1520970987]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 104.0
+offset_top = -100.0
+offset_right = 152.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel23" unique_id=413798395]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel23" unique_id=1662679123]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel23" unique_id=608297643]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel24" type="Panel" parent="Control/UpgradeContainer" unique_id=678232174]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -100.0
+offset_right = 88.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel24" unique_id=715847156]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel24" unique_id=1817160609]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel24" unique_id=1289523233]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel25" type="Panel" parent="Control/UpgradeContainer" unique_id=1263913736]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -100.0
+offset_right = 24.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel25" unique_id=954924521]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel25" unique_id=1176372110]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel25" unique_id=360636767]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel26" type="Panel" parent="Control/UpgradeContainer" unique_id=1572238319]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -100.0
+offset_right = -40.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel26" unique_id=1638262704]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel26" unique_id=1662467335]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel26" unique_id=662043656]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel27" type="Panel" parent="Control/UpgradeContainer" unique_id=776735446]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -100.0
+offset_right = -104.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control/UpgradeContainer/Panel27" unique_id=921795697]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control/UpgradeContainer/Panel27" unique_id=93290427]
+z_as_relative = false
+position = Vector2(-254.73674, -638)
+scale = Vector2(0.89473647, 1.5)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/UpgradeContainer/Panel27" unique_id=625484902]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control" unique_id=1865419245]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 4.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="." unique_id=298713724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = -640.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="Panel" parent="Control2" unique_id=1037913070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="UpgradeContainer" type="Control" parent="Control2" unique_id=46166561]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="BaseDamage" parent="Control2/UpgradeContainer" unique_id=1501882211 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 400.0
+offset_right = 536.0
+offset_bottom = 464.0
+upgrade_name = "base_damage"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+
+[node name="DashDuration" parent="Control2/UpgradeContainer" unique_id=1674371868 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 488.0
+offset_right = 800.0
+offset_bottom = 548.0
+upgrade_name = "dash_duration"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 0.5
+output_flat_change = 0.0
+output_percentage_change = -0.04
+
+[node name="PetDamage" parent="Control2/UpgradeContainer" unique_id=1115516768 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 488.0
+offset_right = 936.0
+offset_bottom = 552.0
+upgrade_name = "pet_base_damage"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+
+[node name="DoomTime" parent="Control2/UpgradeContainer" unique_id=981192669 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 488.0
+offset_right = 664.0
+offset_bottom = 548.0
+upgrade_name = "doom_time"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 10.0
+output_flat_change = 2.0
+
+[node name="Pickaxe" parent="Control2/UpgradeContainer" unique_id=2018511705 instance=ExtResource("2_evfao")]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 488.0
+offset_right = 536.0
+offset_bottom = 548.0
+output_base = 0.0
+
+[node name="Panel5" type="Panel" parent="Control2/UpgradeContainer" unique_id=675623921]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 28.0
+offset_right = -40.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control2/UpgradeContainer/Panel5" unique_id=1546890340]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control2/UpgradeContainer/Panel5" unique_id=680668022]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control2/UpgradeContainer/Panel5" unique_id=1304029481]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel5" unique_id=52036336]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel6" type="Panel" parent="Control2/UpgradeContainer" unique_id=40516792]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 28.0
+offset_right = 24.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o61th")
+
+[node name="Line2D" type="Line2D" parent="Control2/UpgradeContainer/Panel6" unique_id=514607479]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control2/UpgradeContainer/Panel6" unique_id=2091854028]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control2/UpgradeContainer/Panel6" unique_id=1074423792]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel6" unique_id=977967643]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel7" type="Panel" parent="Control2/UpgradeContainer" unique_id=120767398]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 28.0
+offset_right = 88.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylcxw")
+
+[node name="Line2D4" type="Line2D" parent="Control2/UpgradeContainer/Panel7" unique_id=559198006]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control2/UpgradeContainer/Panel7" unique_id=1027152715]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel7" unique_id=20976059]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel14" type="Panel" parent="Control2/UpgradeContainer" unique_id=725372386]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 28.0
+offset_right = -104.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sexkv")
+
+[node name="Line2D" type="Line2D" parent="Control2/UpgradeContainer/Panel14" unique_id=304471211]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel14" unique_id=1397900111]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel17" type="Panel" parent="Control2/UpgradeContainer" unique_id=643531428]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -36.0
+offset_right = -40.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iwset")
+
+[node name="Line2D" type="Line2D" parent="Control2/UpgradeContainer/Panel17" unique_id=2121180106]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel17" unique_id=343610673]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel18" type="Panel" parent="Control2/UpgradeContainer" unique_id=2004171799]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -36.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_778qj")
+
+[node name="Line2D" type="Line2D" parent="Control2/UpgradeContainer/Panel18" unique_id=876982919]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 376, 440)
+width = 4.0
+
+[node name="Line2D4" type="Line2D" parent="Control2/UpgradeContainer/Panel18" unique_id=582519852]
+z_as_relative = false
+position = Vector2(-288, -416)
+points = PackedVector2Array(312, 440, 312, 376)
+width = 4.0
+
+[node name="Line2D5" type="Line2D" parent="Control2/UpgradeContainer/Panel18" unique_id=156956952]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel18" unique_id=1417868029]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel19" type="Panel" parent="Control2/UpgradeContainer" unique_id=338215945]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -36.0
+offset_right = 88.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bxvc6")
+
+[node name="Line2D5" type="Line2D" parent="Control2/UpgradeContainer/Panel19" unique_id=1147364374]
+z_as_relative = false
+position = Vector2(-270.44434, -416)
+scale = Vector2(0.944444, 1)
+points = PackedVector2Array(312, 440, 244, 440)
+width = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel19" unique_id=1320493535]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel25" type="Panel" parent="Control2/UpgradeContainer" unique_id=1443566880]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -100.0
+offset_right = 24.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tai0f")
+
+[node name="TextureButton" type="TextureButton" parent="Control2/UpgradeContainer/Panel25" unique_id=1603303562]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iwset")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control2" unique_id=1131201520]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 4.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1

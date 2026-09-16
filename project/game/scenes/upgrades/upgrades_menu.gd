@@ -5,7 +5,7 @@ extends Control
 
 var tween: Tween
 
-@onready var upgrade_container: GridContainer = %UpgradeContainer
+@onready var upgrade_container: Control = %UpgradeContainer
 
 
 func hide_menu() -> void:

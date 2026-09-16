@@ -10,10 +10,10 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 
-[node name="Upgrade" type="PanelContainer" unique_id=1798224043]
+[node name="Upgrade" type="Panel" unique_id=1501882211]
 custom_minimum_size = Vector2(128, 32)
 offset_right = 128.0
-offset_bottom = 62.0
+offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
 script = ExtResource("1_i8043")
 upgrade_name = "pickaxe"
@@ -23,7 +23,11 @@ cost_base = 10
 cost_linear_coefficient = 10.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=166137813]
-layout_mode = 2
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 60.0
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer" unique_id=296343322]
 unique_name_in_owner = true

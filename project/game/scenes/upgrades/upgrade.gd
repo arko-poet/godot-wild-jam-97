@@ -1,5 +1,5 @@
 class_name Upgrade
-extends PanelContainer
+extends Panel
 
 @export_group("base")
 @export var upgrade_name: String
