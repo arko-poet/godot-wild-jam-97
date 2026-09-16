@@ -30,8 +30,6 @@ func _ready() -> void:
 		_spawn_new_rock()
 
 	dwarf.stats = stats
-	if dwarf.pet_unlocked:
-		dwarf.pet.start_mining()
 
 	background_filter_hue = background_filter_hue
 

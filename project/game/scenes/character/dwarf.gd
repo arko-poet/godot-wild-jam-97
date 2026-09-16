@@ -95,6 +95,9 @@ func _input(event: InputEvent) -> void:
 
 
 func dash(distance: float) -> void:
+	if pet_unlocked:
+		pet.stop_mining()
+
 	if state == State.MINING:
 		await mining_animation_finished
 
@@ -113,9 +116,6 @@ func dash(distance: float) -> void:
 	var smoke_dash: AnimatedSprite2D = smoke_dash_scene.instantiate()
 	smoke_dash.dash_duration = dash_duration
 	add_child(smoke_dash)
-
-	if pet_unlocked:
-		pet.stop_mining()
 
 	SfxController.play(dash_sfx)
 
@@ -150,6 +150,9 @@ func _mine() -> void:
 		sprite.play(&"attack")
 
 	is_crit = randf() <= crit_chance
+
+	if pet_unlocked:
+		pet.start_mining()
 
 
 func _on_pet_mined() -> void:
