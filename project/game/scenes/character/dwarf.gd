@@ -54,7 +54,8 @@ func _input(event: InputEvent) -> void:
 	if state != State.IDLE:
 		return
 
-	if event.is_action(&"mine") and event.is_pressed():
+	if event.is_action(&"mine") and event.is_pressed() and not event.is_echo():
+		get_viewport().set_input_as_handled()
 		_mine()
 
 
