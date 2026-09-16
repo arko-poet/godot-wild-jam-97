@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://cc37235kj4384"]
 
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="1_dmagn"]
+[ext_resource type="AudioStream" uid="uid://ckxuyyip4bo77" path="res://game/audio/sfx/ui/menu_hover.ogg" id="2_7ejmi"]
+[ext_resource type="AudioStream" uid="uid://6hc0dco6y3m2" path="res://game/audio/sfx/ui/select.ogg" id="3_r5ody"]
 
 [node name="ProjectUISoundController" type="Node" unique_id=1525696179]
 script = ExtResource("1_dmagn")
+button_hovered = ExtResource("2_7ejmi")
+button_focused = ExtResource("2_7ejmi")
+button_pressed = ExtResource("3_r5ody")
+tab_hovered = ExtResource("2_7ejmi")
+tab_changed = ExtResource("3_r5ody")
+slider_hovered = ExtResource("2_7ejmi")
+slider_focused = ExtResource("2_7ejmi")
+slider_drag_started = ExtResource("3_r5ody")
