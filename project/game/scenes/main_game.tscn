@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btrxmgxymwtdc" path="res://game/scenes/tunnel.tscn" id="2_3iu72"]
 [ext_resource type="PackedScene" uid="uid://bl5p803fvns3" path="res://game/scenes/gem.tscn" id="2_wemlv"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="3_1ig1l"]
+[ext_resource type="AudioStream" uid="uid://d34cojcmvoefv" path="res://game/audio/sfx/gem2.ogg" id="4_ldb66"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="4_wemlv"]
 [ext_resource type="PackedScene" uid="uid://j1tuh46skb2c" path="res://template/scenes/windows/pause_menu_layer.tscn" id="4_yv8p0"]
 [ext_resource type="AudioStream" uid="uid://dyy3wayvvdvg0" path="res://game/audio/music/gwj97 2.mp3" id="5_wemlv"]
@@ -22,6 +23,7 @@ height = 32
 script = ExtResource("1_1qbya")
 _gem_scene = ExtResource("2_wemlv")
 _tunnel_scene = ExtResource("2_3iu72")
+_gem_sound = ExtResource("4_ldb66")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("4_wemlv")]
 stream = ExtResource("5_wemlv")

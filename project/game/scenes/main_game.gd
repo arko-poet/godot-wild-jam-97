@@ -3,6 +3,8 @@ extends Node
 @export var _gem_scene: PackedScene
 @export var _tunnel_scene: PackedScene
 
+@export var _gem_sound: AudioStream
+
 var _current_tunnel: Tunnel
 var _stats: Stats
 var _gems: int:
@@ -81,6 +83,7 @@ func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
 func _collect_gem(gem: Node2D, amount: int) -> void:
 	gem.queue_free()
 	_gems += amount
+	SfxController.play(_gem_sound)
 
 
 func _on_upgrade_purchased(_upgrade_name: String, _amount: float, upgrade_cost: int) -> void:
