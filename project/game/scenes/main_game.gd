@@ -1,15 +1,24 @@
 extends Node
 
-@export var drop_resource: PackedScene
-#
+@export var _gem_scene: PackedScene
 @export var _tunnel_scene: PackedScene
+
+@export var _gem_sound: AudioStream
 
 var _current_tunnel: Tunnel
 var _stats: Stats
+var _gems: int:
+	set(value):
+		_gems = value
+		_gems_label.text = ": %s" % _gems
+		_upgrades_menu.gems_changed(_gems)
 
-@onready var ui: Control = %UI
-@onready var upgrades_menu: UpgradesMenu = %UpgradesMenu
+@onready var pause_menu_controller: Node = %PauseMenuController
+@onready var _ui: Control = %UI
+@onready var _upgrades_menu: UpgradesMenu = %UpgradesMenu
+@onready var _gems_texture: TextureRect = %GemsTexture
 @onready var _doom_timer: Timer = %DoomTimer
+@onready var _gems_label: Label = %GemsLabel
 
 @onready var _world: Node2D = %World
 
@@ -20,27 +29,10 @@ var _stats: Stats
 func _ready() -> void:
 	_stats = Stats.new()
 
-	@warning_ignore("unused_parameter")
-	Events.resource_collected.connect(
-		func on_resource_collected(resource_id, amount, drop_global_position):
-			var drop_instance = drop_resource.instantiate()
-			var camera = get_viewport().get_camera_2d()
-			var offset = Vector2(16, 16)
-			var ui_target = upgrades_menu.resource_counters.get_child(resource_id) #resource_id
+	Events.gem_dropped.connect(_on_gem_dropped)
+	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 
-			#calculation is scene independent, just need to use camera position and ui target's global rect
-			#this may break if we set aspect to expand.
-			drop_instance.position = camera.to_local(drop_global_position) + get_viewport() \
-					.get_visible_rect() \
-					.size / 2.0
-			ui.add_child(drop_instance)
-			var tween = drop_instance.create_tween()
-			tween.tween_property(drop_instance, "position", ui_target.get_global_rect().position
-			+ offset, 0.5).\
-			set_trans(Tween.TRANS_QUAD)
-			tween.tween_interval(0.1)
-			tween.finished.connect(drop_instance.queue_free),
-	)
+	_start_button.grab_focus()
 
 
 func _process(_delta: float) -> void:
@@ -51,9 +43,7 @@ func _start_doom_timer() -> void:
 	set_process(true)
 	_doom_timer.start(_stats.doom_time)
 
-	upgrades_menu.toggle_button.disabled = true
-	upgrades_menu.toggle_button.button_pressed = false
-	upgrades_menu.hide_menu()
+	_upgrades_menu.hide_menu()
 
 
 func _on_doom_timer_timeout() -> void:
@@ -62,9 +52,9 @@ func _on_doom_timer_timeout() -> void:
 	_current_tunnel.queue_free()
 	set_process(false)
 
-	upgrades_menu.toggle_button.disabled = false
-	upgrades_menu.toggle_button.button_pressed = true
-	upgrades_menu.show_menu()
+	#if not _upgrades_menu.try_grab_focus(_gems):
+	#_start_button.grab_focus()
+	_upgrades_menu.show_menu()
 
 
 func _on_start_button_pressed() -> void:
@@ -78,3 +68,33 @@ func _new_tunnel() -> void:
 	_current_tunnel = _tunnel_scene.instantiate()
 	_current_tunnel.stats = _stats
 	_world.add_child(_current_tunnel)
+
+
+func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
+	var gem = _gem_scene.instantiate()
+	var camera = get_viewport().get_camera_2d()
+
+	# calculation is scene independent, just need to use camera position and ui target's global rect
+	# this may break if we set aspect to expand.
+	gem.position = camera.to_local(global_position) + get_viewport().get_visible_rect().size / 2.0
+	_ui.add_child(gem)
+	var tween = create_tween()
+	var duration_variation := randf_range(0.0, 0.3)
+	tween.tween_property(gem, ^"position", _gems_texture.position, 0.5 + duration_variation) \
+			.set_trans(Tween.TRANS_CUBIC) \
+			.set_ease(Tween.EASE_IN)
+	tween.finished.connect(_collect_gem.bind(gem, amount))
+
+
+func _collect_gem(gem: Node2D, amount: int) -> void:
+	gem.queue_free()
+	_gems += amount
+	SfxController.play(_gem_sound)
+
+
+func _on_upgrade_purchased(_upgrade_name: String, _amount: float, upgrade_cost: int) -> void:
+	_gems -= upgrade_cost
+
+
+func _on_options_button_pressed() -> void:
+	pause_menu_controller.pause()

@@ -1,19 +1,34 @@
 [gd_scene format=3 uid="uid://btrxmgxymwtdc"]
 
 [ext_resource type="Script" uid="uid://50w6t2opj2vb" path="res://game/scenes/tunnel.gd" id="1_2h2s7"]
-[ext_resource type="PackedScene" uid="uid://ctt75y0ystdtf" path="res://game/scenes/rock.tscn" id="2_hoacg"]
+[ext_resource type="PackedScene" uid="uid://ctt75y0ystdtf" path="res://game/scenes/rocks/rock.tscn" id="2_hoacg"]
 [ext_resource type="PackedScene" uid="uid://04tqlo3l8s62" path="res://game/scenes/character/dwarf.tscn" id="2_jtcvj"]
 [ext_resource type="Texture2D" uid="uid://btigihv2qw0oi" path="res://game/art/prototypes/DMG_MapPrototype.png" id="3_d51qq"]
+[ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="3_t6nqe"]
+[ext_resource type="Texture2D" uid="uid://bjn44cpscripn" path="res://game/art/filter/DMG_Filter.png" id="4_87e12"]
+[ext_resource type="Resource" uid="uid://hasuorg6i23i" path="res://game/resources/rocks/basic_rock.tres" id="4_d8t1s"]
+[ext_resource type="Resource" uid="uid://uoq7qtupgthj" path="res://game/resources/rocks/crystal_rock.tres" id="5_3b26v"]
+[ext_resource type="Resource" uid="uid://1h0x12tofgjb" path="res://game/resources/rocks/emerald_rock.tres" id="6_4froe"]
+[ext_resource type="Resource" uid="uid://yx0mqgn2uyci" path="res://game/resources/rocks/ruby_rock.tres" id="7_ayc85"]
+[ext_resource type="Resource" uid="uid://cdaxdlo11m37q" path="res://game/resources/rocks/sapphire_rock.tres" id="8_7dqhe"]
 
 [node name="Tunnel" type="Node2D" unique_id=1781221996]
 script = ExtResource("1_2h2s7")
 rock_scene = ExtResource("2_hoacg")
+basic_rock_resource = ExtResource("4_d8t1s")
+rare_rock_resources = Array[ExtResource("3_t6nqe")]([ExtResource("5_3b26v"), ExtResource("6_4froe"), ExtResource("7_ayc85"), ExtResource("8_7dqhe")])
 
 [node name="Parallax" type="Parallax2D" parent="." unique_id=1872759560]
 repeat_size = Vector2(640, 0)
 
 [node name="Background" type="Sprite2D" parent="Parallax" unique_id=1670932027]
 texture = ExtResource("3_d51qq")
+centered = false
+
+[node name="BackgroundFilter" type="Sprite2D" parent="Parallax" unique_id=310381745]
+unique_name_in_owner = true
+z_index = 10
+texture = ExtResource("4_87e12")
 centered = false
 
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]

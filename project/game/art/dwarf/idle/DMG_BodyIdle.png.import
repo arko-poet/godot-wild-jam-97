@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da1a0x6l1p6a3"
-path="res://.godot/imported/DMG_SparksDash.png-d7a492a71253e4df719eff0db924e932.ctex"
+uid="uid://d0esplaippblg"
+path="res://.godot/imported/DMG_BodyIdle.png-8f4d2c2a886ac4197d22e9285f4357e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/dwarf/dash/DMG_SparksDash.png"
-dest_files=["res://.godot/imported/DMG_SparksDash.png-d7a492a71253e4df719eff0db924e932.ctex"]
+source_file="res://game/art/dwarf/idle/DMG_BodyIdle.png"
+dest_files=["res://.godot/imported/DMG_BodyIdle.png-8f4d2c2a886ac4197d22e9285f4357e8.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdb5wamh4swsk"]
 
 [ext_resource type="Script" uid="uid://cmlwnpkp5v17t" path="res://game/scenes/upgrades/upgrade.gd" id="1_i8043"]
+[ext_resource type="AudioStream" uid="uid://bc5pdabtqw1nk" path="res://game/audio/sfx/ui/upgrade2.ogg" id="2_ohnnb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h32h"]
 border_width_left = 4
@@ -11,10 +12,15 @@ border_color = Color(0, 0, 0, 1)
 
 [node name="Upgrade" type="PanelContainer" unique_id=1798224043]
 custom_minimum_size = Vector2(128, 32)
+offset_right = 128.0
+offset_bottom = 62.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
 script = ExtResource("1_i8043")
-upgrade_name = "name"
-cost_linear_multiplier = 2.0
+upgrade_name = "pickaxe"
+upgrade_cap = 2
+upgrade_sound = ExtResource("2_ohnnb")
+cost_base = 10
+cost_linear_coefficient = 10.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=166137813]
 layout_mode = 2
@@ -23,8 +29,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "name
- Upgrade: 1g"
+disabled = true
+text = "Damage
+1g"
 
 [node name="UpgradeCountLabel" type="Label" parent="VBoxContainer" unique_id=1572310718]
 unique_name_in_owner = true
@@ -32,3 +39,5 @@ layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

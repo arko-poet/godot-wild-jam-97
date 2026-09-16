@@ -8,6 +8,8 @@ extends Node
 
 const MAX_DEPTH = 16
 
+const HOVER_COOLDOWN := 0.05
+
 @export var root_path : NodePath = ^".."
 ## Audio bus for any audio streams created.
 @export var audio_bus : StringName = &"SFX"
@@ -77,6 +79,12 @@ var tree_item_activated_player : AudioStreamPlayer
 var tree_item_selected_player : AudioStreamPlayer
 var tree_button_clicked_player : AudioStreamPlayer
 
+var hover_cooldown_elapsed := 0.0
+var hover_players: Array[AudioStreamPlayer]
+
+func _process(delta: float) -> void:
+	hover_cooldown_elapsed += delta
+
 func _update_persistent_signals() -> void:
 	if not is_inside_tree():
 		return
@@ -100,17 +108,22 @@ func _build_stream_player(stream : AudioStream, stream_name : String = "") -> Au
 
 func _build_button_stream_players() -> void:
 	button_hovered_player = _build_stream_player(button_hovered, "ButtonHovered")
+	hover_players.append(button_hovered_player)
 	button_focused_player = _build_stream_player(button_focused, "ButtonFocused")
+	hover_players.append(button_focused_player)
 	button_pressed_player = _build_stream_player(button_pressed, "ButtonClicked")
 
 func _build_tab_stream_players() -> void:
 	tab_hovered_player = _build_stream_player(tab_hovered, "TabHovered")
+	hover_players.append(tab_hovered_player)
 	tab_changed_player = _build_stream_player(tab_changed, "TabChanged")
 	tab_selected_player = _build_stream_player(tab_selected, "TabSelected")
 
 func _build_slider_stream_players() -> void:
 	slider_hovered_player = _build_stream_player(slider_hovered, "SliderHovered")
+	hover_players.append(slider_hovered_player )
 	slider_focused_player = _build_stream_player(slider_focused, "SliderFocused")
+	hover_players.append(slider_focused_player)
 	slider_drag_started_player = _build_stream_player(slider_drag_started, "SliderDragStarted")
 	slider_drag_ended_player = _build_stream_player(slider_drag_ended, "SliderDragEnded")
 
@@ -141,6 +154,12 @@ func _build_all_stream_players() -> void:
 func _play_stream(stream_player : AudioStreamPlayer) -> void:
 	if not stream_player.is_inside_tree():
 		return
+		
+	if stream_player in hover_players:
+		if hover_cooldown_elapsed < HOVER_COOLDOWN:
+			return
+		hover_cooldown_elapsed = 0.0
+	
 	stream_player.play()
 
 func _tab_event_play_stream(_tab_idx : int, stream_player : AudioStreamPlayer) -> void:

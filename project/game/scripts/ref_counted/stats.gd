@@ -5,13 +5,14 @@ var base_damage := 1
 var dash_duration := 0.5
 var pet_base_damage := 1
 var doom_time := 10.0
+var pickaxe := 0
 
 
 func _init() -> void:
-	Events.upgrade_changed.connect(_on_upgrade_changed)
+	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 
 
-func _on_upgrade_changed(upgrade_name: String, amount: float) -> void:
+func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> void:
 	match upgrade_name:
 		"base_damage":
 			base_damage = int(amount)
@@ -21,5 +22,7 @@ func _on_upgrade_changed(upgrade_name: String, amount: float) -> void:
 			pet_base_damage = int(amount)
 		"doom_time":
 			doom_time = amount
+		"pickaxe":
+			pickaxe = int(amount)
 		_:
 			push_error("Upgrade Name '%s' doesn't have a matching property" % upgrade_name)

@@ -1,18 +1,12 @@
 extends Node
 
-signal resource_collected
-
-signal upgrade_changed
-
-
-func collect_resource(resource_id: int, amount: int, drop_global_position: Vector2) -> void:
-	resource_collected.emit(resource_id, amount, drop_global_position)
+signal gem_dropped
+signal upgrade_purchased
 
 
-func emit_upgrade_changed(upgrade_name: String, amount: float) -> void:
-	upgrade_changed.emit(upgrade_name, amount)
-#func _ready() -> void:
-#	Events.upgrade_changed.connect(function...)
-#func on_upgrade_change...whatevernamething(upgrade_name, value):
-#	if ugprade_name == "hardcoded value":
-#	some operation with value ex: -> export variable = value
+func drop_gem(gem_id: int, amount: int, global_position: Vector2) -> void:
+	gem_dropped.emit(gem_id, amount, global_position)
+
+
+func purchase_upgrade(upgrade_name: String, amount: float, upgrade_cost: int) -> void:
+	upgrade_purchased.emit(upgrade_name, amount, upgrade_cost)

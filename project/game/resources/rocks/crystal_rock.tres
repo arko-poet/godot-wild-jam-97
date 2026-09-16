@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RockResource" format=3 uid="uid://uoq7qtupgthj"]
+
+[ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="1_j20c5"]
+[ext_resource type="Texture2D" uid="uid://jrogktws5nmr" path="res://game/art/rocks/DMG_OreCrystals.png" id="2_4isv1"]
+
+[resource]
+script = ExtResource("1_j20c5")
+type = 1
+texture = ExtResource("2_4isv1")
+spawn_weight = 1
+minimum_depth = 15
+metadata/_custom_type_script = "uid://beq5iwtyuhset"

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bl5p803fvns3"]
-
-[ext_resource type="Texture2D" uid="uid://cmni5hv40bfaa" path="res://addons/maaacks_game_template/assets/input-icons/icons-filled-colored.png" id="1_idrgj"]
-
-[node name="ResourceDrop" type="Node2D" unique_id=1191670939]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1659531523]
-texture = ExtResource("1_idrgj")

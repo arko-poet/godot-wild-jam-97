@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RockResource" format=3 uid="uid://1h0x12tofgjb"]
+
+[ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="1_rj3gl"]
+[ext_resource type="Texture2D" uid="uid://ckrttudjcubi3" path="res://game/art/rocks/DMG_OreEmerald.png" id="2_qy56v"]
+
+[resource]
+script = ExtResource("1_rj3gl")
+type = 2
+texture = ExtResource("2_qy56v")
+spawn_weight = 64
+metadata/_custom_type_script = "uid://beq5iwtyuhset"
