@@ -4,6 +4,7 @@ extends PanelContainer
 @export_group("base")
 @export var upgrade_name: String
 @export var upgrade_cap: int = 10
+@export var upgrade_sound: AudioStream
 
 @export_group("cost")
 @export var consume_resource_id: int
@@ -62,3 +63,5 @@ func _on_upgrade_button_pressed() -> void:
 	Events.purchase_upgrade(upgrade_name, get_output(), cost)
 
 	_update()
+
+	SfxController.play(upgrade_sound)
