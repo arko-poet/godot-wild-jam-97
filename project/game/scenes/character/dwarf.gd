@@ -30,7 +30,7 @@ var base_damage := 1
 var increased_damage := 0.1
 var damage_multiplier := 1
 var pet_base_damge := 1
-var crit_chance := 0.2
+var crit_chance := 0.0
 var crit_multiplier := 2.0
 var pickaxe := 0:
 	set(value):
