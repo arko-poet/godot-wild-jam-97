@@ -42,6 +42,7 @@ var stats: Stats:
 		pet_base_damage = stats.pet_base_damage
 		pet_increased_damage = stats.pet_increased_damage
 		pet_crit_chance = stats.pet_crit_chance
+		pet_crit_damage = stats.pet_crit_damage
 var dash_duration := 0.5
 var base_damage := 1
 var increased_damage := 0.1
@@ -49,6 +50,7 @@ var damage_multiplier := 1
 var pet_base_damage := 1
 var pet_increased_damage := 0.0
 var pet_crit_chance := 0.0
+var pet_crit_damage := 0.0
 var crit_chance := 0.0
 var crit_damage := 2.0
 var pickaxe := 0:
@@ -155,7 +157,7 @@ func _on_pet_mined() -> void:
 	var damage := pet_base_damage * (1 + pet_increased_damage)
 	var is_pet_crit := randf() <= pet_crit_chance
 	if is_pet_crit:
-		damage *= 2
+		damage *= pet_crit_damage
 	mined.emit(damage, is_pet_crit)
 
 

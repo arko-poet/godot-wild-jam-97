@@ -63,16 +63,6 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
-[node name="PetIncreasedDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "pet_increased_damage"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 0.0
-output_flat_change = 0.1
-
 [node name="PetCritChance" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1977179126 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
@@ -82,6 +72,26 @@ cost_base = 1
 cost_linear_coefficient = 1.0
 output_base = 0.0
 output_flat_change = 0.05
+
+[node name="PetCritDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "pet_crit_damage"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 2.0
+output_flat_change = 0.2
+
+[node name="PetIncreasedDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=37265207 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "pet_increased_damage"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 0.0
+output_flat_change = 0.1
 
 [node name="BaseDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=259663191 instance=ExtResource("2_evfao")]
 visible = false
