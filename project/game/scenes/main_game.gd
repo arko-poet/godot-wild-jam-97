@@ -31,6 +31,8 @@ func _ready() -> void:
 	Events.gem_dropped.connect(_on_gem_dropped)
 	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 
+	_start_button.grab_focus()
+
 
 func _process(_delta: float) -> void:
 	_doom_timer_label.text = "Doom in: %.1fs" % _doom_timer.time_left
@@ -49,6 +51,8 @@ func _on_doom_timer_timeout() -> void:
 	_current_tunnel.queue_free()
 	set_process(false)
 
+	#if not _upgrades_menu.try_grab_focus(_gems):
+	#_start_button.grab_focus()
 	_upgrades_menu.show_menu()
 
 

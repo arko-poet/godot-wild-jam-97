@@ -25,6 +25,9 @@ func show_menu() -> void:
 
 	unlock_next_upgrade()
 
+	var upgrade: Upgrade = upgrade_container.get_child(0)
+	upgrade.upgrade_button.grab_focus()
+
 
 func gems_changed(gems: int) -> void:
 	for upgrade in upgrade_container.get_children():
@@ -38,3 +41,11 @@ func unlock_next_upgrade() -> void:
 			if not upgrade.visible:
 				upgrade.show()
 				break
+#func try_grab_focus(gems: int) -> bool:
+#for upgrade in upgrade_container.get_children():
+#if upgrade is Upgrade:
+#if upgrade.visible and gems >= upgrade.get_cost():
+#upgrade.upgrade_button.grab_focus()
+#return true
+#
+#return false
