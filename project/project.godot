@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Godot Wild Jam 97"
+config/name="GTA VI"
+config/version="0.0.3"
 config/tags=PackedStringArray("jam")
 run/main_scene="res://template/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://jrogktws5nmr"
 
 [audio]
 
