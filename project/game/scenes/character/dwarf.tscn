@@ -11,10 +11,20 @@
 [ext_resource type="Texture2D" uid="uid://d0esplaippblg" path="res://game/art/dwarf/idle/DMG_BodyIdle.png" id="6_vx4ul"]
 [ext_resource type="AudioStream" uid="uid://bnejljvgn2bpv" path="res://game/audio/sfx/dash.ogg" id="7_fkcfr"]
 [ext_resource type="SpriteFrames" uid="uid://bnto04aak685u" path="res://game/resources/pickaxe_frames/basic_pickaxe_frames.tres" id="8_dsmkv"]
+[ext_resource type="AudioStream" uid="uid://5s7fnu066cyi" path="res://game/audio/sfx/pickaxe/pickaxe3.ogg" id="8_fefxu"]
 [ext_resource type="Texture2D" uid="uid://b40rfm8el8yl2" path="res://game/art/dwarf/attack/DMG_BeardAttack.png" id="8_q3g3n"]
 [ext_resource type="Texture2D" uid="uid://byx0gl20pfo5i" path="res://game/art/dwarf/dash/DMG_BeardDash.png" id="9_1g8m5"]
+[ext_resource type="AudioStream" uid="uid://ciwtryb6pqyp1" path="res://game/audio/sfx/pickaxe/pickaxe3_1.ogg" id="9_aqkt1"]
+[ext_resource type="AudioStream" uid="uid://c8ce6k4ukmb7c" path="res://game/audio/sfx/pickaxe/pickaxe3_2.ogg" id="10_pkhb8"]
+[ext_resource type="AudioStream" uid="uid://dj7ndw1orupjp" path="res://game/audio/sfx/pickaxe/pickaxecrit2.ogg" id="11_dafoj"]
 [ext_resource type="Texture2D" uid="uid://602nooa42ep0" path="res://game/art/dwarf/idle/DMG_BeardIdle.png" id="12_fedji"]
 [ext_resource type="Texture2D" uid="uid://bes3jtmtmxbql" path="res://game/art/dwarf/DMG_DwarfShadow.png" id="13_do1d5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ohnnb"]
+streams_count = 3
+stream_0/stream = ExtResource("8_fefxu")
+stream_1/stream = ExtResource("9_aqkt1")
+stream_2/stream = ExtResource("10_pkhb8")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgun3"]
 radius = 64.0
@@ -299,6 +309,8 @@ sparks_attack_scene = ExtResource("2_dsmkv")
 smoke_dash_scene = ExtResource("3_fedji")
 pickaxe_upgrades = Array[SpriteFrames]([ExtResource("8_dsmkv"), ExtResource("4_do1d5"), ExtResource("5_fkcfr")])
 dash_sfx = ExtResource("7_fkcfr")
+pickaxe_sfx = SubResource("AudioStreamRandomizer_ohnnb")
+pickaxe_crit_sfx = ExtResource("11_dafoj")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)

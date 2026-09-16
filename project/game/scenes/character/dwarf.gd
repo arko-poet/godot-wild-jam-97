@@ -15,7 +15,10 @@ const MINING_DURATION := 0.3
 @export var smoke_dash_scene: PackedScene
 @export var pickaxe_upgrades: Array[SpriteFrames]
 
+@export_group("Sfx")
 @export var dash_sfx: AudioStream
+@export var pickaxe_sfx: AudioStream
+@export var pickaxe_crit_sfx: AudioStream
 
 var state := State.IDLE:
 	set(value):
@@ -26,12 +29,13 @@ var dash_duration := 0.5
 var base_damage := 1
 var damage_multiplier := 1
 var pet_base_damge := 1
-var crit_chance := 0.1
+var crit_chance := 0.2
 var crit_multiplier := 2.0
 var pickaxe := 0:
 	set(value):
 		pickaxe = value
 		_upgrade_pickaxe()
+var is_crit := false
 
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
@@ -104,6 +108,8 @@ func _mine() -> void:
 	for sprite in sprites:
 		sprite.play(&"attack")
 
+	is_crit = randf() < crit_chance
+
 
 func _on_pet_mined() -> void:
 	if state == State.DASHING:
@@ -120,7 +126,6 @@ func _on_body_animation_finished() -> void:
 			sprite.play(&"idle")
 
 		var damage := base_damage * damage_multiplier
-		var is_crit := randf() < crit_chance
 		if is_crit:
 			damage = int(damage * crit_multiplier)
 		mined.emit(damage, is_crit)
@@ -131,6 +136,11 @@ func _on_pick_frame_changed() -> void:
 		var sparks_attack: AnimatedSprite2D = sparks_attack_scene.instantiate()
 		sparks_attack.position = position
 		get_parent().add_child(sparks_attack)
+
+		if is_crit:
+			SfxController.play(pickaxe_crit_sfx)
+		else:
+			SfxController.play(pickaxe_sfx)
 
 
 func _update_animation_speed() -> void:
