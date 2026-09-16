@@ -43,6 +43,7 @@ var stats: Stats:
 		pet_increased_damage = stats.pet_increased_damage
 		pet_crit_chance = stats.pet_crit_chance
 		pet_crit_damage = stats.pet_crit_damage
+		pet.mining_timer.wait_time = stats.pet_attack_duration
 var dash_duration := 0.5
 var base_damage := 1
 var increased_damage := 0.1
@@ -76,6 +77,7 @@ func _ready() -> void:
 	sprites[0].modulate = Color.from_hsv(randf(), 1.0, 1.0)
 
 	#_upgrade_pickaxe(pickaxe_upgrades[pickaxe], pickaxe + 1)
+	#pet.mining_timer.wait_time = pet_attack_duration
 
 
 func _process(_delta) -> void:
