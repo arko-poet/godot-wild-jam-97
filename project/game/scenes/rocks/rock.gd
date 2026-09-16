@@ -43,6 +43,7 @@ func _ready() -> void:
 
 func mine(damage: int, is_crit: bool) -> void:
 	_hit_flash()
+	_hit_shake()
 
 	var floating_text: FloatingText = floating_text_scene.instantiate()
 	if is_crit:
@@ -73,6 +74,13 @@ func _hit_flash() -> void:
 		0.1,
 	)
 	t.play()
+
+
+func _hit_shake() -> void:
+	var t: Tween = create_tween()
+	t.tween_property(ore_sprite, ^"position:x", -1.0, 0.03)
+	t.tween_property(ore_sprite, ^"position:x", 2.0, 0.06)
+	t.tween_property(ore_sprite, ^"position:x", 0.0, 0.03)
 
 
 func _on_ore_break_animation_finished() -> void:
