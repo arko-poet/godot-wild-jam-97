@@ -31,7 +31,7 @@ var increased_damage := 0.1
 var damage_multiplier := 1
 var pet_base_damge := 1
 var crit_chance := 0.0
-var crit_multiplier := 2.0
+var crit_damage := 2.0
 var pickaxe := 0:
 	set(value):
 		pickaxe = value
@@ -129,7 +129,7 @@ func _on_body_animation_finished() -> void:
 
 		var damage := base_damage * damage_multiplier * (1 + increased_damage)
 		if is_crit:
-			damage = int(damage * crit_multiplier)
+			damage = int(damage * crit_damage)
 		mined.emit(damage, is_crit)
 
 

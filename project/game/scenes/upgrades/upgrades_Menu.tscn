@@ -55,6 +55,16 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
+[node name="CritDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=585399182 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "crit_damage"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 2.0
+output_flat_change = 0.2
+
 [node name="CritChance" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1722627407 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
