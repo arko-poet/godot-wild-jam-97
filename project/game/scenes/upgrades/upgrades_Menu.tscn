@@ -55,6 +55,19 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
+[node name="BloodPickaxe" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_cap = 1
+output_flat_change = 0.0
+
+[node name="AdamantitePickaxe" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1478964898 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_cap = 1
+output_base = 2.0
+output_flat_change = 0.0
+
 [node name="DashDuration" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
@@ -83,8 +96,3 @@ cost_base = 1
 cost_linear_coefficient = 1.0
 output_base = 10.0
 output_flat_change = 2.0
-
-[node name="Pickaxe" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-output_base = 0.0
