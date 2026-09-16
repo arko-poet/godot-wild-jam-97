@@ -1,6 +1,6 @@
 extends Node
 
-var _AUDIO_STREAM_POOL_SIZE := 16
+var _AUDIO_STREAM_POOL_SIZE := 8
 
 var _audio_stream_player_pool: Array[AudioStreamPlayer]
 
