@@ -25,6 +25,11 @@ var _hp: float:
 
 var _hp_drain := 0.1
 
+var _depth: int:
+	set(value):
+		_depth = value
+		_depth_label.text = "Depth %s" % _depth
+
 @onready var pause_menu_controller: Node = %PauseMenuController
 
 @onready var _hp_bar: ProgressBar = %HPBar
@@ -39,6 +44,7 @@ var _hp_drain := 0.1
 @onready var _world: Node2D = %World
 
 @onready var _start_button: Button = %StartButton
+@onready var _depth_label: Label = %DepthLabel
 
 
 func _ready() -> void:
@@ -62,6 +68,8 @@ func _start_doom_timer() -> void:
 
 
 func _on_hp_drained() -> void:
+	_depth_label.hide()
+	_depth = 0
 	_start_button.show()
 	_hp_drain_timer.stop()
 	_hp_bar.hide()
@@ -81,6 +89,8 @@ func _on_start_button_pressed() -> void:
 
 
 func _new_tunnel() -> void:
+	_depth_label.show()
+
 	_max_hp = _stats.hp
 	_hp = _max_hp
 
@@ -103,6 +113,8 @@ func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_IN)
 	tween.finished.connect(_collect_gem.bind(gem, amount))
+
+	_depth += 1
 
 
 func _collect_gem(gem: Node2D, amount: int) -> void:

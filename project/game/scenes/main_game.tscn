@@ -145,6 +145,20 @@ text = "HP: 10/10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DepthLabel" type="Label" parent="UILayer/UI" unique_id=1873055250]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "Depth: 0"
+
 [connection signal="timeout" from="HPDrainTimer" to="." method="_on_hp_drain_timer_timeout"]
 [connection signal="pressed" from="UILayer/UI/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UILayer/UI/OptionsButton" to="." method="_on_options_button_pressed"]
