@@ -81,6 +81,7 @@ func _on_start_button_pressed() -> void:
 
 
 func _new_tunnel() -> void:
+	_max_hp = _stats.hp
 	_hp = _max_hp
 
 	_current_tunnel = _tunnel_scene.instantiate()

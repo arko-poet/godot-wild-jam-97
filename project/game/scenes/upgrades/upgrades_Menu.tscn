@@ -46,6 +46,16 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
+[node name="HP" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "hp"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 10.0
+output_flat_change = 2.0
+
 [node name="Pet" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1349109001 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
@@ -179,13 +189,3 @@ cost_linear_coefficient = 1.0
 output_base = 0.5
 output_flat_change = 0.0
 output_percentage_change = -0.04
-
-[node name="DoomTime" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "doom_time"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 10.0
-output_flat_change = 2.0

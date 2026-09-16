@@ -5,7 +5,7 @@ var base_damage := 1
 var increased_damge := 0.0
 var dash_duration := 0.5
 var pet_base_damage := 1
-var doom_time := 10.0
+var hp := 10.0
 var pickaxe := 0
 var crit_chance := 0.0
 var crit_damage := 2.0
@@ -30,8 +30,8 @@ func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> v
 			dash_duration = amount
 		"pet_base_damage":
 			pet_base_damage = int(amount)
-		"doom_time":
-			doom_time = amount
+		"hp":
+			hp = amount
 		"pickaxe":
 			pickaxe = int(amount)
 		"increased_damage":
