@@ -36,6 +36,7 @@ func _ready() -> void:
 	dwarf.pickaxe = stats.pickaxe
 	dwarf.crit_chance = stats.crit_chance
 	dwarf.crit_damage = stats.crit_damage
+	dwarf.attack_duration = stats.attack_duration
 
 	background_filter_hue = background_filter_hue
 

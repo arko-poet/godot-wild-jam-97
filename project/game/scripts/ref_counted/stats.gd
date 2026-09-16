@@ -9,6 +9,7 @@ var doom_time := 10.0
 var pickaxe := 0
 var crit_chance := 0.1
 var crit_damage := 2.0
+var attack_duration := 1.0
 
 
 func _init() -> void:
@@ -33,5 +34,7 @@ func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> v
 			crit_chance = amount
 		"crit_damage":
 			crit_damage = amount
+		"attack_duration":
+			attack_duration = amount
 		_:
 			push_error("Upgrade Name '%s' doesn't have a matching property" % upgrade_name)

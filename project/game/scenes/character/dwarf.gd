@@ -9,8 +9,6 @@ enum State {
 	MINING,
 }
 
-const MINING_DURATION := 0.3
-
 @export var sparks_attack_scene: PackedScene
 @export var smoke_dash_scene: PackedScene
 @export var pickaxe_upgrades: Array[SpriteFrames]
@@ -37,6 +35,10 @@ var pickaxe := 0:
 		pickaxe = value
 		_upgrade_pickaxe()
 var is_crit := false
+var attack_duration := 1.0:
+	set(value):
+		attack_duration = value
+		_update_animation_speed()
 
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
@@ -151,4 +153,4 @@ func _update_animation_speed() -> void:
 		sprite.sprite_frames.set_animation_speed(&"dash", dash_frame_count / dash_duration)
 
 		var attack_frame_count := sprite.sprite_frames.get_frame_count(&"attack")
-		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / MINING_DURATION)
+		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / attack_duration)
