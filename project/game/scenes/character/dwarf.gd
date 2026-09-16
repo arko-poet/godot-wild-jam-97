@@ -2,6 +2,7 @@ class_name Dwarf
 extends CharacterBody2D
 
 signal mined(damage: int, is_crit: bool)
+signal mining_animation_finished
 
 enum State {
 	IDLE,
@@ -70,6 +71,9 @@ func _input(event: InputEvent) -> void:
 
 
 func dash(distance: float) -> void:
+	if state == State.MINING:
+		await mining_animation_finished
+
 	state = State.DASHING
 
 	var tween = create_tween()
@@ -137,11 +141,7 @@ func _on_body_animation_finished() -> void:
 		state = State.IDLE
 		for sprite in sprites:
 			sprite.play(&"idle")
-
-		var damage := base_damage * damage_multiplier * (1 + increased_damage)
-		if is_crit:
-			damage = int(damage * crit_damage)
-		mined.emit(damage, is_crit)
+		mining_animation_finished.emit()
 
 
 func _on_pick_frame_changed() -> void:
@@ -154,6 +154,11 @@ func _on_pick_frame_changed() -> void:
 			SfxController.play(pickaxe_crit_sfx)
 		else:
 			SfxController.play(pickaxe_sfx)
+
+		var damage := base_damage * damage_multiplier * (1 + increased_damage)
+		if is_crit:
+			damage = int(damage * crit_damage)
+		mined.emit(damage, is_crit)
 
 
 func _update_animation_speed() -> void:
