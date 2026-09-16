@@ -74,7 +74,7 @@ func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
 	gem.position = camera.to_local(global_position) + get_viewport().get_visible_rect().size / 2.0
 	_ui.add_child(gem)
 	var tween = create_tween()
-	var duration_variation := randf_range(0.0, 0.2)
+	var duration_variation := randf_range(0.0, 0.3)
 	tween.tween_property(gem, ^"position", _gems_texture.position, 0.5 + duration_variation) \
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_IN)

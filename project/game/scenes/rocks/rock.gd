@@ -4,6 +4,7 @@ extends Node2D
 signal destroyed
 
 const RARE_ORE_DROP_COUNT := 10
+const MAX_GEM_DROP_DISTANCE := Vector2i(64.0, 16.0)
 
 @export var floating_text_scene: PackedScene
 
@@ -58,7 +59,11 @@ func mine(damage: int, is_crit: bool) -> void:
 func _spawn_gems() -> void:
 	if is_rare:
 		for i in RARE_ORE_DROP_COUNT:
-			Events.drop_gem(0, 1, global_position)
+			var horizontal_position_variation := Vector2(
+				randf_range(0.0, MAX_GEM_DROP_DISTANCE.x),
+				randf_range(0.0, MAX_GEM_DROP_DISTANCE.y),
+			)
+			Events.drop_gem(0, 1, global_position + horizontal_position_variation)
 	else:
 		Events.drop_gem(0, 1, global_position)
 
