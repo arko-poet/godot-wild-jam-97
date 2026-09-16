@@ -41,7 +41,7 @@ var stats: Stats:
 		pet_unlocked = stats.pet_unlocked
 		pet_base_damage = stats.pet_base_damage
 		pet_increased_damage = stats.pet_increased_damage
-		pet_crit_chance = stats.pet
+		pet_crit_chance = stats.pet_crit_chance
 var dash_duration := 0.5
 var base_damage := 1
 var increased_damage := 0.1
@@ -145,14 +145,18 @@ func _mine() -> void:
 	for sprite in sprites:
 		sprite.play(&"attack")
 
-	is_crit = randf() < crit_chance
+	is_crit = randf() <= crit_chance
 
 
 func _on_pet_mined() -> void:
 	if state == State.DASHING:
 		return
 
-	mined.emit(pet_base_damage * (1 + pet_increased_damage), false)
+	var damage := pet_base_damage * (1 + pet_increased_damage)
+	var is_pet_crit := randf() <= pet_crit_chance
+	if is_pet_crit:
+		damage *= 2
+	mined.emit(damage, is_pet_crit)
 
 
 # body signal affects pick and beard as well
