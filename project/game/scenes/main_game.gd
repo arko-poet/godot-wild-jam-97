@@ -1,5 +1,7 @@
 extends Node
 
+const _DEFAULT_HP_DRAIN := 0.1
+
 @export var _gem_scene: PackedScene
 @export var _tunnel_scene: PackedScene
 
@@ -24,11 +26,14 @@ var _hp: float:
 			_on_hp_drained()
 
 var _hp_drain := 0.1
+var _hp_regen := 0.1
 
 var _depth: int:
 	set(value):
 		_depth = value
 		_depth_label.text = "Depth %s" % _depth
+
+		_hp_drain = (1 + floor(_depth / 10)) * _DEFAULT_HP_DRAIN
 
 @onready var pause_menu_controller: Node = %PauseMenuController
 
@@ -52,6 +57,7 @@ func _ready() -> void:
 
 	Events.gem_dropped.connect(_on_gem_dropped)
 	Events.upgrade_purchased.connect(_on_upgrade_purchased)
+	Events.depth_increased.connect(_on_depth_increased)
 
 	_start_button.grab_focus()
 
@@ -93,6 +99,7 @@ func _new_tunnel() -> void:
 
 	_max_hp = _stats.hp
 	_hp = _max_hp
+	_hp_drain = _DEFAULT_HP_DRAIN
 
 	_current_tunnel = _tunnel_scene.instantiate()
 	_current_tunnel.stats = _stats
@@ -114,8 +121,6 @@ func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
 			.set_ease(Tween.EASE_IN)
 	tween.finished.connect(_collect_gem.bind(gem, amount))
 
-	_depth += 1
-
 
 func _collect_gem(gem: Node2D, amount: int) -> void:
 	gem.queue_free()
@@ -133,3 +138,8 @@ func _on_options_button_pressed() -> void:
 
 func _on_hp_drain_timer_timeout() -> void:
 	_hp -= _hp_drain
+	_hp += _hp_regen
+
+
+func _on_depth_increased() -> void:
+	_depth += 1

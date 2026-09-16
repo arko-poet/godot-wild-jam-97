@@ -18,6 +18,7 @@ var hp: int:
 
 		if hp == 0:
 			_spawn_gems()
+			Events.increase_depth()
 			destroyed.emit()
 			ore_break.show()
 			ore_sprite.hide()
