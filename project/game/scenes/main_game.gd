@@ -26,7 +26,7 @@ var _hp: float:
 			_on_hp_drained()
 
 var _hp_drain := 0.1
-var _hp_regen := 0.1
+var _hp_regen := 0.0
 
 var _depth: int:
 	set(value):
@@ -99,6 +99,7 @@ func _new_tunnel() -> void:
 
 	_max_hp = _stats.hp
 	_hp = _max_hp
+	_hp_regen = _stats.hp_regen
 	_hp_drain = _DEFAULT_HP_DRAIN
 
 	_current_tunnel = _tunnel_scene.instantiate()
