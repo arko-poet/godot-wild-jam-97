@@ -27,6 +27,7 @@ var state := State.IDLE:
 
 var dash_duration := 0.5
 var base_damage := 1
+var increased_damage := 0.1
 var damage_multiplier := 1
 var pet_base_damge := 1
 var crit_chance := 0.2
@@ -126,7 +127,7 @@ func _on_body_animation_finished() -> void:
 		for sprite in sprites:
 			sprite.play(&"idle")
 
-		var damage := base_damage * damage_multiplier
+		var damage := base_damage * damage_multiplier * (1 + increased_damage)
 		if is_crit:
 			damage = int(damage * crit_multiplier)
 		mined.emit(damage, is_crit)

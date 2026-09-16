@@ -2,6 +2,7 @@ class_name Stats
 extends RefCounted
 
 var base_damage := 1
+var increased_damge := 0.0
 var dash_duration := 0.5
 var pet_base_damage := 1
 var doom_time := 10.0
@@ -24,5 +25,7 @@ func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> v
 			doom_time = amount
 		"pickaxe":
 			pickaxe = int(amount)
+		"increased_damage":
+			increased_damge = amount
 		_:
 			push_error("Upgrade Name '%s' doesn't have a matching property" % upgrade_name)

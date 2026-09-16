@@ -55,6 +55,16 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
+[node name="IncreasedDamage" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1005225896 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "increased_damage"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 0.0
+output_flat_change = 0.1
+
 [node name="BloodPickaxe" parent="PanelContainer/MarginContainer/VBoxContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
