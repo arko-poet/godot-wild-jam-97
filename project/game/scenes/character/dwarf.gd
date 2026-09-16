@@ -15,6 +15,8 @@ const MINING_DURATION := 0.3
 @export var smoke_dash_scene: PackedScene
 @export var pickaxe_upgrades: Array[SpriteFrames]
 
+@export var dash_sfx: AudioStream
+
 var state := State.IDLE:
 	set(value):
 		state = value
@@ -70,6 +72,8 @@ func dash(distance: float) -> void:
 	add_child(smoke_dash)
 
 	pet.stop_mining()
+
+	SfxController.play(dash_sfx)
 
 
 func _upgrade_pickaxe() -> void:

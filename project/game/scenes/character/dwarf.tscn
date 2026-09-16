@@ -9,6 +9,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cseupkty3lymw" path="res://game/resources/pickaxe_frames/adamantite_pickaxe_frames.tres" id="5_fkcfr"]
 [ext_resource type="PackedScene" uid="uid://l0agmulilp4p" path="res://game/scenes/character/pet.tscn" id="5_vxjbm"]
 [ext_resource type="Texture2D" uid="uid://d0esplaippblg" path="res://game/art/dwarf/idle/DMG_BodyIdle.png" id="6_vx4ul"]
+[ext_resource type="AudioStream" uid="uid://bnejljvgn2bpv" path="res://game/audio/sfx/dash.ogg" id="7_fkcfr"]
 [ext_resource type="SpriteFrames" uid="uid://bnto04aak685u" path="res://game/resources/pickaxe_frames/basic_pickaxe_frames.tres" id="8_dsmkv"]
 [ext_resource type="Texture2D" uid="uid://b40rfm8el8yl2" path="res://game/art/dwarf/attack/DMG_BeardAttack.png" id="8_q3g3n"]
 [ext_resource type="Texture2D" uid="uid://byx0gl20pfo5i" path="res://game/art/dwarf/dash/DMG_BeardDash.png" id="9_1g8m5"]
@@ -297,6 +298,7 @@ script = ExtResource("1_wjfk0")
 sparks_attack_scene = ExtResource("2_dsmkv")
 smoke_dash_scene = ExtResource("3_fedji")
 pickaxe_upgrades = Array[SpriteFrames]([ExtResource("8_dsmkv"), ExtResource("4_do1d5"), ExtResource("5_fkcfr")])
+dash_sfx = ExtResource("7_fkcfr")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)
