@@ -13,6 +13,7 @@ var _gems: int:
 		_gems_label.text = ": %s" % _gems
 		_upgrades_menu.gems_changed(_gems)
 
+@onready var pause_menu_controller: Node = %PauseMenuController
 @onready var _ui: Control = %UI
 @onready var _upgrades_menu: UpgradesMenu = %UpgradesMenu
 @onready var _gems_texture: TextureRect = %GemsTexture
@@ -93,3 +94,7 @@ func _collect_gem(gem: Node2D, amount: int) -> void:
 
 func _on_upgrade_purchased(_upgrade_name: String, _amount: float, upgrade_cost: int) -> void:
 	_gems -= upgrade_cost
+
+
+func _on_options_button_pressed() -> void:
+	pause_menu_controller.pause()
