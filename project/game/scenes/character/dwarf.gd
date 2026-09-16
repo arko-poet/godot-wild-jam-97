@@ -39,6 +39,7 @@ var attack_duration := 1.0:
 	set(value):
 		attack_duration = value
 		_update_animation_speed()
+var auto_attack := false
 
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
@@ -51,6 +52,11 @@ func _ready() -> void:
 	sprites[0].modulate = Color.from_hsv(randf(), 1.0, 1.0)
 
 	#_upgrade_pickaxe(pickaxe_upgrades[pickaxe], pickaxe + 1)
+
+
+func _process(_delta) -> void:
+	if auto_attack and state == State.IDLE:
+		_mine()
 
 
 func _input(event: InputEvent) -> void:
