@@ -332,7 +332,7 @@ autoplay = "idle"
 [node name="Pick" type="AnimatedSprite2D" parent="Sprites" unique_id=1927180127]
 unique_name_in_owner = true
 sprite_frames = ExtResource("8_dsmkv")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="Beard" type="AnimatedSprite2D" parent="Sprites" unique_id=1210588042]

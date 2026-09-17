@@ -29,10 +29,7 @@ func _ready() -> void:
 	for i in NUMBER_OF_ROCKS:
 		_spawn_new_rock()
 
-	dwarf.base_damage = stats.base_damage
-	dwarf.dash_duration = stats.dash_duration
-	dwarf.pet_base_damge = stats.pet_base_damage
-	dwarf.pickaxe = stats.pickaxe
+	dwarf.stats = stats
 
 	background_filter_hue = background_filter_hue
 
