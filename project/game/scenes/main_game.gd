@@ -17,7 +17,7 @@ var _gems: int:
 var _max_hp := 10.0
 var _hp: float:
 	set(value):
-		_hp = max(0.0, value)
+		_hp = min(_max_hp, max(0.0, value))
 
 		_hp_bar.value = _hp
 		_hp_bar.max_value = _max_hp
