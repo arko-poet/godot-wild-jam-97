@@ -9,7 +9,7 @@ const _DEFAULT_HP_DRAIN := 0.1
 
 var _current_tunnel: Tunnel
 var _stats: Stats
-var _gems: int = 0:
+var _gems: int = 1000000:
 	set(value):
 		_gems = value
 		_gems_label.text = "%s" % _gems
