@@ -1,7 +1,7 @@
 class_name Dwarf
 extends CharacterBody2D
 
-signal mined(damage: int, is_crit: bool)
+signal mined(damage: int, is_crit: bool, is_pet: bool)
 signal mining_animation_finished
 
 enum State {
@@ -166,7 +166,7 @@ func _on_pet_mined() -> void:
 	var is_pet_crit := randf() <= pet_crit_chance
 	if is_pet_crit:
 		damage *= pet_crit_damage
-	mined.emit(damage, is_pet_crit)
+	mined.emit(damage, is_pet_crit, true)
 
 
 # body signal affects pick and beard as well
@@ -192,7 +192,7 @@ func _on_pick_frame_changed() -> void:
 		var damage := base_damage * damage_multiplier * (1 + increased_damage)
 		if is_crit:
 			damage = int(damage * crit_damage)
-		mined.emit(damage, is_crit)
+		mined.emit(damage, is_crit, false)
 
 
 func _update_animation_speed() -> void:

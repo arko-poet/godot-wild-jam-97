@@ -43,15 +43,27 @@ func _ready() -> void:
 	ore_sprite.texture = rock_resource.texture
 
 
-func mine(damage: int, is_crit: bool) -> void:
+func mine(damage: int, is_crit: bool, is_pet: bool) -> void:
 	_hit_flash()
 	_hit_shake()
 
 	var floating_text: FloatingText = floating_text_scene.instantiate()
+
+	if is_pet:
+		floating_text.text_color = Color.LIGHT_BLUE
+
 	if is_crit:
-		floating_text.text_color = Color.YELLOW
+		if is_pet:
+			floating_text.text_color = Color.ORANGE
+		else:
+			floating_text.text_color = Color.YELLOW
 	floating_text.text = str(damage)
 	floating_text.position = position
+
+	if is_pet:
+		floating_text.position -= Vector2(32, 32)
+		floating_text.font_size = 8
+
 	get_parent().add_child(floating_text)
 
 	hp -= damage

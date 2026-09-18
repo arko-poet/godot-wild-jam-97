@@ -75,5 +75,5 @@ func _spawn_new_rock() -> void:
 	_rocks_spawned += 1
 
 
-func _on_dwarf_mined(damage: int, is_crit: bool) -> void:
-	rocks[0].mine(damage, is_crit)
+func _on_dwarf_mined(damage: int, is_crit: bool, is_pet: bool) -> void:
+	rocks[0].mine(damage, is_crit, is_pet)
