@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades/upgrades_menu.gd" id="1_tishx"]
 [ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades/upgrade.tscn" id="2_evfao"]
+[ext_resource type="Texture2D" uid="uid://objvr151ap0i" path="res://game/art/ui/DMG_UpgradeBackground.png" id="2_iwset"]
 
 [node name="UpgradesMenu" type="Control" unique_id=1399126238]
 layout_mode = 3
@@ -23,6 +24,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1349728907]
+layout_mode = 2
+texture = ExtResource("2_iwset")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=712351042]
 layout_mode = 2
