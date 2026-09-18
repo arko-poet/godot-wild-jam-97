@@ -120,7 +120,7 @@ func dash(distance: float) -> void:
 	smoke_dash.dash_duration = dash_duration
 	add_child(smoke_dash)
 
-	SfxController.play(dash_sfx)
+	SfxController.play(dash_sfx, 0.0, true)
 
 
 func _upgrade_pickaxe() -> void:
@@ -185,9 +185,9 @@ func _on_pick_frame_changed() -> void:
 		get_parent().add_child(sparks_attack)
 
 		if is_crit:
-			SfxController.play(pickaxe_crit_sfx)
+			SfxController.play(pickaxe_crit_sfx, 0.0, true)
 		else:
-			SfxController.play(pickaxe_sfx)
+			SfxController.play(pickaxe_sfx, 0.0, true)
 
 		var damage := base_damage * damage_multiplier * (1 + increased_damage)
 		if is_crit:
