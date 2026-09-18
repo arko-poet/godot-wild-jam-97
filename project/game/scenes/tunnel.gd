@@ -20,6 +20,7 @@ var background_filter_hue := 1.0:
 		background_filter_hue = value
 		background_filter.modulate = Color.from_hsv(background_filter_hue, 1.0, 1.0)
 var rare_ore_probability := 0.05
+var _rocks_spawned: int
 
 @onready var dwarf: Dwarf = %Dwarf
 @onready var background_filter: Sprite2D = %BackgroundFilter
@@ -52,7 +53,7 @@ func _spawn_new_rock() -> void:
 		rock.is_rare = true
 		var spawn_weights: Dictionary[RockResource, int]
 		for rare_resource in rare_rock_resources:
-			if true: # TODO replace with depth check
+			if _rocks_spawned >= rare_resource.minimum_depth: # TODO replace with depth check
 				spawn_weights[rare_resource] = rare_resource.spawn_weight
 		var rng = RandomNumberGenerator.new()
 		var index = rng.rand_weighted(spawn_weights.values())
@@ -70,6 +71,8 @@ func _spawn_new_rock() -> void:
 
 	next_rock_horizontal_position += ROCK_HORIZONTAL_SPACING
 	next_rock_health += ROCK_HP_SCALING
+
+	_rocks_spawned += 1
 
 
 func _on_dwarf_mined(damage: int, is_crit: bool) -> void:

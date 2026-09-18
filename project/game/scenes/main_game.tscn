@@ -220,7 +220,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "1. Command Dwarf to mine ore in the cave
 2. Cave is deadly so dwarf is doomed to die
-3. Spend ore to upgrade your next dwarf"
+3. Spend ore to upgrade your next dwarves"
 horizontal_alignment = 1
 vertical_alignment = 1
 
