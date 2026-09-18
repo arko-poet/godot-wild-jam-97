@@ -112,6 +112,7 @@ frame_progress = 1.0
 
 [node name="HPBar" type="ProgressBar" parent="." unique_id=1902233843]
 unique_name_in_owner = true
+z_index = 20
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
