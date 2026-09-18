@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://d34cojcmvoefv" path="res://game/audio/sfx/gem2.ogg" id="4_ldb66"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="4_wemlv"]
 [ext_resource type="PackedScene" uid="uid://j1tuh46skb2c" path="res://template/scenes/windows/pause_menu_layer.tscn" id="4_yv8p0"]
-[ext_resource type="AudioStream" uid="uid://bsqdvesr6hybh" path="res://game/audio/music/gwj97 3.ogg" id="6_a4u41"]
 [ext_resource type="PackedScene" uid="uid://vseii40agins" path="res://game/scenes/upgrades/upgrades_Menu.tscn" id="7_cnnha"]
 [ext_resource type="Texture2D" uid="uid://cosvvlqbaunpr" path="res://game/art/ore/DMG_Ore@Gold.png" id="10_a4u41"]
 [ext_resource type="Texture2D" uid="uid://bahyd6ticg2jj" path="res://game/art/ore/DMG_Ore@Emerald.png" id="11_aawoq"]
@@ -22,7 +21,6 @@ _tunnel_scene = ExtResource("2_3iu72")
 _gem_sound = ExtResource("4_ldb66")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("4_wemlv")]
-stream = ExtResource("6_a4u41")
 
 [node name="PauseMenuController" type="Node" parent="." unique_id=1022592649]
 unique_name_in_owner = true
