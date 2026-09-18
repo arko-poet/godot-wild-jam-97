@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://0m0jqju77ker" path="res://game/art/rocks/DMG_Ore.PNG" id="5_f6snt"]
 [ext_resource type="Texture2D" uid="uid://coodlf28eomc1" path="res://game/art/rocks/DMG_OreBreak.png" id="6_l4oue"]
 [ext_resource type="Texture2D" uid="uid://dl2r8xe043ud4" path="res://game/art/rocks/DMG_OreShadow.png" id="6_uhq7j"]
+[ext_resource type="Texture2D" uid="uid://d0e441qpn8jbt" path="res://game/art/ui/progress_bar/DMG_HealthsubBar.png" id="7_be8vj"]
+[ext_resource type="Texture2D" uid="uid://dh6o5jxmvgyl2" path="res://game/art/ui/progress_bar/DMG_HealthTopBar.png" id="8_f6snt"]
+[ext_resource type="Texture2D" uid="uid://cow8gakacfmo8" path="res://game/art/ui/progress_bar/DMG_HealthBar.png" id="9_uhq7j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fedji"]
 resource_local_to_scene = true
@@ -110,7 +113,7 @@ sprite_frames = SubResource("SpriteFrames_vgun3")
 frame = 9
 frame_progress = 1.0
 
-[node name="HPBar" type="ProgressBar" parent="." unique_id=1902233843]
+[node name="HPBar" type="TextureProgressBar" parent="." unique_id=710225248]
 unique_name_in_owner = true
 z_index = 20
 anchors_preset = 8
@@ -119,13 +122,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = 64.0
+offset_top = -88.0
 offset_right = 64.0
-offset_bottom = 91.0
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
-step = 1.0
-show_percentage = false
+texture_under = ExtResource("7_be8vj")
+texture_over = ExtResource("8_f6snt")
+texture_progress = ExtResource("9_uhq7j")
 
 [node name="HPLabel" type="Label" parent="HPBar" unique_id=475013611]
 unique_name_in_owner = true

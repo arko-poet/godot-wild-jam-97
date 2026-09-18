@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://objvr151ap0i"
-path="res://.godot/imported/DMG_UpgradeBackground.png-16763be6d4c6148b9665da5c2fc2e29e.ctex"
+uid="uid://cow8gakacfmo8"
+path="res://.godot/imported/DMG_HealthBar.png-d030629d8c72f939e729b3d33270c824.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/ui/DMG_UpgradeBackground.png"
-dest_files=["res://.godot/imported/DMG_UpgradeBackground.png-16763be6d4c6148b9665da5c2fc2e29e.ctex"]
+source_file="res://game/art/ui/progress_bar/DMG_HealthBar.png"
+dest_files=["res://.godot/imported/DMG_HealthBar.png-d030629d8c72f939e729b3d33270c824.ctex"]
 
 [params]
 

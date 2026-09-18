@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades/upgrades_menu.gd" id="1_tishx"]
 [ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades/upgrade.tscn" id="2_evfao"]
-[ext_resource type="Texture2D" uid="uid://objvr151ap0i" path="res://game/art/ui/DMG_UpgradeBackground.png" id="2_iwset"]
+[ext_resource type="Texture2D" uid="uid://objvr151ap0i" path="res://game/art/ui/background/DMG_UpgradeBackground.png" id="2_iwset"]
 
 [node name="UpgradesMenu" type="Control" unique_id=1399126238]
 layout_mode = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xn65nk8hryxg"
-path="res://.godot/imported/DMG_9sliceTest.png-c5ba374a19e6dfe98dec8b86c129d7d7.ctex"
+uid="uid://objvr151ap0i"
+path="res://.godot/imported/DMG_UpgradeBackground.png-c8b5534fe9d9e94e35825486251c5dc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/ui/DMG_9sliceTest.png"
-dest_files=["res://.godot/imported/DMG_9sliceTest.png-c5ba374a19e6dfe98dec8b86c129d7d7.ctex"]
+source_file="res://game/art/ui/background/DMG_UpgradeBackground.png"
+dest_files=["res://.godot/imported/DMG_UpgradeBackground.png-c8b5534fe9d9e94e35825486251c5dc1.ctex"]
 
 [params]
 

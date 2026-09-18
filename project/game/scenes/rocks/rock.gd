@@ -26,7 +26,7 @@ var hp: int:
 var is_rare := false
 var rock_resource: RockResource
 
-@onready var hp_bar: ProgressBar = %HPBar
+@onready var hp_bar: TextureProgressBar = %HPBar
 @onready var hp_label: Label = %HPLabel
 
 @onready var ore_sprite: Sprite2D = %OreSprite
