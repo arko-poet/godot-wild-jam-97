@@ -12,7 +12,7 @@ var _stats: Stats
 var _gems: int:
 	set(value):
 		_gems = value
-		_gems_label.text = ": %s" % _gems
+		_gems_label.text = "%s" % _gems
 		_upgrades_menu.gems_changed(_gems)
 var _max_hp := 10.0
 var _hp: float:
