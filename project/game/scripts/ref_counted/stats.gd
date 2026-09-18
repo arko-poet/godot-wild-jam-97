@@ -26,39 +26,41 @@ func _init() -> void:
 
 func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> void:
 	match upgrade_name:
-		"base_damage":
+		"Extra Damage":
 			base_damage = int(amount)
-		"dash_duration":
+		"Dash Speed":
 			dash_duration = amount
-		"pet_base_damage":
+		"Drill Extra Damage":
 			pet_base_damage = int(amount)
-		"hp":
+		"HP":
 			hp = amount
-		"pickaxe":
+		"Blood Pickaxe":
 			pickaxe = int(amount)
-		"increased_damage":
+		"Adamantite Pickaxe":
+			pickaxe = int(amount)
+		"More Damage":
 			increased_damge = amount
-		"crit_chance":
+		"Crit Chance":
 			crit_chance = amount
-		"crit_damage":
+		"Crit Damage":
 			crit_damage = amount
-		"attack_duration":
+		"Attack Speed":
 			attack_duration = amount
-		"auto_attack":
+		"Auto Mining":
 			auto_attack = true
-		"pet":
+		"Drill":
 			pet_unlocked = true
-		"pet_increased_damage":
+		"Drill More Damage":
 			pet_increased_damage = amount
-		"pet_crit_chance":
+		"Drill Crit Chance":
 			pet_crit_chance = amount
-		"pet_crit_damage":
+		"Drill Crit Damage":
 			pet_crit_damage = amount
-		"pet_attack_duration":
+		"Drill Speed":
 			pet_attack_duration = amount
-		"hp_regen":
+		"HP Regeneration":
 			hp_regen = amount
-		"ore_rarity":
+		"Ore Rarity":
 			ore_rarity = amount
 		_:
 			push_error("Upgrade Name '%s' doesn't have a matching property" % upgrade_name)
