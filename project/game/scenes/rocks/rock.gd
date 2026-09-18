@@ -8,7 +8,7 @@ const MAX_GEM_DROP_DISTANCE := Vector2i(64.0, 16.0)
 
 @export var floating_text_scene: PackedScene
 
-var max_hp := 5
+var max_hp := 10
 var hp: int:
 	set(value):
 		hp = max(0, value)

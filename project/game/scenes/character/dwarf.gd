@@ -62,7 +62,7 @@ var pickaxe := 0:
 		pickaxe = value
 		_upgrade_pickaxe()
 var is_crit := false
-var attack_duration := 1.0:
+var attack_duration := 0.5:
 	set(value):
 		attack_duration = value
 		_update_animation_speed()

@@ -13,7 +13,7 @@ const BACKGROUND_FILTER_HUE_CHANGE := -0.02
 
 var rocks: Array[Rock]
 var next_rock_horizontal_position := 400
-var next_rock_health := 5
+var next_rock_health := 10
 var stats: Stats
 var background_filter_hue := 1.0:
 	set(value):
@@ -77,3 +77,7 @@ func _spawn_new_rock() -> void:
 
 func _on_dwarf_mined(damage: int, is_crit: bool, is_pet: bool) -> void:
 	rocks[0].mine(damage, is_crit, is_pet)
+
+
+func _is_dwarf_next_to_rock() -> bool:
+	return true
