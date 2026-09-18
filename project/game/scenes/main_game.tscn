@@ -30,6 +30,9 @@ pause_menu_packed = ExtResource("4_yv8p0")
 [node name="HPDrainTimer" type="Timer" parent="." unique_id=1437191624]
 wait_time = 0.1
 
+[node name="HPRegenTimer" type="Timer" parent="." unique_id=1099290008]
+autostart = true
+
 [node name="World" type="Node2D" parent="." unique_id=1110143394]
 unique_name_in_owner = true
 
@@ -237,5 +240,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="timeout" from="HPDrainTimer" to="." method="_on_hp_drain_timer_timeout"]
+[connection signal="timeout" from="HPRegenTimer" to="." method="_on_hp_regen_timer_timeout"]
 [connection signal="pressed" from="UILayer/UI/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UILayer/UI/OptionsButton" to="." method="_on_options_button_pressed"]

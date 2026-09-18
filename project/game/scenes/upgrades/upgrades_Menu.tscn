@@ -216,7 +216,6 @@ cost_linear_coefficient = 0.0
 cost_exponential_coefficient = 10.0
 cost_exponent = 3.0
 output_base = 0.0
-output_flat_change = 0.1
 
 [node name="DashDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true

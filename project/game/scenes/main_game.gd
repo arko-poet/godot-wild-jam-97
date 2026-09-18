@@ -42,6 +42,7 @@ var _depth: int:
 @onready var _upgrades_menu: UpgradesMenu = %UpgradesMenu
 @onready var _gems_texture: TextureRect = %GemsTexture
 @onready var _hp_drain_timer: Timer = $HPDrainTimer
+@onready var _hp_regen_timer: Timer = $HPRegenTimer
 
 @onready var _gems_label: Label = %GemsLabel
 @onready var _tutorial_label: Label = %TutorialLabel
@@ -58,6 +59,7 @@ func _ready() -> void:
 	Events.gem_dropped.connect(_on_gem_dropped)
 	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 	Events.depth_increased.connect(_on_depth_increased)
+	Events.life_stolen.connect(_on_life_stolen)
 
 	_start_button.grab_focus()
 
@@ -69,18 +71,20 @@ func _ready() -> void:
 func _start_doom_timer() -> void:
 	set_process(true)
 	_hp_drain_timer.start()
+	_hp_regen_timer.start()
 
 	_upgrades_menu.hide_menu()
 
 
 func _on_hp_drained() -> void:
-	_depth_label.hide()
-	_depth = 0
-	_start_button.show()
-	_hp_drain_timer.stop()
-	_hp_bar.hide()
-	_current_tunnel.queue_free()
-	set_process(false)
+	if _current_tunnel:
+		_depth_label.hide()
+		_depth = 0
+		_start_button.show()
+		_hp_drain_timer.stop()
+		_hp_bar.hide()
+		_current_tunnel.queue_free()
+		set_process(false)
 
 	#if not _upgrades_menu.try_grab_focus(_gems):
 	#_start_button.grab_focus()
@@ -142,8 +146,15 @@ func _on_options_button_pressed() -> void:
 
 func _on_hp_drain_timer_timeout() -> void:
 	_hp -= _hp_drain
-	_hp += _hp_regen
 
 
 func _on_depth_increased() -> void:
 	_depth += 1
+
+
+func _on_hp_regen_timer_timeout() -> void:
+	_hp += _hp_regen
+
+
+func _on_life_stolen(life: int) -> void:
+	_hp += life

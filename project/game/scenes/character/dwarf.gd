@@ -194,6 +194,11 @@ func _on_pick_frame_changed() -> void:
 			damage = int(damage * crit_damage)
 		mined.emit(damage, is_crit, false)
 
+		if pickaxe == 1:
+			Events.steal_life(1)
+		elif pickaxe == 2:
+			Events.steal_life(2)
+
 
 func _update_animation_speed() -> void:
 	for sprite in sprites:
