@@ -76,8 +76,12 @@ func _spawn_new_rock() -> void:
 
 
 func _on_dwarf_mined(damage: int, is_crit: bool, is_pet: bool) -> void:
-	rocks[0].mine(damage, is_crit, is_pet)
+	if _is_dwarf_next_to_rock():
+		rocks[0].mine(damage, is_crit, is_pet)
 
 
 func _is_dwarf_next_to_rock() -> bool:
-	return true
+	#if rocks.is_empty():
+	#return false
+	print(dwarf.global_position.distance_squared_to(rocks[0].global_position))
+	return dwarf.global_position.distance_to(rocks[0].global_position) <= ROCK_HORIZONTAL_SPACING
