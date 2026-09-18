@@ -3,12 +3,12 @@ extends Node2D
 
 signal destroyed
 
-const RARE_ORE_DROP_COUNT := 10
+const RARE_ORE_DROP_COUNT := 5
 const MAX_GEM_DROP_DISTANCE := Vector2i(64.0, 16.0)
 
 @export var floating_text_scene: PackedScene
 
-var max_hp := 5
+var max_hp := 10
 var hp: int:
 	set(value):
 		hp = max(0, value)
@@ -39,19 +39,31 @@ func _ready() -> void:
 	hp_bar.max_value = max_hp
 
 	if not rock_resource:
-		return
+		push_error("no rock resource set")
 	ore_sprite.texture = rock_resource.texture
 
 
-func mine(damage: int, is_crit: bool) -> void:
+func mine(damage: int, is_crit: bool, is_pet: bool) -> void:
 	_hit_flash()
 	_hit_shake()
 
 	var floating_text: FloatingText = floating_text_scene.instantiate()
+
+	if is_pet:
+		floating_text.text_color = Color.LIGHT_BLUE
+
 	if is_crit:
-		floating_text.text_color = Color.YELLOW
+		if is_pet:
+			floating_text.text_color = Color.ORANGE
+		else:
+			floating_text.text_color = Color.YELLOW
 	floating_text.text = str(damage)
 	floating_text.position = position
+
+	if is_pet:
+		floating_text.position -= Vector2(32, 32)
+		floating_text.font_size = 8
+
 	get_parent().add_child(floating_text)
 
 	hp -= damage
@@ -64,9 +76,12 @@ func _spawn_gems() -> void:
 				randf_range(0.0, MAX_GEM_DROP_DISTANCE.x),
 				randf_range(0.0, MAX_GEM_DROP_DISTANCE.y),
 			)
-			Events.drop_gem(0, 1, global_position + horizontal_position_variation)
+			Events.drop_gem(
+				rock_resource.ore_resource,
+				global_position + horizontal_position_variation,
+			)
 	else:
-		Events.drop_gem(0, 1, global_position)
+		Events.drop_gem(rock_resource.ore_resource, global_position)
 
 
 func _hit_flash() -> void:

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OreResource" format=3 uid="uid://bxc2al1fc57is"]
+
+[ext_resource type="Script" uid="uid://b4k2j280f5gty" path="res://game/scripts/resources/ore_resource.gd" id="1_o2iaf"]
+[ext_resource type="Texture2D" uid="uid://ddyyhvrg7emno" path="res://game/art/ore/DMG_Ore@Ruby.png" id="2_rwii7"]
+
+[resource]
+script = ExtResource("1_o2iaf")
+id = 2
+texture = ExtResource("2_rwii7")
+value = 5
+metadata/_custom_type_script = "uid://b4k2j280f5gty"

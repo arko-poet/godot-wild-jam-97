@@ -9,10 +9,10 @@ const _DEFAULT_HP_DRAIN := 0.1
 
 var _current_tunnel: Tunnel
 var _stats: Stats
-var _gems: int:
+var _gems: int = 0:
 	set(value):
 		_gems = value
-		_gems_label.text = ": %s" % _gems
+		_gems_label.text = "%s" % _gems
 		_upgrades_menu.gems_changed(_gems)
 var _max_hp := 10.0
 var _hp: float:
@@ -36,15 +36,16 @@ var _depth: int:
 		_hp_drain = (1 + floor(_depth / 10)) * _DEFAULT_HP_DRAIN
 
 @onready var pause_menu_controller: Node = %PauseMenuController
-
 @onready var _hp_bar: ProgressBar = %HPBar
 @onready var _hp_label: Label = %HPLabel
 @onready var _ui: Control = %UI
 @onready var _upgrades_menu: UpgradesMenu = %UpgradesMenu
 @onready var _gems_texture: TextureRect = %GemsTexture
 @onready var _hp_drain_timer: Timer = $HPDrainTimer
+@onready var _hp_regen_timer: Timer = $HPRegenTimer
 
 @onready var _gems_label: Label = %GemsLabel
+@onready var _tutorial_label: Label = %TutorialLabel
 
 @onready var _world: Node2D = %World
 
@@ -58,6 +59,7 @@ func _ready() -> void:
 	Events.gem_dropped.connect(_on_gem_dropped)
 	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 	Events.depth_increased.connect(_on_depth_increased)
+	Events.life_stolen.connect(_on_life_stolen)
 
 	_start_button.grab_focus()
 
@@ -69,18 +71,20 @@ func _ready() -> void:
 func _start_doom_timer() -> void:
 	set_process(true)
 	_hp_drain_timer.start()
+	_hp_regen_timer.start()
 
 	_upgrades_menu.hide_menu()
 
 
 func _on_hp_drained() -> void:
-	_depth_label.hide()
-	_depth = 0
-	_start_button.show()
-	_hp_drain_timer.stop()
-	_hp_bar.hide()
-	_current_tunnel.queue_free()
-	set_process(false)
+	if _current_tunnel:
+		_depth_label.hide()
+		_depth = 0
+		_start_button.show()
+		_hp_drain_timer.stop()
+		_hp_bar.hide()
+		_current_tunnel.queue_free()
+		set_process(false)
 
 	#if not _upgrades_menu.try_grab_focus(_gems):
 	#_start_button.grab_focus()
@@ -88,6 +92,7 @@ func _on_hp_drained() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	_tutorial_label.hide()
 	_hp_bar.show()
 	_start_button.hide()
 	_start_doom_timer()
@@ -107,8 +112,10 @@ func _new_tunnel() -> void:
 	_world.add_child(_current_tunnel)
 
 
-func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
-	var gem = _gem_scene.instantiate()
+func _on_gem_dropped(ore_resource: OreResource, global_position: Vector2):
+	var gem: Gem = _gem_scene.instantiate()
+	gem.ore_resource = ore_resource
+
 	var camera = get_viewport().get_camera_2d()
 
 	# calculation is scene independent, just need to use camera position and ui target's global rect
@@ -120,12 +127,12 @@ func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
 	tween.tween_property(gem, ^"position", _gems_texture.position, 0.5 + duration_variation) \
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_IN)
-	tween.finished.connect(_collect_gem.bind(gem, amount))
+	tween.finished.connect(_collect_gem.bind(gem, ore_resource.value))
 
 
 func _collect_gem(gem: Node2D, amount: int) -> void:
 	gem.queue_free()
-	_gems += amount
+	_gems += amount * int(1 + floor(_depth / 10))
 	SfxController.play(_gem_sound)
 
 
@@ -139,8 +146,15 @@ func _on_options_button_pressed() -> void:
 
 func _on_hp_drain_timer_timeout() -> void:
 	_hp -= _hp_drain
-	_hp += _hp_regen
 
 
 func _on_depth_increased() -> void:
 	_depth += 1
+
+
+func _on_hp_regen_timer_timeout() -> void:
+	_hp += _hp_regen
+
+
+func _on_life_stolen(life: int) -> void:
+	_hp += life

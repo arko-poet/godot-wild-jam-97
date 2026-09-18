@@ -13,3 +13,4 @@ enum Type {
 @export var texture: Texture2D
 @export var spawn_weight: int
 @export var minimum_depth: int
+@export var ore_resource: OreResource

@@ -1,6 +1,8 @@
 class_name Upgrade
 extends PanelContainer
 
+signal purchased(u: Upgrade)
+
 @export_group("base")
 @export var upgrade_name: String
 @export var upgrade_cap: int = 10
@@ -65,3 +67,17 @@ func _on_upgrade_button_pressed() -> void:
 	_update()
 
 	SfxController.play(upgrade_sound)
+
+	purchased.emit(self)
+
+	if upgrade_count == upgrade_cap:
+		_max_upgrade()
+
+
+func _max_upgrade() -> void:
+	var style: StyleBoxFlat = get_theme_stylebox(&"panel").duplicate()
+	style.border_color = Color.GOLD
+	upgrade_count_label.text = "MAX"
+
+	add_theme_stylebox_override(&"panel", style)
+	#upgrade_button.focus_mode = Control.FOCUS_NONE

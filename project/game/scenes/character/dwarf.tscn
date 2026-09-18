@@ -312,6 +312,10 @@ dash_sfx = ExtResource("7_fkcfr")
 pickaxe_sfx = SubResource("AudioStreamRandomizer_ohnnb")
 pickaxe_crit_sfx = ExtResource("11_dafoj")
 
+[node name="Pet" parent="." unique_id=1372273945 instance=ExtResource("5_vxjbm")]
+unique_name_in_owner = true
+visible = false
+
 [node name="Camera" type="Camera2D" parent="." unique_id=1720465753]
 position = Vector2(0, -64)
 
@@ -357,11 +361,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "IDLE"
 
-[node name="Pet" parent="." unique_id=1372273945 instance=ExtResource("5_vxjbm")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(-91, -3)
-
+[connection signal="mined" from="Pet" to="." method="_on_pet_mined"]
 [connection signal="animation_finished" from="Sprites/Body" to="." method="_on_body_animation_finished"]
 [connection signal="frame_changed" from="Sprites/Pick" to="." method="_on_pick_frame_changed"]
-[connection signal="mined" from="Pet" to="." method="_on_pet_mined"]

@@ -3,10 +3,11 @@ extends Node
 signal gem_dropped
 signal upgrade_purchased
 signal depth_increased
+signal life_stolen
 
 
-func drop_gem(gem_id: int, amount: int, global_position: Vector2) -> void:
-	gem_dropped.emit(gem_id, amount, global_position)
+func drop_gem(ore_resource: OreResource, global_position: Vector2) -> void:
+	gem_dropped.emit(ore_resource, global_position)
 
 
 func purchase_upgrade(upgrade_name: String, amount: float, upgrade_cost: int) -> void:
@@ -15,3 +16,7 @@ func purchase_upgrade(upgrade_name: String, amount: float, upgrade_cost: int) ->
 
 func increase_depth() -> void:
 	depth_increased.emit()
+
+
+func steal_life(life: int) -> void:
+	life_stolen.emit(life)

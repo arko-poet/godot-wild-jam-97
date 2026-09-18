@@ -3,6 +3,7 @@ extends Node2D
 
 var text: String
 var text_color: Color
+var font_size := 16
 
 @onready var _label: Label = %Label
 
@@ -12,6 +13,8 @@ func _ready() -> void:
 	_label.text = text
 	if text_color:
 		_label.add_theme_color_override("font_color", text_color)
+
+	_label.add_theme_font_size_override(&"font_size", font_size)
 
 	var tween := create_tween()
 	tween.set_parallel()

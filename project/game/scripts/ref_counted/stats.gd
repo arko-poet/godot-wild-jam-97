@@ -7,16 +7,17 @@ var dash_duration := 0.5
 var pet_base_damage := 1
 var hp := 10.0
 var pickaxe := 0
-var crit_chance := 0.0
+var crit_chance := 0.05
 var crit_damage := 2.0
-var attack_duration := 1.0
+var attack_duration := 0.5
 var auto_attack := false
 var pet_unlocked := false
 var pet_increased_damage := 0.0
-var pet_crit_chance := 0.0
+var pet_crit_chance := 0.05
 var pet_crit_damage := 2.0
-var pet_attack_duration := 1.0
+var pet_attack_duration := 0.1
 var hp_regen := 0.0
+var ore_rarity := 0.05
 
 
 func _init() -> void:
@@ -25,37 +26,41 @@ func _init() -> void:
 
 func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> void:
 	match upgrade_name:
-		"base_damage":
+		"Extra Damage":
 			base_damage = int(amount)
-		"dash_duration":
+		"Dash Speed":
 			dash_duration = amount
-		"pet_base_damage":
+		"Drill Extra Damage":
 			pet_base_damage = int(amount)
-		"hp":
+		"HP":
 			hp = amount
-		"pickaxe":
+		"Blood Pickaxe":
 			pickaxe = int(amount)
-		"increased_damage":
+		"Adamantite Pickaxe":
+			pickaxe = int(amount)
+		"More Damage":
 			increased_damge = amount
-		"crit_chance":
+		"Crit Chance":
 			crit_chance = amount
-		"crit_damage":
+		"Crit Damage":
 			crit_damage = amount
-		"attack_duration":
+		"Attack Speed":
 			attack_duration = amount
-		"auto_attack":
+		"Auto Mining":
 			auto_attack = true
-		"pet":
+		"Drill":
 			pet_unlocked = true
-		"pet_increased_damage":
+		"Drill More Damage":
 			pet_increased_damage = amount
-		"pet_crit_chance":
+		"Drill Crit Chance":
 			pet_crit_chance = amount
-		"pet_crit_damage":
+		"Drill Crit Damage":
 			pet_crit_damage = amount
-		"pet_attack_duration":
+		"Drill Speed":
 			pet_attack_duration = amount
-		"hp_regen":
+		"HP Regeneration":
 			hp_regen = amount
+		"Ore Rarity":
+			ore_rarity = amount
 		_:
 			push_error("Upgrade Name '%s' doesn't have a matching property" % upgrade_name)

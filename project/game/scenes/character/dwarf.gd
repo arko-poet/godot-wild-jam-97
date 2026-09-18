@@ -1,7 +1,7 @@
 class_name Dwarf
 extends CharacterBody2D
 
-signal mined(damage: int, is_crit: bool)
+signal mined(damage: int, is_crit: bool, is_pet: bool)
 signal mining_animation_finished
 
 enum State {
@@ -39,6 +39,9 @@ var stats: Stats:
 		dash_duration = stats.dash_duration
 
 		pet_unlocked = stats.pet_unlocked
+		if pet_unlocked:
+			pet.show()
+
 		pet_base_damage = stats.pet_base_damage
 		pet_increased_damage = stats.pet_increased_damage
 		pet_crit_chance = stats.pet_crit_chance
@@ -59,7 +62,7 @@ var pickaxe := 0:
 		pickaxe = value
 		_upgrade_pickaxe()
 var is_crit := false
-var attack_duration := 1.0:
+var attack_duration := 0.5:
 	set(value):
 		attack_duration = value
 		_update_animation_speed()
@@ -117,7 +120,7 @@ func dash(distance: float) -> void:
 	smoke_dash.dash_duration = dash_duration
 	add_child(smoke_dash)
 
-	SfxController.play(dash_sfx)
+	SfxController.play(dash_sfx, 0.0, true)
 
 
 func _upgrade_pickaxe() -> void:
@@ -163,7 +166,7 @@ func _on_pet_mined() -> void:
 	var is_pet_crit := randf() <= pet_crit_chance
 	if is_pet_crit:
 		damage *= pet_crit_damage
-	mined.emit(damage, is_pet_crit)
+	mined.emit(damage, is_pet_crit, true)
 
 
 # body signal affects pick and beard as well
@@ -182,14 +185,19 @@ func _on_pick_frame_changed() -> void:
 		get_parent().add_child(sparks_attack)
 
 		if is_crit:
-			SfxController.play(pickaxe_crit_sfx)
+			SfxController.play(pickaxe_crit_sfx, 0.0, true)
 		else:
-			SfxController.play(pickaxe_sfx)
+			SfxController.play(pickaxe_sfx, 0.0, true)
 
 		var damage := base_damage * damage_multiplier * (1 + increased_damage)
 		if is_crit:
 			damage = int(damage * crit_damage)
-		mined.emit(damage, is_crit)
+		mined.emit(damage, is_crit, false)
+
+		if pickaxe == 1:
+			Events.steal_life(1)
+		elif pickaxe == 2:
+			Events.steal_life(2)
 
 
 func _update_animation_speed() -> void:

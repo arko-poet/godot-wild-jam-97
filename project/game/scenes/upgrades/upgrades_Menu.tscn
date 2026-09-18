@@ -47,155 +47,197 @@ theme_override_constants/v_separation = 8
 columns = 3
 
 [node name="BaseDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=259663191 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "base_damage"
+upgrade_name = "Extra Damage"
 upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
-[node name="HP" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
+[node name="AttackDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1720546446 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "hp"
+upgrade_name = "Attack Speed"
 upgrade_cap = 10
-cost_base = 1
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 10.0
+cost_exponent = 3.0
+output_base = 0.5
+output_flat_change = -0.045
+
+[node name="CritChance" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1722627407 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "Crit Chance"
+upgrade_cap = 10
+cost_base = 100
+cost_linear_coefficient = 100.0
+output_base = 0.05
+output_flat_change = 0.05
+
+[node name="CritDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=585399182 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "Crit Damage"
+upgrade_cap = 10
+cost_base = 100
+cost_linear_coefficient = 100.0
+output_base = 2.0
+output_flat_change = 0.2
+
+[node name="IncreasedDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1005225896 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "More Damage"
+upgrade_cap = 10
+cost_base = 1000
+cost_linear_coefficient = 1000.0
+output_base = 0.0
+output_flat_change = 0.2
+
+[node name="BloodPickaxe" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "Blood Pickaxe"
+upgrade_cap = 1
+cost_base = 100
+output_flat_change = 0.0
+
+[node name="AdamantitePickaxe" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1478964898 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "Adamantite Pickaxe"
+upgrade_cap = 1
+cost_base = 1000
+output_base = 2.0
+output_flat_change = 0.0
+
+[node name="AutoAttack" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=439501228 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "Auto Mining"
+upgrade_cap = 1
+cost_base = 10000
 cost_linear_coefficient = 1.0
-output_base = 10.0
-output_flat_change = 2.0
+output_flat_change = 0.0
 
 [node name="Pet" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1349109001 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "pet"
+upgrade_name = "Drill"
 upgrade_cap = 1
 cost_linear_coefficient = 1.0
 output_flat_change = 0.0
 
 [node name="PetDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "pet_base_damage"
+upgrade_name = "Drill Extra Damage"
 upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-
-[node name="BloodPickaxe" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_cap = 1
-output_flat_change = 0.0
-
-[node name="AttackDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1720546446 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "attack_duration"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_flat_change = -0.08
-
-[node name="CritChance" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1722627407 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "crit_chance"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 0.0
-output_flat_change = 0.05
-
-[node name="CritDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=585399182 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "crit_damage"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 2.0
-output_flat_change = 0.2
+cost_base = 50
+cost_linear_coefficient = 100.0
 
 [node name="PetAttackDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=254856889 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "pet_attack_duration"
+upgrade_name = "Drill Speed"
 upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_flat_change = -0.08
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 10.0
+cost_exponent = 3.0
+output_base = 0.1
+output_flat_change = -0.009
 
 [node name="PetCritChance" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1977179126 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "pet_crit_chance"
+upgrade_name = "Drill Crit Chance"
 upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 0.0
+cost_base = 100
+cost_linear_coefficient = 100.0
+output_base = 0.05
 output_flat_change = 0.05
 
 [node name="PetCritDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1116156297 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "pet_crit_damage"
+upgrade_name = "Drill Crit Damage"
 upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
+cost_base = 100
+cost_linear_coefficient = 100.0
 output_base = 2.0
 output_flat_change = 0.2
 
-[node name="AdamantitePickaxe" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1478964898 instance=ExtResource("2_evfao")]
+[node name="PetIncreasedDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=37265207 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_cap = 1
-output_base = 2.0
-output_flat_change = 0.0
+upgrade_name = "Drill More Damage"
+upgrade_cap = 10
+cost_base = 1000
+cost_linear_coefficient = 1000.0
+output_base = 0.0
+output_flat_change = 0.2
+
+[node name="HP" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "HP"
+upgrade_cap = 10
+cost_base = 5
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 10.0
+cost_exponent = 3.0
+output_base = 10.0
+output_flat_change = 10.0
+
+[node name="HPRegen" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1245188277 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+upgrade_name = "HP Regeneration"
+upgrade_cap = 10
+cost_base = 100
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 10.0
+cost_exponent = 3.0
+output_base = 0.0
 
 [node name="DashDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "dash_duration"
+upgrade_name = "Dash Speed"
 upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 10.0
+cost_exponent = 3.0
 output_base = 0.5
-output_flat_change = 0.0
-output_percentage_change = -0.04
+output_flat_change = -0.045
 
-[node name="IncreasedDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1005225896 instance=ExtResource("2_evfao")]
+[node name="OreRarity" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "increased_damage"
+upgrade_name = "Ore Rarity"
 upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 0.0
-output_flat_change = 0.1
-
-[node name="PetIncreasedDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=37265207 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "pet_increased_damage"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 0.0
-output_flat_change = 0.1
-
-[node name="AutoAttack" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=439501228 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "auto_attack"
-upgrade_cap = 1
-cost_linear_coefficient = 1.0
-output_flat_change = 0.0
-
-[node name="HPRegen" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
-visible = false
-layout_mode = 2
-upgrade_name = "hp_regen"
-upgrade_cap = 10
-cost_base = 1
-cost_linear_coefficient = 1.0
-output_base = 0.0
-output_flat_change = 0.1
+cost_base = 20
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 20.0
+cost_exponent = 2.0
+output_base = 0.05
+output_flat_change = 0.05

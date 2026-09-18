@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtmu6ldh7hm7f" path="res://game/scenes/floating_text.gd" id="1_vifis"]
 
 [node name="FloatingText" type="Node2D" unique_id=2107523219]
+z_index = 1
 script = ExtResource("1_vifis")
 
 [node name="Label" type="Label" parent="." unique_id=1398398420]

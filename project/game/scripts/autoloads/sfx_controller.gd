@@ -14,10 +14,23 @@ func _ready() -> void:
 		add_child(audio_stream_player)
 
 
-func play(audio_stream: AudioStream, pitch_variation: float = 0.0) -> void:
+func play(
+	audio_stream: AudioStream,
+	pitch_variation: float = 0.0,
+	override_pool_size := false,
+) -> void:
 	for player in _audio_stream_player_pool:
 		if not player.playing:
 			player.stream = audio_stream
 			player.pitch_scale = 1.0 + randf_range(-pitch_variation, pitch_variation)
 			player.play()
-			break
+			return
+
+	if override_pool_size:
+		var player := AudioStreamPlayer.new()
+		player.bus = "SFX"
+		player.stream = audio_stream
+		player.pitch_scale = 1.0 + randf_range(-pitch_variation, pitch_variation)
+		player.finished.connect(player.queue_free)
+		add_child(player)
+		player.play()

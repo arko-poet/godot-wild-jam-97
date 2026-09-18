@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bl5p803fvns3"]
 
 [ext_resource type="Texture2D" uid="uid://cmni5hv40bfaa" path="res://addons/maaacks_game_template/assets/input-icons/icons-filled-colored.png" id="1_uju84"]
+[ext_resource type="Script" uid="uid://bqarff6aerqys" path="res://game/scenes/gem.gd" id="1_yqxyf"]
 
 [node name="Gem" type="Node2D" unique_id=1191670939]
+scale = Vector2(2, 2)
+script = ExtResource("1_yqxyf")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1659531523]
+unique_name_in_owner = true
 position = Vector2(-7, -7)
 texture = ExtResource("1_uju84")
 centered = false
