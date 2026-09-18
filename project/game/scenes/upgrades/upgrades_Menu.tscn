@@ -54,6 +54,16 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
+[node name="OreRarity" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+visible = false
+layout_mode = 2
+upgrade_name = "ore_rarity"
+upgrade_cap = 10
+cost_base = 1
+cost_linear_coefficient = 1.0
+output_base = 0.05
+output_flat_change = 0.05
+
 [node name="HP" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
@@ -190,7 +200,7 @@ upgrade_cap = 1
 cost_linear_coefficient = 1.0
 output_flat_change = 0.0
 
-[node name="HPRegen" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+[node name="HPRegen" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1245188277 instance=ExtResource("2_evfao")]
 visible = false
 layout_mode = 2
 upgrade_name = "hp_regen"

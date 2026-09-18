@@ -17,6 +17,7 @@ var pet_crit_chance := 0.0
 var pet_crit_damage := 2.0
 var pet_attack_duration := 1.0
 var hp_regen := 0.0
+var ore_rarity := 0.05
 
 
 func _init() -> void:
@@ -57,5 +58,7 @@ func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> v
 			pet_attack_duration = amount
 		"hp_regen":
 			hp_regen = amount
+		"ore_rarity":
+			ore_rarity = amount
 		_:
 			push_error("Upgrade Name '%s' doesn't have a matching property" % upgrade_name)

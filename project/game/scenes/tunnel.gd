@@ -5,7 +5,6 @@ const ROCK_HORIZONTAL_SPACING := 162
 const TUNNEL_VERTICAL_POSITION := 250
 const NUMBER_OF_ROCKS := 10
 const ROCK_HP_SCALING := 1
-const RARE_ORE_PROBABILITY := 0.25
 const BACKGROUND_FILTER_HUE_CHANGE := -0.02
 
 @export var rock_scene: PackedScene
@@ -20,12 +19,15 @@ var background_filter_hue := 1.0:
 	set(value):
 		background_filter_hue = value
 		background_filter.modulate = Color.from_hsv(background_filter_hue, 1.0, 1.0)
+var rare_ore_probability := 0.05
 
 @onready var dwarf: Dwarf = %Dwarf
 @onready var background_filter: Sprite2D = %BackgroundFilter
 
 
 func _ready() -> void:
+	rare_ore_probability += stats.ore_rarity
+
 	for i in NUMBER_OF_ROCKS:
 		_spawn_new_rock()
 
@@ -46,7 +48,7 @@ func _spawn_new_rock() -> void:
 	var rock: Rock = rock_scene.instantiate()
 
 	var rock_resource: RockResource
-	if randf() < RARE_ORE_PROBABILITY:
+	if randf() < rare_ore_probability:
 		rock.is_rare = true
 		var spawn_weights: Dictionary[RockResource, int]
 		for rare_resource in rare_rock_resources:
