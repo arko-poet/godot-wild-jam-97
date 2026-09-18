@@ -1,17 +1,24 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+### Art
+[Lampazzu](https://lampazzu.itch.io/)
+
+### Music & SFX
+[fradono](https://fradono.itch.io/)
+
+### Programming
+[arko](https://arko-poet.itch.io/)
+
+### Initial Contributions
+[Alexander](https://cityships.itch.io/)
+[babypaws](https://babypaws.itch.io/)
 
 ## Sourced
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+### Font
+Author: [CodeMan38](https://fonts.google.com/?query=CodeMan38)  
+Source: [https://fonts.google.com/](https://fonts.google.com/)  
+License: [SIL Open Font License (OFL) 1.1](https://fonts.google.com/specimen/Press+Start+2P/license?query=CodeMan38)
 
 #### Godot Engine Logo
 Author: Andrea Calabró  

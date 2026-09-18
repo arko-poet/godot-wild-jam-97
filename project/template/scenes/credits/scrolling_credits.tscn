@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds2robnt8av3v"]
 
-[ext_resource type="Script" path="res://template/scenes/credits/scrolling_credits.gd" id="1_fg7j8"]
-[ext_resource type="PackedScene" path="res://template/scenes/credits/credits_label.tscn" id="2_xylwq"]
+[ext_resource type="Script" uid="uid://nevd1oo0knmg" path="res://template/scenes/credits/scrolling_credits.gd" id="1_fg7j8"]
+[ext_resource type="PackedScene" uid="uid://ba7q1d738lmlc" path="res://template/scenes/credits/credits_label.tscn" id="2_xylwq"]
 
 [node name="ScrollingCredits" type="Control" unique_id=1162279489]
 layout_mode = 3
@@ -17,6 +17,7 @@ unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+scroll_vertical = 516
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -26,15 +27,61 @@ size_flags_horizontal = 3
 
 [node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1552560353]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 720)
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" unique_id=1486745388 instance=ExtResource("2_xylwq")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1280, 0)
+custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
+text = "[font_size=40]Collaborators[/font_size]
+
+[font_size=24]Art[/font_size]
+[url=https://lampazzu.itch.io/]Lampazzu[/url]
+
+[font_size=24]Music & SFX[/font_size]
+[url=https://fradono.itch.io/]fradono[/url]
+
+[font_size=24]Programming[/font_size]
+[url=https://arko-poet.itch.io/]arko[/url]
+
+[font_size=24]Initial Contributions[/font_size]
+[url=https://cityships.itch.io/]Alexander[/url]
+[url=https://babypaws.itch.io/]babypaws[/url]
+
+[font_size=40]Sourced[/font_size]
+[font_size=24]Font[/font_size]
+Author: [url=https://fonts.google.com/?query=CodeMan38]CodeMan38[/url]  
+Source: [url=https://fonts.google.com/]https://fonts.google.com/[/url]  
+License: [url=https://fonts.google.com/specimen/Press+Start+2P/license?query=CodeMan38]SIL Open Font License (OFL) 1.1[/url]
+
+[font_size=16]Godot Engine Logo[/font_size]
+Author: Andrea Calabró  
+Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+
+[font_size=40]Tools[/font_size]
+[font_size=16]Godot[/font_size]
+[img=80]res:///template/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=16]Godot Game Template[/font_size]
+[img=80]res:///template/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=16]Git[/font_size]
+[img=80]res:///template/assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+"
+auto_update = false
 
 [node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1703782196]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 720)
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
