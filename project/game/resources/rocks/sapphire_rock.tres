@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="RockResource" format=3 uid="uid://cdaxdlo11m37q"]
 
+[ext_resource type="Resource" uid="uid://oguo514vvysv" path="res://game/resources/ore/sapphire_ore.tres" id="1_5jtgf"]
 [ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="1_6afcn"]
 [ext_resource type="Texture2D" uid="uid://cu4epfg7us281" path="res://game/art/rocks/DMG_OreSapphire.png" id="2_2i713"]
 
@@ -8,5 +9,6 @@ script = ExtResource("1_6afcn")
 type = 4
 texture = ExtResource("2_2i713")
 spawn_weight = 10
-minimum_depth = 10
+minimum_depth = 20
+ore_resource = ExtResource("1_5jtgf")
 metadata/_custom_type_script = "uid://beq5iwtyuhset"

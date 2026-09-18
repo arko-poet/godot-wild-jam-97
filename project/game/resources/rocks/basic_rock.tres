@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="RockResource" format=3 uid="uid://hasuorg6i23i"]
 
+[ext_resource type="Resource" uid="uid://6bsddkkhospe" path="res://game/resources/ore/gold_ore.tres" id="1_1ptn4"]
 [ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="1_akqk6"]
 [ext_resource type="Texture2D" uid="uid://0m0jqju77ker" path="res://game/art/rocks/DMG_Ore.PNG" id="2_wvdja"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("1_akqk6")
 texture = ExtResource("2_wvdja")
 spawn_weight = 100
+ore_resource = ExtResource("1_1ptn4")
 metadata/_custom_type_script = "uid://beq5iwtyuhset"

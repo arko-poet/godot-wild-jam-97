@@ -107,8 +107,10 @@ func _new_tunnel() -> void:
 	_world.add_child(_current_tunnel)
 
 
-func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
-	var gem = _gem_scene.instantiate()
+func _on_gem_dropped(ore_resource: OreResource, global_position: Vector2):
+	var gem: Gem = _gem_scene.instantiate()
+	gem.ore_resource = ore_resource
+
 	var camera = get_viewport().get_camera_2d()
 
 	# calculation is scene independent, just need to use camera position and ui target's global rect
@@ -120,7 +122,7 @@ func _on_gem_dropped(_gem_id: int, amount: int, global_position: Vector2):
 	tween.tween_property(gem, ^"position", _gems_texture.position, 0.5 + duration_variation) \
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_IN)
-	tween.finished.connect(_collect_gem.bind(gem, amount))
+	tween.finished.connect(_collect_gem.bind(gem, ore_resource.value))
 
 
 func _collect_gem(gem: Node2D, amount: int) -> void:

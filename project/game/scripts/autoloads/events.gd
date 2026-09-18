@@ -5,8 +5,8 @@ signal upgrade_purchased
 signal depth_increased
 
 
-func drop_gem(gem_id: int, amount: int, global_position: Vector2) -> void:
-	gem_dropped.emit(gem_id, amount, global_position)
+func drop_gem(ore_resource: OreResource, global_position: Vector2) -> void:
+	gem_dropped.emit(ore_resource, global_position)
 
 
 func purchase_upgrade(upgrade_name: String, amount: float, upgrade_cost: int) -> void:

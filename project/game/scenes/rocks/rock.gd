@@ -3,7 +3,7 @@ extends Node2D
 
 signal destroyed
 
-const RARE_ORE_DROP_COUNT := 10
+const RARE_ORE_DROP_COUNT := 5
 const MAX_GEM_DROP_DISTANCE := Vector2i(64.0, 16.0)
 
 @export var floating_text_scene: PackedScene
@@ -39,7 +39,7 @@ func _ready() -> void:
 	hp_bar.max_value = max_hp
 
 	if not rock_resource:
-		return
+		push_error("no rock resource set")
 	ore_sprite.texture = rock_resource.texture
 
 
@@ -64,9 +64,12 @@ func _spawn_gems() -> void:
 				randf_range(0.0, MAX_GEM_DROP_DISTANCE.x),
 				randf_range(0.0, MAX_GEM_DROP_DISTANCE.y),
 			)
-			Events.drop_gem(0, 1, global_position + horizontal_position_variation)
+			Events.drop_gem(
+				rock_resource.ore_resource,
+				global_position + horizontal_position_variation,
+			)
 	else:
-		Events.drop_gem(0, 1, global_position)
+		Events.drop_gem(rock_resource.ore_resource, global_position)
 
 
 func _hit_flash() -> void:
