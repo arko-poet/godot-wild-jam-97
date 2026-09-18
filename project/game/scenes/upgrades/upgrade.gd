@@ -1,6 +1,8 @@
 class_name Upgrade
 extends PanelContainer
 
+signal purchased(u: Upgrade)
+
 @export_group("base")
 @export var upgrade_name: String
 @export var upgrade_cap: int = 10
@@ -65,3 +67,5 @@ func _on_upgrade_button_pressed() -> void:
 	_update()
 
 	SfxController.play(upgrade_sound)
+
+	purchased.emit(self)
