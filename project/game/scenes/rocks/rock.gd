@@ -61,7 +61,7 @@ func mine(damage: int, is_crit: bool, is_pet: bool) -> void:
 	floating_text.position = position
 
 	if is_pet:
-		floating_text.position -= Vector2(32, 32)
+		floating_text.position -= Vector2(0, 32)
 		floating_text.font_size = 8
 
 	get_parent().add_child(floating_text)
