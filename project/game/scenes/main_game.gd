@@ -82,13 +82,14 @@ func _on_hp_drained() -> void:
 		_depth = 0
 		_start_button.show()
 		_hp_drain_timer.stop()
+		_hp_regen_timer.stop()
 		_hp_bar.hide()
 		_current_tunnel.queue_free()
 		set_process(false)
 
-	#if not _upgrades_menu.try_grab_focus(_gems):
-	#_start_button.grab_focus()
-	_upgrades_menu.show_menu()
+		#if not _upgrades_menu.try_grab_focus(_gems):
+		#_start_button.grab_focus()
+		_upgrades_menu.show_menu()
 
 
 func _on_start_button_pressed() -> void:
