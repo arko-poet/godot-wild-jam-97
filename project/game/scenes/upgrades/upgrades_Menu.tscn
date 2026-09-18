@@ -144,7 +144,7 @@ visible = false
 layout_mode = 2
 upgrade_name = "Drill Extra Damage"
 upgrade_cap = 10
-cost_base = 100
+cost_base = 50
 cost_linear_coefficient = 100.0
 
 [node name="PetAttackDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=254856889 instance=ExtResource("2_evfao")]
@@ -198,8 +198,10 @@ visible = false
 layout_mode = 2
 upgrade_name = "HP"
 upgrade_cap = 10
-cost_base = 100
-cost_linear_coefficient = 100.0
+cost_base = 5
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 10.0
+cost_exponent = 2.0
 output_base = 10.0
 output_flat_change = 10.0
 
@@ -232,7 +234,9 @@ visible = false
 layout_mode = 2
 upgrade_name = "Ore Rarity"
 upgrade_cap = 10
-cost_base = 100
-cost_linear_coefficient = 100.0
+cost_base = 20
+cost_linear_coefficient = 0.0
+cost_exponential_coefficient = 20.0
+cost_exponent = 2.0
 output_base = 0.05
 output_flat_change = 0.05

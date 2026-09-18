@@ -128,7 +128,7 @@ func _on_gem_dropped(ore_resource: OreResource, global_position: Vector2):
 
 func _collect_gem(gem: Node2D, amount: int) -> void:
 	gem.queue_free()
-	_gems += amount
+	_gems += amount * int(1 + floor(_depth / 10))
 	SfxController.play(_gem_sound)
 
 
