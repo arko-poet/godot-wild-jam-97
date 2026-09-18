@@ -36,7 +36,6 @@ var _depth: int:
 		_hp_drain = (1 + floor(_depth / 10)) * _DEFAULT_HP_DRAIN
 
 @onready var pause_menu_controller: Node = %PauseMenuController
-
 @onready var _hp_bar: ProgressBar = %HPBar
 @onready var _hp_label: Label = %HPLabel
 @onready var _ui: Control = %UI
@@ -45,6 +44,7 @@ var _depth: int:
 @onready var _hp_drain_timer: Timer = $HPDrainTimer
 
 @onready var _gems_label: Label = %GemsLabel
+@onready var _tutorial_label: Label = %TutorialLabel
 
 @onready var _world: Node2D = %World
 
@@ -88,6 +88,7 @@ func _on_hp_drained() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	_tutorial_label.hide()
 	_hp_bar.show()
 	_start_button.hide()
 	_start_doom_timer()
