@@ -39,6 +39,9 @@ var stats: Stats:
 		dash_duration = stats.dash_duration
 
 		pet_unlocked = stats.pet_unlocked
+		if pet_unlocked:
+			pet.show()
+
 		pet_base_damage = stats.pet_base_damage
 		pet_increased_damage = stats.pet_increased_damage
 		pet_crit_chance = stats.pet_crit_chance
