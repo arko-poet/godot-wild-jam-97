@@ -20,6 +20,12 @@ var background_filter_hue := 1.0:
 		background_filter_hue = value
 		background_filter.modulate = Color.from_hsv(background_filter_hue, 1.0, 1.0)
 var rare_ore_probability := 0.05
+
+var trauma: float:
+	set(value):
+		trauma = max(value, 1)
+var decay := 1.0
+
 var _rocks_spawned: int
 
 @onready var dwarf: Dwarf = %Dwarf
@@ -36,6 +42,21 @@ func _ready() -> void:
 
 	background_filter_hue = background_filter_hue
 
+	#dwarf.camera.zoom = Vector2(1.05, 1.05)
+
+
+#func _process(delta: float) -> void:
+#if trauma:
+#trauma = max(trauma - decay * delta, 0)
+#shake()
+func shake() -> void:
+	var camera := dwarf.camera
+	var amount = pow(trauma, 2)
+	rotation = 0.01 * amount * randf_range(-1, 1)
+	camera.offset.x = 2 * amount * randf_range(-1, 1)
+	camera.offset.y = 1 * amount * randf_range(-1, 1)
+	#camera.zoom = 1.1 * amount
+
 
 func _on_rock_destroyed() -> void:
 	rocks.pop_front()
@@ -43,6 +64,8 @@ func _on_rock_destroyed() -> void:
 	dwarf.dash(ROCK_HORIZONTAL_SPACING)
 
 	background_filter_hue += BACKGROUND_FILTER_HUE_CHANGE
+
+	trauma += 1.0
 
 
 func _spawn_new_rock() -> void:

@@ -72,6 +72,7 @@ var pet_unlocked := false
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
 @onready var pet: Pet = %Pet
+@onready var camera: Camera2D = %Camera
 
 
 func _ready() -> void:
