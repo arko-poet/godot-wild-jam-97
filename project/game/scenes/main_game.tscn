@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://ddyyhvrg7emno" path="res://game/art/ore/DMG_Ore@Ruby.png" id="12_mhn02"]
 [ext_resource type="Texture2D" uid="uid://c56awgqpear8x" path="res://game/art/ore/DMG_Ore@Sapphire.png" id="13_8wbbw"]
 [ext_resource type="Texture2D" uid="uid://b3rdm7k4lsc83" path="res://game/art/ore/DMG_Ore@Crystals.png" id="14_c0dgw"]
+[ext_resource type="Texture2D" uid="uid://csvavvxx8l4tm" path="res://game/art/ui/progress_bar/DMG_DwarfHealthSubBar.png" id="16_c0dgw"]
+[ext_resource type="Texture2D" uid="uid://qyg4jv86jx64" path="res://game/art/ui/progress_bar/DMG_DwarfHealthMidBar.png" id="17_hvebq"]
+[ext_resource type="Texture2D" uid="uid://besbuy8bbd4th" path="res://game/art/ui/progress_bar/DMG_DwarfHealthTopBar.png" id="18_bo62v"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ksnku"]
 streams_count = 3
@@ -179,7 +182,7 @@ offset_bottom = 36.0
 grow_horizontal = 0
 text = "Menu"
 
-[node name="HPBar" type="ProgressBar" parent="UILayer/UI" unique_id=2097579839]
+[node name="HPBar" type="TextureProgressBar" parent="UILayer/UI" unique_id=8445336]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -187,12 +190,13 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = -36.0
+offset_top = -32.0
 offset_right = 254.0
-offset_bottom = -4.0
 grow_vertical = 0
 step = 0.1
-show_percentage = false
+texture_under = ExtResource("16_c0dgw")
+texture_over = ExtResource("18_bo62v")
+texture_progress = ExtResource("17_hvebq")
 
 [node name="HPLabel" type="Label" parent="UILayer/UI/HPBar" unique_id=1947452746]
 unique_name_in_owner = true
@@ -202,10 +206,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 8.0
+offset_left = -118.0
+offset_top = -12.0
+offset_right = 122.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "HP: 100.0/100.0"

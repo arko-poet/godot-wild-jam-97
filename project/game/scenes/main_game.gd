@@ -36,7 +36,7 @@ var _depth: int:
 		_hp_drain = (1 + floor(_depth / 10)) * _DEFAULT_HP_DRAIN
 
 @onready var pause_menu_controller: Node = %PauseMenuController
-@onready var _hp_bar: ProgressBar = %HPBar
+@onready var _hp_bar: TextureProgressBar = %HPBar
 @onready var _hp_label: Label = %HPLabel
 @onready var _ui: Control = %UI
 @onready var _upgrades_menu: UpgradesMenu = %UpgradesMenu
