@@ -26,7 +26,7 @@ var hp: int:
 var is_rare := false
 var rock_resource: RockResource
 
-@onready var hp_bar: ProgressBar = %HPBar
+@onready var hp_bar: TextureProgressBar = %HPBar
 @onready var hp_label: Label = %HPLabel
 
 @onready var ore_sprite: Sprite2D = %OreSprite
@@ -61,7 +61,7 @@ func mine(damage: int, is_crit: bool, is_pet: bool) -> void:
 	floating_text.position = position
 
 	if is_pet:
-		floating_text.position -= Vector2(32, 32)
+		floating_text.position -= Vector2(0, 32)
 		floating_text.font_size = 8
 
 	get_parent().add_child(floating_text)

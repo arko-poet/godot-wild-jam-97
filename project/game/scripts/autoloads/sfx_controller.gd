@@ -1,8 +1,12 @@
 extends Node
 
-var _AUDIO_STREAM_POOL_SIZE := 8
+const _AUDIO_STREAM_POOL_SIZE := 8
+
+var drill_sound_effect_path: AudioStream = preload("uid://cw21ggpr8bk8")
 
 var _audio_stream_player_pool: Array[AudioStreamPlayer]
+
+var _drill_stream_player: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -12,6 +16,10 @@ func _ready() -> void:
 
 		_audio_stream_player_pool.append(audio_stream_player)
 		add_child(audio_stream_player)
+
+	_drill_stream_player = AudioStreamPlayer.new()
+	_drill_stream_player.bus = "SFX"
+	add_child(_drill_stream_player)
 
 
 func play(
@@ -34,3 +42,11 @@ func play(
 		player.finished.connect(player.queue_free)
 		add_child(player)
 		player.play()
+
+
+func play_drill() -> void:
+	_drill_stream_player.play()
+
+
+func stop_drill() -> void:
+	_drill_stream_player.pause()

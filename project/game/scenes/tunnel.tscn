@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://50w6t2opj2vb" path="res://game/scenes/tunnel.gd" id="1_2h2s7"]
 [ext_resource type="PackedScene" uid="uid://ctt75y0ystdtf" path="res://game/scenes/rocks/rock.tscn" id="2_hoacg"]
 [ext_resource type="PackedScene" uid="uid://04tqlo3l8s62" path="res://game/scenes/character/dwarf.tscn" id="2_jtcvj"]
-[ext_resource type="Texture2D" uid="uid://btigihv2qw0oi" path="res://game/art/prototypes/DMG_MapPrototype.png" id="3_d51qq"]
 [ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="3_t6nqe"]
 [ext_resource type="Texture2D" uid="uid://bjn44cpscripn" path="res://game/art/filter/DMG_Filter.png" id="4_87e12"]
 [ext_resource type="Resource" uid="uid://hasuorg6i23i" path="res://game/resources/rocks/basic_rock.tres" id="4_d8t1s"]
@@ -11,6 +10,9 @@
 [ext_resource type="Resource" uid="uid://1h0x12tofgjb" path="res://game/resources/rocks/emerald_rock.tres" id="6_4froe"]
 [ext_resource type="Resource" uid="uid://yx0mqgn2uyci" path="res://game/resources/rocks/ruby_rock.tres" id="7_ayc85"]
 [ext_resource type="Resource" uid="uid://cdaxdlo11m37q" path="res://game/resources/rocks/sapphire_rock.tres" id="8_7dqhe"]
+[ext_resource type="Texture2D" uid="uid://6onppkr6s57w" path="res://game/art/background/DMG_MapBackLayer.png" id="9_3b26v"]
+[ext_resource type="Texture2D" uid="uid://dbh8vuqll0l4c" path="res://game/art/background/DMG_MapMidLayer.png" id="10_4froe"]
+[ext_resource type="Texture2D" uid="uid://b1efbvovir1s3" path="res://game/art/background/DMG_MapFrontLayer.png" id="11_ayc85"]
 
 [node name="Tunnel" type="Node2D" unique_id=1781221996]
 script = ExtResource("1_2h2s7")
@@ -19,13 +21,31 @@ basic_rock_resource = ExtResource("4_d8t1s")
 rare_rock_resources = Array[ExtResource("3_t6nqe")]([ExtResource("5_3b26v"), ExtResource("6_4froe"), ExtResource("7_ayc85"), ExtResource("8_7dqhe")])
 
 [node name="Parallax" type="Parallax2D" parent="." unique_id=1872759560]
+scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(640, 0)
 
 [node name="Background" type="Sprite2D" parent="Parallax" unique_id=1670932027]
-texture = ExtResource("3_d51qq")
+texture = ExtResource("9_3b26v")
 centered = false
 
-[node name="BackgroundFilter" type="Sprite2D" parent="Parallax" unique_id=310381745]
+[node name="Parallax2" type="Parallax2D" parent="." unique_id=396045688]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(640, 0)
+
+[node name="Background" type="Sprite2D" parent="Parallax2" unique_id=1986361200]
+texture = ExtResource("10_4froe")
+centered = false
+
+[node name="Parallax3" type="Parallax2D" parent="." unique_id=1754042302]
+z_index = 10
+repeat_size = Vector2(640, 0)
+
+[node name="Background" type="Sprite2D" parent="Parallax3" unique_id=1862217720]
+z_index = 10
+texture = ExtResource("11_ayc85")
+centered = false
+
+[node name="BackgroundFilter" type="Sprite2D" parent="Parallax3" unique_id=310381745]
 unique_name_in_owner = true
 z_index = 10
 texture = ExtResource("4_87e12")

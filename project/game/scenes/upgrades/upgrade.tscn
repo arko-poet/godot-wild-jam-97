@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://cdb5wamh4swsk"]
 
 [ext_resource type="Script" uid="uid://cmlwnpkp5v17t" path="res://game/scenes/upgrades/upgrade.gd" id="1_i8043"]
+[ext_resource type="Texture2D" uid="uid://xn65nk8hryxg" path="res://game/art/ui/panel/DMG_9sliceTest.png" id="1_ikopl"]
 [ext_resource type="AudioStream" uid="uid://bc5pdabtqw1nk" path="res://game/audio/sfx/ui/upgrade2.ogg" id="2_ohnnb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h32h"]
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4oue"]
+texture = ExtResource("1_ikopl")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 
 [node name="Upgrade" type="PanelContainer" unique_id=1798224043]
 custom_minimum_size = Vector2(128, 32)
 offset_right = 128.0
-offset_bottom = 62.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5h32h")
+offset_bottom = 76.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l4oue")
 script = ExtResource("1_i8043")
 upgrade_name = "pickaxe"
 upgrade_cap = 2

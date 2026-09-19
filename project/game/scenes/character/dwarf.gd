@@ -106,6 +106,9 @@ func dash(distance: float) -> void:
 
 	state = State.DASHING
 
+	if pet_unlocked:
+		pet.sprite.play(&"dash")
+
 	var tween = create_tween()
 	tween.finished.connect(_on_dash_finsished)
 	tween \
@@ -207,3 +210,6 @@ func _update_animation_speed() -> void:
 
 		var attack_frame_count := sprite.sprite_frames.get_frame_count(&"attack")
 		sprite.sprite_frames.set_animation_speed(&"attack", attack_frame_count / attack_duration)
+
+		var pet_dash_frame_count := pet.sprite.sprite_frames.get_frame_count(&"dash")
+		pet.sprite.sprite_frames.set_animation_speed(&"dash", pet_dash_frame_count / dash_duration)

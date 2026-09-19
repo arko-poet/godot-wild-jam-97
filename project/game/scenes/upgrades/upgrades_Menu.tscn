@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xcutjy8yxa8n" path="res://game/scenes/upgrades/upgrades_menu.gd" id="1_tishx"]
 [ext_resource type="PackedScene" uid="uid://cdb5wamh4swsk" path="res://game/scenes/upgrades/upgrade.tscn" id="2_evfao"]
+[ext_resource type="Texture2D" uid="uid://objvr151ap0i" path="res://game/art/ui/background/DMG_UpgradeBackground.png" id="2_iwset"]
 
 [node name="UpgradesMenu" type="Control" unique_id=1399126238]
 layout_mode = 3
@@ -15,29 +16,30 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tishx")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=418461767]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1349728907]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_iwset")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=712351042]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=712351042]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 638.0
+offset_bottom = 358.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer" unique_id=2117379889]
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer" unique_id=2117379889]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
 
-[node name="UpgradeContainer" type="GridContainer" parent="PanelContainer/MarginContainer/ScrollContainer" unique_id=1963745626]
+[node name="UpgradeContainer" type="GridContainer" parent="TextureRect/MarginContainer/ScrollContainer" unique_id=1963745626]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
@@ -46,7 +48,7 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="BaseDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=259663191 instance=ExtResource("2_evfao")]
+[node name="BaseDamage" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=259663191 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -55,7 +57,7 @@ upgrade_cap = 10
 cost_base = 1
 cost_linear_coefficient = 1.0
 
-[node name="AttackDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1720546446 instance=ExtResource("2_evfao")]
+[node name="AttackDuration" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1720546446 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -67,7 +69,7 @@ cost_exponent = 3.0
 output_base = 0.5
 output_flat_change = -0.045
 
-[node name="CritChance" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1722627407 instance=ExtResource("2_evfao")]
+[node name="CritChance" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1722627407 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -78,7 +80,7 @@ cost_linear_coefficient = 100.0
 output_base = 0.05
 output_flat_change = 0.05
 
-[node name="CritDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=585399182 instance=ExtResource("2_evfao")]
+[node name="CritDamage" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=585399182 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -89,7 +91,7 @@ cost_linear_coefficient = 100.0
 output_base = 2.0
 output_flat_change = 0.2
 
-[node name="IncreasedDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1005225896 instance=ExtResource("2_evfao")]
+[node name="IncreasedDamage" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1005225896 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -100,26 +102,26 @@ cost_linear_coefficient = 1000.0
 output_base = 0.0
 output_flat_change = 0.2
 
-[node name="BloodPickaxe" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
+[node name="BloodPickaxe" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1345562830 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Blood Pickaxe"
+upgrade_name = "Blood Pick"
 upgrade_cap = 1
 cost_base = 100
 output_flat_change = 0.0
 
-[node name="AdamantitePickaxe" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1478964898 instance=ExtResource("2_evfao")]
+[node name="AdamantitePickaxe" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1478964898 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Adamantite Pickaxe"
+upgrade_name = "Aether Pick"
 upgrade_cap = 1
 cost_base = 1000
 output_base = 2.0
 output_flat_change = 0.0
 
-[node name="AutoAttack" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=439501228 instance=ExtResource("2_evfao")]
+[node name="AutoAttack" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=439501228 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -129,7 +131,7 @@ cost_base = 10000
 cost_linear_coefficient = 1.0
 output_flat_change = 0.0
 
-[node name="Pet" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1349109001 instance=ExtResource("2_evfao")]
+[node name="Pet" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1349109001 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -138,16 +140,16 @@ upgrade_cap = 1
 cost_linear_coefficient = 1.0
 output_flat_change = 0.0
 
-[node name="PetDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
+[node name="PetDamage" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=204386418 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Drill Extra Damage"
+upgrade_name = "Drill Dmg+"
 upgrade_cap = 10
 cost_base = 50
 cost_linear_coefficient = 100.0
 
-[node name="PetAttackDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=254856889 instance=ExtResource("2_evfao")]
+[node name="PetAttackDuration" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=254856889 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -159,40 +161,40 @@ cost_exponent = 3.0
 output_base = 0.1
 output_flat_change = -0.009
 
-[node name="PetCritChance" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1977179126 instance=ExtResource("2_evfao")]
+[node name="PetCritChance" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1977179126 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Drill Crit Chance"
+upgrade_name = "Drill Crit%"
 upgrade_cap = 10
 cost_base = 100
 cost_linear_coefficient = 100.0
 output_base = 0.05
 output_flat_change = 0.05
 
-[node name="PetCritDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1116156297 instance=ExtResource("2_evfao")]
+[node name="PetCritDamage" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1116156297 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Drill Crit Damage"
+upgrade_name = "Drill CritDmg"
 upgrade_cap = 10
 cost_base = 100
 cost_linear_coefficient = 100.0
 output_base = 2.0
 output_flat_change = 0.2
 
-[node name="PetIncreasedDamage" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=37265207 instance=ExtResource("2_evfao")]
+[node name="PetIncreasedDamage" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=37265207 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Drill More Damage"
+upgrade_name = "Drill Dmg%"
 upgrade_cap = 10
 cost_base = 1000
 cost_linear_coefficient = 1000.0
 output_base = 0.0
 output_flat_change = 0.2
 
-[node name="HP" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
+[node name="HP" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=632683437 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -205,11 +207,11 @@ cost_exponent = 3.0
 output_base = 10.0
 output_flat_change = 10.0
 
-[node name="HPRegen" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1245188277 instance=ExtResource("2_evfao")]
+[node name="HPRegen" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1245188277 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "HP Regeneration"
+upgrade_name = "HP Regen"
 upgrade_cap = 10
 cost_base = 100
 cost_linear_coefficient = 0.0
@@ -217,7 +219,7 @@ cost_exponential_coefficient = 10.0
 cost_exponent = 3.0
 output_base = 0.0
 
-[node name="DashDuration" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
+[node name="DashDuration" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1529331328 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -229,11 +231,11 @@ cost_exponent = 3.0
 output_base = 0.5
 output_flat_change = -0.045
 
-[node name="OreRarity" parent="PanelContainer/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
+[node name="OreRarity" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1798224043 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-upgrade_name = "Ore Rarity"
+upgrade_name = "Gem Rarity"
 upgrade_cap = 10
 cost_base = 20
 cost_linear_coefficient = 0.0
