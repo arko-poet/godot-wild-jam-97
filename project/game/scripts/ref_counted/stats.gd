@@ -48,7 +48,7 @@ func _on_upgrade_purchased(upgrade_name: String, amount: float, _cost: int) -> v
 			attack_duration = amount
 		"Auto Mining":
 			auto_attack = true
-		"Drill":
+		"Drill Buddy":
 			pet_unlocked = true
 		"Drill Dmg%":
 			pet_increased_damage = amount
