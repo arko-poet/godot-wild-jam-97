@@ -172,7 +172,10 @@ func _on_depth_increased() -> void:
 
 func _on_hp_regen_timer_timeout() -> void:
 	_hp += _hp_regen
-
+	if _current_tunnel:
+		_current_tunnel.show_hp_regen(_hp_regen, true)
+	
 
 func _on_life_stolen(life: int) -> void:
 	_hp += life
+	_current_tunnel.show_hp_regen(life, false)

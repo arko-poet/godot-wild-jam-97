@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btrxmgxymwtdc"]
 
 [ext_resource type="Script" uid="uid://50w6t2opj2vb" path="res://game/scenes/tunnel.gd" id="1_2h2s7"]
+[ext_resource type="PackedScene" uid="uid://cqkxu6yq7jvbx" path="res://game/scenes/floating_text.tscn" id="2_ayc85"]
 [ext_resource type="PackedScene" uid="uid://ctt75y0ystdtf" path="res://game/scenes/rocks/rock.tscn" id="2_hoacg"]
 [ext_resource type="PackedScene" uid="uid://04tqlo3l8s62" path="res://game/scenes/character/dwarf.tscn" id="2_jtcvj"]
 [ext_resource type="Script" uid="uid://beq5iwtyuhset" path="res://game/scripts/resources/rock_resource.gd" id="3_t6nqe"]
@@ -17,6 +18,7 @@
 
 [node name="Tunnel" type="Node2D" unique_id=1781221996]
 script = ExtResource("1_2h2s7")
+floating_text_scene = ExtResource("2_ayc85")
 rock_scene = ExtResource("2_hoacg")
 basic_rock_resource = ExtResource("4_d8t1s")
 rare_rock_resources = Array[ExtResource("3_t6nqe")]([ExtResource("5_3b26v"), ExtResource("6_4froe"), ExtResource("7_ayc85"), ExtResource("8_7dqhe")])

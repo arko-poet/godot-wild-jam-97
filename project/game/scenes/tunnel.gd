@@ -6,6 +6,7 @@ const TUNNEL_VERTICAL_POSITION := 250
 const NUMBER_OF_ROCKS := 10
 const ROCK_HP_SCALING := 1
 const BACKGROUND_FILTER_HUE_CHANGE := -0.02
+@export var floating_text_scene: PackedScene
 
 @export var rock_scene: PackedScene
 @export var basic_rock_resource: RockResource
@@ -56,6 +57,21 @@ func shake() -> void:
 	camera.offset.x = shake_scale * 2 * trauma * randf_range(-1, 1)
 	camera.offset.y = shake_scale * 2 * trauma * randf_range(-1, 1)
 	#camera.zoom = 1.1 * amount
+
+
+func show_hp_regen(hp: int, regen: bool) -> void:
+	var floating_text: FloatingText = floating_text_scene.instantiate()
+
+	if regen:
+		floating_text.text_color = Color.WEB_GREEN
+		floating_text.font_size = 8
+	else:
+		floating_text.text_color = Color.LAWN_GREEN
+
+	floating_text.text = "+%s" % hp
+	floating_text.position = dwarf.position
+
+	get_parent().add_child(floating_text)
 
 
 func _on_rock_destroyed() -> void:
