@@ -89,7 +89,7 @@ func _process(_delta) -> void:
 		_mine()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if state != State.IDLE:
 		return
 
