@@ -127,7 +127,7 @@ visible = false
 layout_mode = 2
 upgrade_name = "Auto Mining"
 upgrade_cap = 1
-cost_base = 10000
+cost_base = 1000
 cost_linear_coefficient = 1.0
 output_flat_change = 0.0
 
@@ -137,6 +137,7 @@ visible = false
 layout_mode = 2
 upgrade_name = "Drill Buddy"
 upgrade_cap = 1
+cost_base = 50
 cost_linear_coefficient = 1.0
 output_flat_change = 0.0
 
@@ -159,7 +160,7 @@ cost_linear_coefficient = 0.0
 cost_exponential_coefficient = 10.0
 cost_exponent = 3.0
 output_base = 0.1
-output_flat_change = -0.009
+output_flat_change = -0.007
 
 [node name="PetCritChance" parent="TextureRect/MarginContainer/ScrollContainer/UpgradeContainer" unique_id=1977179126 instance=ExtResource("2_evfao")]
 unique_name_in_owner = true
