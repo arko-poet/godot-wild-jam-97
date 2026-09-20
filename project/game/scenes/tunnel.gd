@@ -61,13 +61,16 @@ func shake() -> void:
 	#camera.zoom = 1.1 * amount
 
 
-func notify_hp(hp: int, hp_max: int) -> void:
+func notify_hp(hp: float, hp_max: float) -> void:
 	var fraction := (float(hp) / float(hp_max)) * 0.5
 	back_fume.modulate.a = (0.5 - fraction)
 	front_fume.modulate.a = (0.5 - fraction)
 
 
 func show_hp_regen(hp: int, regen: bool) -> void:
+	if hp == 0:
+		return
+	
 	var floating_text: FloatingText = floating_text_scene.instantiate()
 
 	if regen:
