@@ -6,6 +6,7 @@ const TUNNEL_VERTICAL_POSITION := 250
 const NUMBER_OF_ROCKS := 10
 const ROCK_HP_SCALING := 1
 const BACKGROUND_FILTER_HUE_CHANGE := -0.02
+@export var floating_text_scene: PackedScene
 
 @export var rock_scene: PackedScene
 @export var basic_rock_resource: RockResource
@@ -20,10 +21,18 @@ var background_filter_hue := 1.0:
 		background_filter_hue = value
 		background_filter.modulate = Color.from_hsv(background_filter_hue, 1.0, 1.0)
 var rare_ore_probability := 0.05
+
+var trauma: float:
+	set(value):
+		trauma = min(1.0, max(value, 0.0))
+var decay := 1.0
+
 var _rocks_spawned: int
 
 @onready var dwarf: Dwarf = %Dwarf
 @onready var background_filter: Sprite2D = %BackgroundFilter
+@onready var back_fume: Parallax2D = %BackFume
+@onready var front_fume: Parallax2D = %FrontFume
 
 
 func _ready() -> void:
@@ -36,6 +45,45 @@ func _ready() -> void:
 
 	background_filter_hue = background_filter_hue
 
+	#dwarf.camera.zoom = Vector2(1.05, 1.05)
+
+
+func _process(delta: float) -> void:
+	trauma = max(trauma - decay * delta, 0.0)
+	shake()
+
+func shake() -> void:
+	var shake_scale = PlayerConfig.get_config(AppSettings.VIDEO_SECTION, "CameraShake", 1.0)
+	var camera := dwarf.camera
+	#rotation = 1 * trauma * randf_range(-1, 1)
+	camera.offset.x = shake_scale * 2 * trauma * randf_range(-1, 1)
+	camera.offset.y = shake_scale * 2 * trauma * randf_range(-1, 1)
+	#camera.zoom = 1.1 * amount
+
+
+func notify_hp(hp: float, hp_max: float) -> void:
+	var fraction := (float(hp) / float(hp_max)) * 0.5
+	back_fume.modulate.a = (0.5 - fraction)
+	front_fume.modulate.a = (0.5 - fraction)
+
+
+func show_hp_regen(hp: int, regen: bool) -> void:
+	if hp == 0:
+		return
+	
+	var floating_text: FloatingText = floating_text_scene.instantiate()
+
+	if regen:
+		floating_text.text_color = Color.WEB_GREEN
+		floating_text.font_size = 8
+	else:
+		floating_text.text_color = Color.LAWN_GREEN
+
+	floating_text.text = "+%s" % hp
+	floating_text.position = dwarf.position
+
+	get_parent().add_child(floating_text)
+
 
 func _on_rock_destroyed() -> void:
 	rocks.pop_front()
@@ -43,6 +91,8 @@ func _on_rock_destroyed() -> void:
 	dwarf.dash(ROCK_HORIZONTAL_SPACING)
 
 	background_filter_hue += BACKGROUND_FILTER_HUE_CHANGE
+
+	trauma += 1.0
 
 
 func _spawn_new_rock() -> void:

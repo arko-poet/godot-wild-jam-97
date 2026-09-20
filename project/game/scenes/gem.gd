@@ -11,3 +11,9 @@ func _ready() -> void:
 		sprite.texture = ore_resource.texture
 	else:
 		push_error("Missing Ore Resource")
+
+#func _process(delta: float) -> void:
+	#print(position)
+	#print(global_position)
+
+#

@@ -72,6 +72,7 @@ var pet_unlocked := false
 @onready var sprites: Array[AnimatedSprite2D] = [%Beard, %Pick, %Body]
 @onready var state_label: Label = %StateLabel
 @onready var pet: Pet = %Pet
+@onready var camera: Camera2D = %Camera
 
 
 func _ready() -> void:
@@ -88,7 +89,7 @@ func _process(_delta) -> void:
 		_mine()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if state != State.IDLE:
 		return
 
@@ -101,8 +102,8 @@ func dash(distance: float) -> void:
 	if pet_unlocked:
 		pet.stop_mining()
 
-	if state == State.MINING:
-		await mining_animation_finished
+	#if state == State.MINING:
+		#await mining_animation_finished
 
 	state = State.DASHING
 
