@@ -24,6 +24,9 @@ var _hp: float:
 		_hp_label.text = "HP: %.1f/%.1f" % [_hp, _max_hp]
 		if _hp == 0:
 			_on_hp_drained()
+			
+		if _current_tunnel:
+			_current_tunnel.notify_hp(_hp, _max_hp)
 
 var _hp_drain := 0.1
 var _hp_regen := 0.0

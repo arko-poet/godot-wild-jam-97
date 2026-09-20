@@ -31,13 +31,16 @@ repeat_size = Vector2(640, 0)
 texture = ExtResource("9_3b26v")
 centered = false
 
-[node name="Parallax4" type="Parallax2D" parent="." unique_id=418073083]
+[node name="BackFume" type="Parallax2D" parent="." unique_id=418073083]
+unique_name_in_owner = true
 scroll_scale = Vector2(-0.2, -0.2)
 repeat_size = Vector2(640, 0)
+autoscroll = Vector2(-16, 0)
 
-[node name="Background" type="Sprite2D" parent="Parallax4" unique_id=2054251835]
+[node name="Background" type="Sprite2D" parent="BackFume" unique_id=2054251835]
 texture = ExtResource("10_ayc85")
 centered = false
+flip_h = true
 
 [node name="Parallax2" type="Parallax2D" parent="." unique_id=396045688]
 scroll_scale = Vector2(0.5, 0.5)
@@ -62,16 +65,19 @@ z_index = 10
 texture = ExtResource("4_87e12")
 centered = false
 
-[node name="Parallax5" type="Parallax2D" parent="." unique_id=1479892657]
-repeat_size = Vector2(640, 0)
-
-[node name="Background" type="Sprite2D" parent="Parallax5" unique_id=894356280]
-texture = ExtResource("10_ayc85")
-centered = false
-
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(320, 244)
+
+[node name="FrontFume" type="Parallax2D" parent="." unique_id=1479892657]
+unique_name_in_owner = true
+z_index = 1
+repeat_size = Vector2(640, 0)
+autoscroll = Vector2(80, 0)
+
+[node name="Background" type="Sprite2D" parent="FrontFume" unique_id=894356280]
+texture = ExtResource("10_ayc85")
+centered = false
 
 [connection signal="mined" from="Dwarf" to="." method="_on_dwarf_mined"]

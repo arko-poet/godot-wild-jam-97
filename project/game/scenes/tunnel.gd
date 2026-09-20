@@ -31,6 +31,8 @@ var _rocks_spawned: int
 
 @onready var dwarf: Dwarf = %Dwarf
 @onready var background_filter: Sprite2D = %BackgroundFilter
+@onready var back_fume: Parallax2D = %BackFume
+@onready var front_fume: Parallax2D = %FrontFume
 
 
 func _ready() -> void:
@@ -57,6 +59,12 @@ func shake() -> void:
 	camera.offset.x = shake_scale * 2 * trauma * randf_range(-1, 1)
 	camera.offset.y = shake_scale * 2 * trauma * randf_range(-1, 1)
 	#camera.zoom = 1.1 * amount
+
+
+func notify_hp(hp: int, hp_max: int) -> void:
+	var fraction := (float(hp) / float(hp_max)) * 0.5
+	back_fume.modulate.a = (0.5 - fraction)
+	front_fume.modulate.a = (0.5 - fraction)
 
 
 func show_hp_regen(hp: int, regen: bool) -> void:
