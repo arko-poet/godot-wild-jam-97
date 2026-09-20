@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnjql4bstmsrm"
+path="res://.godot/imported/gwj97 4.mp3-83f4296bd20bf431854c07629316f9b2.mp3str"
+
+[deps]
+
+source_file="res://game/audio/gwj97 4.mp3"
+dest_files=["res://.godot/imported/gwj97 4.mp3-83f4296bd20bf431854c07629316f9b2.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

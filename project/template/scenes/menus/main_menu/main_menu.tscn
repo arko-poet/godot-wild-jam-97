@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp2u0vfolxwso" path="res://template/scenes/windows/main_menu_options_window.tscn" id="3_e2xrs"]
 [ext_resource type="PackedScene" uid="uid://0iv5ox2cdivo" path="res://template/scenes/windows/main_menu_credits_window.tscn" id="4_58ijl"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_2luqj"]
+[ext_resource type="AudioStream" uid="uid://bnjql4bstmsrm" path="res://game/audio/gwj97 4.mp3" id="6_58ijl"]
 [ext_resource type="PackedScene" uid="uid://btrxmgxymwtdc" path="res://game/scenes/tunnel.tscn" id="6_e2xrs"]
 
 [node name="MainMenu" unique_id=869232425 instance=ExtResource("1_aha6c")]
@@ -32,6 +33,9 @@ visible = false
 
 [node name="FrontFume" parent="Tunnel" index="5" unique_id=1479892657]
 z_index = 0
+
+[node name="BackgroundMusicPlayer" parent="." index="2" unique_id=1141822549]
+stream = ExtResource("6_58ijl")
 
 [node name="BackgroundTextureRect" parent="." index="3" unique_id=1940176448]
 visible = false
