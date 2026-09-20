@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cdaxdlo11m37q" path="res://game/resources/rocks/sapphire_rock.tres" id="8_7dqhe"]
 [ext_resource type="Texture2D" uid="uid://6onppkr6s57w" path="res://game/art/background/DMG_MapBackLayer.png" id="9_3b26v"]
 [ext_resource type="Texture2D" uid="uid://dbh8vuqll0l4c" path="res://game/art/background/DMG_MapMidLayer.png" id="10_4froe"]
+[ext_resource type="Texture2D" uid="uid://dee272trj8m70" path="res://game/art/background/DMG_ToxicFumes.png" id="10_ayc85"]
 [ext_resource type="Texture2D" uid="uid://b1efbvovir1s3" path="res://game/art/background/DMG_MapFrontLayer.png" id="11_ayc85"]
 
 [node name="Tunnel" type="Node2D" unique_id=1781221996]
@@ -26,6 +27,14 @@ repeat_size = Vector2(640, 0)
 
 [node name="Background" type="Sprite2D" parent="Parallax" unique_id=1670932027]
 texture = ExtResource("9_3b26v")
+centered = false
+
+[node name="Parallax4" type="Parallax2D" parent="." unique_id=418073083]
+scroll_scale = Vector2(-0.2, -0.2)
+repeat_size = Vector2(640, 0)
+
+[node name="Background" type="Sprite2D" parent="Parallax4" unique_id=2054251835]
+texture = ExtResource("10_ayc85")
 centered = false
 
 [node name="Parallax2" type="Parallax2D" parent="." unique_id=396045688]
@@ -49,6 +58,13 @@ centered = false
 unique_name_in_owner = true
 z_index = 10
 texture = ExtResource("4_87e12")
+centered = false
+
+[node name="Parallax5" type="Parallax2D" parent="." unique_id=1479892657]
+repeat_size = Vector2(640, 0)
+
+[node name="Background" type="Sprite2D" parent="Parallax5" unique_id=894356280]
+texture = ExtResource("10_ayc85")
 centered = false
 
 [node name="Dwarf" parent="." unique_id=1484099431 instance=ExtResource("2_jtcvj")]
