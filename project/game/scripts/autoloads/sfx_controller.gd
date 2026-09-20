@@ -19,7 +19,7 @@ func _ready() -> void:
 
 	_drill_stream_player = AudioStreamPlayer.new()
 	_drill_stream_player.stream = drill_sound_effect_path
-	_drill_stream_player.max_polyphony = 24
+	_drill_stream_player.max_polyphony = 10
 	_drill_stream_player.bus = "SFX"
 	add_child(_drill_stream_player)
 
