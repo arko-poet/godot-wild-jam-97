@@ -265,7 +265,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "1. Command dwarf to mine ore
-2. Radiation is present so dwarf is doomed to die
+2. Cave is filled with fumes so dwarf is doomed to die
 3. Spend ore to upgrade your next dwarves"
 horizontal_alignment = 1
 vertical_alignment = 1
