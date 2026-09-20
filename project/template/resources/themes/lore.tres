@@ -70,15 +70,23 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="Gradient" id="Gradient_dc5hk"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0.4, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dc5hk"]
+gradient = SubResource("Gradient_dc5hk")
+width = 16
+height = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh2py"]
+bg_color = Color(0.28235295, 0, 0.11372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2xrs"]
+bg_color = Color(0.28235295, 0, 0.11372549, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq3iw"]
 bg_color = Color(0.00392157, 0.0862745, 0.152941, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqxyf"]
-texture = ExtResource("1_dc5hk")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvab5"]
 bg_color = Color(0.192157, 0.239216, 0.352941, 1)
@@ -118,6 +126,14 @@ texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc5hk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.83137256, 0.92941177, 0.9843137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2bse"]
 content_margin_left = 8.0
@@ -190,6 +206,11 @@ Button/styles/normal = SubResource("StyleBoxFlat_r1yu6")
 Button/styles/pressed = SubResource("StyleBoxFlat_wnp2l")
 DelayProgressBar/base_type = &"ProgressBar"
 DelayProgressBar/styles/fill = SubResource("StyleBoxFlat_2ymfe")
+HSlider/icons/grabber = SubResource("GradientTexture2D_dc5hk")
+HSlider/icons/grabber_disabled = SubResource("GradientTexture2D_dc5hk")
+HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_dc5hk")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_gh2py")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_e2xrs")
 Label/colors/font_color = Color(0.839216, 0.933333, 1, 1)
 Label/colors/font_outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 Label/constants/outline_size = 8
@@ -198,7 +219,6 @@ LineEdit/colors/font_color = Color(0.929412, 0.921569, 0.627451, 1)
 LineEdit/colors/font_uneditable_color = Color(0.192157, 0.239216, 0.352941, 1)
 LineEdit/styles/normal = SubResource("StyleBoxFlat_pq3iw")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_pq3iw")
-Panel/styles/panel = SubResource("StyleBoxTexture_yqxyf")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_hvab5")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_f05by")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_t1x62")
@@ -206,6 +226,7 @@ RichTextLabel/colors/default_color = Color(0.839216, 0.933333, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0.00392157, 0.0862745, 0.152941, 1)
 RichTextLabel/constants/outline_size = 8
 TabContainer/styles/panel = SubResource("StyleBoxTexture_dc5hk")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_dc5hk")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_w2bse")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_7eahf")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_5sk2t")
