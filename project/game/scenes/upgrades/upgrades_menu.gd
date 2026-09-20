@@ -10,7 +10,7 @@ var tween: Tween
 @onready var upgrade_progression: Dictionary[Upgrade, Array] = {
 	# Pick
 	%BaseDamage: [%AttackDuration, %Pet, %HP],
-	%AttackDuration: [%BloodPickaxe, %DashDurati],
+	%AttackDuration: [%BloodPickaxe, %DashDuration],
 	%CritChance: [%CritDamage],
 	%CritDamage: [%AdamantitePickaxe],
 	%IncreasedDamage: [],
