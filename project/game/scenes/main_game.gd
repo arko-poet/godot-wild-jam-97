@@ -137,10 +137,10 @@ func _on_gem_dropped(ore_resource: OreResource, global_position: Vector2):
 	follow_duplicate.add_child(gem)
 	#_ui.add_child(gem)
 	var tween = create_tween()
-	var duration_variation := randf_range(0.0, 0.25)
+	var duration_variation := randf_range(0.0, 0.5)
 	#print(gem.position)
 	#print(gem.global_position)
-	tween.tween_property(follow_duplicate, ^"progress_ratio", 1.0, 0.5 + duration_variation) \
+	tween.tween_property(follow_duplicate, ^"progress_ratio", 1.0, 0.7 + duration_variation) \
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_IN)
 	tween.finished.connect(_collect_gem.bind(gem, ore_resource.value, follow_duplicate))
