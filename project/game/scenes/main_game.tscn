@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dvg6lr3r8dkek" path="res://game/audio/sfx/gem/gems2.ogg" id="5_aawoq"]
 [ext_resource type="AudioStream" uid="uid://comkyeet0ro7q" path="res://game/audio/sfx/gem/gems3.ogg" id="6_mhn02"]
 [ext_resource type="PackedScene" uid="uid://vseii40agins" path="res://game/scenes/upgrades/upgrades_Menu.tscn" id="7_cnnha"]
+[ext_resource type="AudioStream" uid="uid://dajfy6t0ijow4" path="res://game/audio/music/gwj97 3.mp3" id="8_hvebq"]
 [ext_resource type="Texture2D" uid="uid://cosvvlqbaunpr" path="res://game/art/ore/DMG_Ore@Gold.png" id="10_a4u41"]
 [ext_resource type="Texture2D" uid="uid://bahyd6ticg2jj" path="res://game/art/ore/DMG_Ore@Emerald.png" id="11_aawoq"]
 [ext_resource type="Texture2D" uid="uid://ddyyhvrg7emno" path="res://game/art/ore/DMG_Ore@Ruby.png" id="12_mhn02"]
@@ -50,6 +51,7 @@ _tunnel_scene = ExtResource("2_3iu72")
 _gem_sound = SubResource("AudioStreamRandomizer_ksnku")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("4_wemlv")]
+stream = ExtResource("8_hvebq")
 
 [node name="PauseMenuController" type="Node" parent="." unique_id=1022592649]
 unique_name_in_owner = true

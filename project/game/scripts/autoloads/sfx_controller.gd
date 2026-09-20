@@ -27,7 +27,7 @@ func _ready() -> void:
 func play(
 	audio_stream: AudioStream,
 	pitch_variation: float = 0.0,
-	override_pool_size := false,
+	override_pool_size := false
 ) -> void:
 	for player in _audio_stream_player_pool:
 		if not player.playing:
