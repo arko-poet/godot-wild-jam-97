@@ -52,6 +52,11 @@ var _depth: int:
 @onready var _start_button: Button = %StartButton
 @onready var _depth_label: Label = %DepthLabel
 
+@onready var _path_follow_2d: PathFollow2D = %PathFollow2D
+@onready var _path_2d: Path2D = %Path2D
+@onready var _path_2ds: Array[Path2D] = [%Path2D, %Path2D2, %Path2D3]
+@onready var _path_follows: Array[PathFollow2D] = [%PathFollow2D,%PathFollow2D2,%PathFollow2D3]
+
 
 func _ready() -> void:
 	_stats = Stats.new()
@@ -118,23 +123,35 @@ func _on_gem_dropped(ore_resource: OreResource, global_position: Vector2):
 	gem.ore_resource = ore_resource
 
 	var camera = get_viewport().get_camera_2d()
+	
+	var path_index := randi() % _path_2ds.size()
+	var path = _path_2ds[path_index]
+	var path_follow = _path_follows[path_index]
+	var follow_duplicate = path_follow.duplicate()
+	path.add_child(follow_duplicate)
+	#follow_duplicate.progress_ratio = 0.0
 
 	# calculation is scene independent, just need to use camera position and ui target's global rect
 	# this may break if we set aspect to expand.
-	gem.position = camera.to_local(global_position) + get_viewport().get_visible_rect().size / 2.0
-	_ui.add_child(gem)
+	#gem.position = _path_2d.curve.get_baked_points()[0]
+	follow_duplicate.add_child(gem)
+	#_ui.add_child(gem)
 	var tween = create_tween()
-	var duration_variation := randf_range(0.0, 0.3)
-	tween.tween_property(gem, ^"position", _gems_texture.position, 0.5 + duration_variation) \
+	var duration_variation := randf_range(0.0, 0.25)
+	#print(gem.position)
+	#print(gem.global_position)
+	tween.tween_property(follow_duplicate, ^"progress_ratio", 1.0, 0.5 + duration_variation) \
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_IN)
-	tween.finished.connect(_collect_gem.bind(gem, ore_resource.value))
+	tween.finished.connect(_collect_gem.bind(gem, ore_resource.value, follow_duplicate))
 
 
-func _collect_gem(gem: Node2D, amount: int) -> void:
+func _collect_gem(gem: Node2D, amount: int, path_follow: PathFollow2D) -> void:
 	gem.queue_free()
 	_gems += amount * int(1 + floor(_depth / 10))
 	SfxController.play(_gem_sound)
+	
+	path_follow.queue_free()
 
 
 func _on_upgrade_purchased(_upgrade_name: String, _amount: float, upgrade_cost: int) -> void:

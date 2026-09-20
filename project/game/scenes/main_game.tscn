@@ -25,6 +25,24 @@ stream_0/stream = ExtResource("4_ldb66")
 stream_1/stream = ExtResource("5_aawoq")
 stream_2/stream = ExtResource("6_mhn02")
 
+[sub_resource type="Curve2D" id="Curve2D_c0dgw"]
+_data = {
+"points": PackedVector2Array(334.54544, -2.727272, -334.54544, 2.727272, 400, 250, 20, 43, -20, -43, 260, 179, 51, 23, -51, -23, 89, 137, 0, 0, 0, 0, 8, 8)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_hvebq"]
+_data = {
+"points": PackedVector2Array(334.54544, -2.727272, 0, 0, 400, 250, 43.46449, 18.627638, -43.46449, -18.627638, 328, 179, 29.183298, 15.523031, -29.183298, -15.523031, 211, 160, 50.29462, 21.732244, -50.29462, -21.732244, 116, 43, 0, 0, -20, -43, 8, 8)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_bo62v"]
+_data = {
+"points": PackedVector2Array(334.54544, -2.727272, 0, 0, 400, 250, -23.595007, 19.248558, 23.595007, -19.248558, 482, 239, 38.497116, 14.90211, -38.497116, -14.90211, 465, 152, 48.431858, 19.248558, -48.431858, -19.248558, 304, 145, 47.810936, 16.143953, -47.810936, -16.143953, 177, 37, 28.562378, 14.281189, -28.562378, -14.281189, 78, 31, 0, 0, -51, -23, 8, 8)
+}
+point_count = 7
+
 [node name="MainGame" type="Node" unique_id=1713024868]
 script = ExtResource("1_1qbya")
 _gem_scene = ExtResource("2_wemlv")
@@ -64,6 +82,7 @@ unique_name_in_owner = true
 layout_mode = 1
 offset_top = 0.0
 offset_bottom = 0.0
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI" unique_id=1742162669]
 layout_mode = 1
@@ -250,6 +269,41 @@ text = "1. Command dwarf to mine ore
 3. Spend ore to upgrade your next dwarves"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Path2D" type="Path2D" parent="UILayer/UI" unique_id=99738032]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(12, 10)
+curve = SubResource("Curve2D_c0dgw")
+metadata/_edit_lock_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="UILayer/UI/Path2D" unique_id=2018010325]
+unique_name_in_owner = true
+position = Vector2(400, 250)
+rotation = 3.1334407
+metadata/_edit_lock_ = true
+
+[node name="Path2D2" type="Path2D" parent="UILayer/UI" unique_id=1753621602]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(12, 10)
+curve = SubResource("Curve2D_hvebq")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="UILayer/UI/Path2D2" unique_id=1738652927]
+unique_name_in_owner = true
+position = Vector2(400, 250)
+rotation = -2.0696836
+
+[node name="Path2D3" type="Path2D" parent="UILayer/UI" unique_id=1328766836]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(12, 10)
+curve = SubResource("Curve2D_bo62v")
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="UILayer/UI/Path2D3" unique_id=104403955]
+unique_name_in_owner = true
+position = Vector2(400, 250)
+rotation = 0.14030255
 
 [connection signal="timeout" from="HPDrainTimer" to="." method="_on_hp_drain_timer_timeout"]
 [connection signal="timeout" from="HPRegenTimer" to="." method="_on_hp_regen_timer_timeout"]
