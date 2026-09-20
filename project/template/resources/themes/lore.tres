@@ -7,7 +7,7 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.631373, 0.52549, 0.619608, 1)
+bg_color = Color(0.23921569, 0, 0.09411765, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -20,43 +20,43 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.6509804, 0.14509805, 0.7607843, 1)
+border_color = Color(0.9137255, 0.05882353, 0.9490196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daw1f"]
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.2, 0.03137255, 0.36078432, 1)
+bg_color = Color(0.28627452, 0.0627451, 0.29803923, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.6509804, 0.14509805, 0.7607843, 1)
+border_color = Color(0.9137255, 0.05882353, 0.9490196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1yu6"]
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.2, 0.03137255, 0.36078432, 1)
+bg_color = Color(0.28627452, 0.0627451, 0.29803923, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.2, 0.03137255, 0.36078432, 1)
+border_color = Color(0.28627452, 0.0627451, 0.29803923, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnp2l"]
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.2, 0.03137255, 0.36078432, 1)
+bg_color = Color(0.6313726, 0.48235294, 0.6784314, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.00392157, 0.0862745, 0.152941, 1)
+border_color = Color(0.28627452, 0.0627451, 0.29803923, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ymfe"]
 bg_color = Color(0.00392157, 0.0862745, 0.152941, 1)
@@ -178,11 +178,11 @@ corner_radius_bottom_left = 4
 
 [resource]
 Button/colors/font_color = Color(0.839216, 0.933333, 1, 1)
-Button/colors/font_disabled_color = Color(0.192157, 0.239216, 0.352941, 1)
+Button/colors/font_disabled_color = Color(0.14901961, 0.011764706, 0.15686275, 1)
 Button/colors/font_focus_color = Color(0.839216, 0.933333, 1, 1)
 Button/colors/font_hover_color = Color(0.839216, 0.933333, 1, 1)
 Button/colors/font_hover_pressed_color = Color(0.839216, 0.933333, 1, 1)
-Button/colors/font_pressed_color = Color(0.00392157, 0.0862745, 0.152941, 1)
+Button/colors/font_pressed_color = Color(0.28627452, 0.043137256, 0.3647059, 1)
 Button/styles/disabled = SubResource("StyleBoxFlat_8hxc2")
 Button/styles/focus = SubResource("StyleBoxFlat_5asqi")
 Button/styles/hover = SubResource("StyleBoxFlat_daw1f")
