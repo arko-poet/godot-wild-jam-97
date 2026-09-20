@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Incremental Dwarf"
-config/version="0.2.0"
+config/version="0.2.1"
 config/tags=PackedStringArray("jam")
 run/main_scene="res://template/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
@@ -36,6 +36,8 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="uid://hueuihmjp253"
+mouse_cursor/custom_image_hotspot=Vector2(16, 13)
 
 [editor_plugins]
 
