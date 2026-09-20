@@ -102,8 +102,8 @@ func dash(distance: float) -> void:
 	if pet_unlocked:
 		pet.stop_mining()
 
-	if state == State.MINING:
-		await mining_animation_finished
+	#if state == State.MINING:
+		#await mining_animation_finished
 
 	state = State.DASHING
 
