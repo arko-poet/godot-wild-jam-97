@@ -23,7 +23,7 @@ var rare_ore_probability := 0.05
 
 var trauma: float:
 	set(value):
-		trauma = max(value, 1)
+		trauma = min(1.0, max(value, 0.0))
 var decay := 1.0
 
 var _rocks_spawned: int
@@ -45,16 +45,15 @@ func _ready() -> void:
 	#dwarf.camera.zoom = Vector2(1.05, 1.05)
 
 
-#func _process(delta: float) -> void:
-#if trauma:
-#trauma = max(trauma - decay * delta, 0)
-#shake()
+func _process(delta: float) -> void:
+	trauma = max(trauma - decay * delta, 0.0)
+	shake()
+
 func shake() -> void:
 	var camera := dwarf.camera
-	var amount = pow(trauma, 2)
-	rotation = 0.01 * amount * randf_range(-1, 1)
-	camera.offset.x = 2 * amount * randf_range(-1, 1)
-	camera.offset.y = 1 * amount * randf_range(-1, 1)
+	#rotation = 1 * trauma * randf_range(-1, 1)
+	camera.offset.x = 2 * trauma * randf_range(-1, 1)
+	camera.offset.y = 2 * trauma * randf_range(-1, 1)
 	#camera.zoom = 1.1 * amount
 
 
