@@ -19,7 +19,6 @@ property_type = 2
 default_value = 0
 
 [node name="CameraShakeControl" parent="VBoxContainer" parent_id_path=PackedInt32Array(1251699420) index="4" unique_id=683521251 instance=ExtResource("2_ee880")]
-visible = false
 layout_mode = 2
 lock_titles = true
 option_values = [1.0, 0.75, 0.5, 0.0]

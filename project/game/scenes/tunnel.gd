@@ -50,10 +50,11 @@ func _process(delta: float) -> void:
 	shake()
 
 func shake() -> void:
+	var shake_scale = PlayerConfig.get_config(AppSettings.VIDEO_SECTION, "CameraShake", 1.0)
 	var camera := dwarf.camera
 	#rotation = 1 * trauma * randf_range(-1, 1)
-	camera.offset.x = 2 * trauma * randf_range(-1, 1)
-	camera.offset.y = 2 * trauma * randf_range(-1, 1)
+	camera.offset.x = shake_scale * 2 * trauma * randf_range(-1, 1)
+	camera.offset.y = shake_scale * 2 * trauma * randf_range(-1, 1)
 	#camera.zoom = 1.1 * amount
 
 
